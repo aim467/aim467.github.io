@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>DedSec&#39;s blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-07-08T07:02:03.545Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>DedSec</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux与Android剪切板同步方案</title>
+    <link href="http://yoursite.com/2020/0516/12368.html"/>
+    <id>http://yoursite.com/2020/0516/12368.html</id>
+    <published>2020-05-16T14:27:19.000Z</published>
+    <updated>2020-07-08T07:02:03.545Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Linux-与-Android-剪切板同步方案&quot;&gt;&lt;a href=&quot;#Linux-与-Android-剪切板同步方案&quot; class=&quot;headerlink&quot; title=&quot;Linux 与 Android 剪切板同步方案&quot;&gt;&lt;/a&gt;&lt;code&gt;Linux&lt;/code&gt; 与 &lt;code&gt;Android&lt;/code&gt; 剪切板同步方案&lt;/h1&gt;&lt;p&gt;在 &lt;code&gt;Linux&lt;/code&gt; 传输文件，图片，或是发送文字，都不如 &lt;code&gt;Windows&lt;/code&gt; 那样方便，在 &lt;code&gt;Windows&lt;/code&gt;  可以通过 &lt;code&gt;QQ&lt;/code&gt; 里面发送文件，图片，或是文字等等。虽然说在&lt;code&gt;Linux&lt;/code&gt;上可以通过其他方式来解决传文件的文件，例如：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+      <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2020/0516/16107.html"/>
+    <id>http://yoursite.com/2020/0516/16107.html</id>
+    <published>2020-05-16T09:41:59.580Z</published>
+    <updated>2020-05-16T09:41:59.580Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="测试" scheme="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="Code" scheme="http://yoursite.com/tags/Code/"/>
+    
+  </entry>
+  
+</feed>

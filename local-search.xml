@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Linux与Android剪切板同步方案</title>
+    <link href="/2020/0516/12368.html"/>
+    <url>/2020/0516/12368.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="Linux-与-Android-剪切板同步方案"><a href="#Linux-与-Android-剪切板同步方案" class="headerlink" title="Linux 与 Android 剪切板同步方案"></a><code>Linux</code> 与 <code>Android</code> 剪切板同步方案</h1><p>在 <code>Linux</code> 传输文件，图片，或是发送文字，都不如 <code>Windows</code> 那样方便，在 <code>Windows</code>  可以通过 <code>QQ</code> 里面发送文件，图片，或是文字等等。虽然说在<code>Linux</code>上可以通过其他方式来解决传文件的文件，例如：</p><a id="more"></a><ul><li><p><code>telegram</code></p></li><li><p>微信网页版( 在2017年9月份开始，腾讯已经 开始限制 新注册的微信号禁止登录网页版微信，老的微信号则不受影响 ，并且网页版发送的文件大小不能超过 <code>90MB</code></p></li><li><p><code>python -m http.server 80</code>，但是不能复制文本，而且有些文件需要另存为下载。</p></li><li><p>以及其他方法。。。</p></li></ul><p>现在找到 一种办法，电脑上使用 <code>GSConnect</code>，而安卓软件选择使用 <code>KDE Connect</code>。</p><p><code>GSConnect</code> 官方介绍：</p><blockquote><p>  <code>GSConnect</code> 是针对 <code>GNOME Shell</code> 的 <code>KDE Connect</code> 的完整实现，集成了 <code>Nautilus</code> 、<code>Chrome</code> 和 <code>Firefox</code>。</p><p>  将你的 PC 和 Android 设备与安装的 KDE Connect 应用配对: 传输文件，发送和接收短信文本，同步剪贴板和通知，发送鼠标和键盘输入，远程控制媒体播放器，定位你的设备，监视电池电量，在你的 PC 上启动命令，等等。</p></blockquote><p><code>GSConnect</code> 官方 <code>WIKI</code>：<a href="https://github.com/andyholmes/gnome-shell-extension-gsconnect/wiki/Installation#install-from-git" target="_blank" rel="noopener">https://github.com/andyholmes/gnome-shell-extension-gsconnect/wiki/Installation#install-from-git</a></p><p><code>KDE Connect</code>可以在 <code>Google Play</code> 下载。</p><h2 id="1-安装方式"><a href="#1-安装方式" class="headerlink" title="1. 安装方式"></a>1. 安装方式</h2><p><code>GSConnect</code> 提供了两种安装方式，一种是通过从官方仓库的 <code>release</code> 页面下载最后一个版本的压缩包安装，另一种方式就是克隆官方仓库进行编译。</p><p>第一种方式的方法如下：</p><div class="hljs"><pre><code class="hljs shell">mkdir -p ~/.local/share/gnome-shell/extensionsrm -rf ~/.local/share/gnome-shell/extensions/gsconnect@andyholmes.github.iounzip -o gsconnect@andyholmes.github.io.zip -d ~/.local/share/gnome-shell/extensions/gsconnect@andyholmes.github.io</code></pre></div><p>第二种方法如下：</p><div class="hljs"><pre><code class="hljs shell">git clone https://github.com/andyholmes/gnome-shell-extension-gsconnect.gitcd gnome-shell-extension-gsconnect/meson _build .ninja -C _build install-zip</code></pre></div><p>选择第一种方式更方便，不需要编译，我选择的是第一种方式。</p><p>使用第二种安装方式的时候，编译出现了点问题，缺少两个构建工具：meson， ninja。</p><div class="hljs"><pre><code class="hljs shell">sudo aptitude install meson</code></pre></div><p>同时会安装 meson和ninja。</p><p>开始，构建，报错。</p><div class="hljs"><pre><code class="hljs shell">The Meson build systemVersion: 0.45.1Source dir: /home/aim/SoftWare/gnome-shell-extension-gsconnectBuild dir: /home/aim/SoftWare/gnome-shell-extension-gsconnect/_buildBuild type: native buildmeson.build:1:0: ERROR: Meson version is 0.45.1 but project requires &gt;= 0.49.0.A full log can be found at /home/aim/SoftWare/gnome-shell-extension-gsconnect/_build/meson-logs/meson-log.txt</code></pre></div><p>原来是meson版本低于依赖的版本。安装高版本的meson</p><div class="hljs"><pre><code class="hljs shell">pip install meson==0.49.0</code></pre></div><h2 id="2-开始使用"><a href="#2-开始使用" class="headerlink" title="2. 开始使用"></a>2. 开始使用</h2><p>手机要和电脑处在同一个局域网，不然搜索不到。</p><p>手机打开 <code>Kde Connect</code>，点击 <code>⊕ Pair new device</code> 扫描周围设备进行配对，出现电脑名字的时候点击进行配对，电脑上点击<code>accept</code> 即可配对成功。</p><p>同时，为了方便的管理电脑上的剪切板剪切的文件，安装一个剪切板管理软件。</p><div class="hljs"><pre><code class="hljs shell">sudo aptitude install copyq</code></pre></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>工具</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2020/0516/16107.html"/>
+    <url>/2020/0516/16107.html</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="hljs"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">"My New Post"</span></code></pre></div><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="hljs"><pre><code class="hljs bash">$ hexo server</code></pre></div><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="hljs"><pre><code class="hljs bash">$ hexo generate</code></pre></div><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="hljs"><pre><code class="hljs bash">$ hexo deploy</code></pre></div><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>测试</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Code</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
