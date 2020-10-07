@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-11T03:23:59.156Z</updated>
+  <updated>2020-10-06T11:29:33.316Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2020/0710/46196.html"/>
     <id>http://yoursite.com/2020/0710/46196.html</id>
     <published>2020-07-10T06:55:59.000Z</published>
-    <updated>2020-07-11T03:23:59.156Z</updated>
+    <updated>2020-10-06T11:29:33.316Z</updated>
     
     <summary type="html">
     
@@ -42,7 +42,7 @@
     <link href="http://yoursite.com/2020/0516/12368.html"/>
     <id>http://yoursite.com/2020/0516/12368.html</id>
     <published>2020-05-16T14:27:19.000Z</published>
-    <updated>2020-07-08T07:02:03.545Z</updated>
+    <updated>2020-09-14T02:57:07.989Z</updated>
     
     <summary type="html">
     
@@ -60,9 +60,9 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2020/0516/16107.html"/>
-    <id>http://yoursite.com/2020/0516/16107.html</id>
-    <published>2020-05-16T09:41:59.580Z</published>
+    <link href="http://yoursite.com/2020/0515/16107.html"/>
+    <id>http://yoursite.com/2020/0515/16107.html</id>
+    <published>2020-05-15T09:00:19.563Z</published>
     <updated>2020-05-16T09:41:59.580Z</updated>
     
     <summary type="html">
@@ -71,7 +71,7 @@
       
         
         
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;
         
       
     

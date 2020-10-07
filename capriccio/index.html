@@ -17,10 +17,29 @@
   <meta name="description" content="个人网站">
   <meta name="author" content="DedSec">
   <meta name="keywords" content="DedSec">
-  <title>分类 - Python - DedSec&#39;s blog</title>
+  <title>随想 - DedSec&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+        
+        
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/prism/1.21.0/themes/prism-tomorrow.min.css" />
+      
+    
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -44,7 +63,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 85vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -174,7 +193,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('https://s1.ax1x.com/2020/05/29/tKKmUs.jpg') no-repeat center center;
+         style="background: url('https://s1.ax1x.com/2020/05/29/tKKeEj.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -203,23 +222,28 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="list-group">
-  <p class="h4">共计 1 篇文章</p>
-  <hr>
-  
-    
-      
-      <p class="h5">2020</p>
-    
-    <a href="/2020/0710/46196.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">深入Flask配置</span>
-      <time style="float: right;">07-10</time>
-    </a>
-  
+
+<div class="mt-5 markdown-body">
+    <blockquote>
+<p>说说板</p>
+</blockquote>
+
 </div>
+<div class="text-center">
+    <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 
-
-
+    <body>
+        <div id="artitalk_main">
+        </div>
+        <script type="text/javascript" src="https://unpkg.com/artitalk"></script>
+        <script>
+            new Artitalk({
+                appId: '9BsEWYBholbz7OBgg92tDUs8-MdYXbMMI',
+                appKey: 'Nu6ggp8Mry6opCrvrquchXDD',
+            })
+        </script>
+    </body>
+</div>
               </div>
             </div>
           </div>
@@ -316,7 +340,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "分类 - Python&nbsp;",
+        "随想&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -330,6 +354,23 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
 
 
 

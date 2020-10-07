@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -13,7 +13,7 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <meta name="theme-color" content="#616A6B">
+  <meta name="theme-color" content="#2f4154">
   <meta name="description" content="个人网站">
   <meta name="author" content="DedSec">
   <meta name="keywords" content="DedSec">
@@ -26,7 +26,17 @@
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    
+    
+      
+      
+        
+        
+        
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/prism/1.21.0/themes/prism-tomorrow.min.css" />
+      
+    
   
 
   
@@ -34,11 +44,11 @@
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -46,7 +56,9 @@
 <!-- 自定义样式保持在最底部 -->
 
 
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="DedSec's blog" type="application/atom+xml">
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="DedSec's blog" type="application/atom+xml">
 </head>
 
 
@@ -54,13 +66,8 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    
     <a class="navbar-brand"
-       href="/">&nbsp;<strong style="font-family: cursive sans-serif;">
-        <img src="/img/favicon.png" srcset="/img/loading.gif" width="40px" height="37px">&nbsp;
-        DedSec's blog
-      </strong>&nbsp;
-    </a>
+       href="/">&nbsp;<strong>Dedsec's Blog</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -156,10 +163,28 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/capriccio/">
+                <i class="iconfont icon-pen"></i>
+                随想
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -167,32 +192,35 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner intro-2" id="background" parallax=true
          style="background: url('https://s1.ax1x.com/2020/05/29/tKKFv8.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
+          <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-05-16 22:27">
-      2020年5月16日 晚上
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-05-16 22:27" pubdate>
+        2020年5月16日 晚上
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      742 字
+      780 字
     </span>
   
 
@@ -230,9 +258,17 @@
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Linux与Android剪切板同步方案</h1>
             
-            <article class="markdown-body">
+              <p class="note note-info">
+                
+                  本文最后更新于：24 天前
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
               <h1 id="Linux-与-Android-剪切板同步方案"><a href="#Linux-与-Android-剪切板同步方案" class="headerlink" title="Linux 与 Android 剪切板同步方案"></a><code>Linux</code> 与 <code>Android</code> 剪切板同步方案</h1><p>在 <code>Linux</code> 传输文件，图片，或是发送文字，都不如 <code>Windows</code> 那样方便，在 <code>Windows</code>  可以通过 <code>QQ</code> 里面发送文件，图片，或是文字等等。虽然说在<code>Linux</code>上可以通过其他方式来解决传文件的文件，例如：</p>
 <a id="more"></a>
 
@@ -252,50 +288,50 @@
 <p>  <code>GSConnect</code> 是针对 <code>GNOME Shell</code> 的 <code>KDE Connect</code> 的完整实现，集成了 <code>Nautilus</code> 、<code>Chrome</code> 和 <code>Firefox</code>。</p>
 <p>  将你的 PC 和 Android 设备与安装的 KDE Connect 应用配对: 传输文件，发送和接收短信文本，同步剪贴板和通知，发送鼠标和键盘输入，远程控制媒体播放器，定位你的设备，监视电池电量，在你的 PC 上启动命令，等等。</p>
 </blockquote>
-<p><code>GSConnect</code> 官方 <code>WIKI</code>：<a href="https://github.com/andyholmes/gnome-shell-extension-gsconnect/wiki/Installation#install-from-git" target="_blank" rel="noopener">https://github.com/andyholmes/gnome-shell-extension-gsconnect/wiki/Installation#install-from-git</a></p>
+<p><code>GSConnect</code> 官方 <code>WIKI</code>：<a target="_blank" rel="noopener" href="https://github.com/andyholmes/gnome-shell-extension-gsconnect/wiki/Installation#install-from-git">https://github.com/andyholmes/gnome-shell-extension-gsconnect/wiki/Installation#install-from-git</a></p>
 <p><code>KDE Connect</code>可以在 <code>Google Play</code> 下载。</p>
 <h2 id="1-安装方式"><a href="#1-安装方式" class="headerlink" title="1. 安装方式"></a>1. 安装方式</h2><p><code>GSConnect</code> 提供了两种安装方式，一种是通过从官方仓库的 <code>release</code> 页面下载最后一个版本的压缩包安装，另一种方式就是克隆官方仓库进行编译。</p>
 <p>第一种方式的方法如下：</p>
-<div class="hljs"><pre><code class="hljs shell">mkdir -p ~/.local/share/gnome-shell/extensions
-rm -rf ~/.local/share/gnome-shell/extensions/gsconnect@andyholmes.github.io
-unzip -o gsconnect@andyholmes.github.io.zip -d ~/.local/share/gnome-shell/extensions/gsconnect@andyholmes.github.io</code></pre></div>
+<pre class="language-shell" data-language="shell"><code class="language-shell">mkdir -p ~&#x2F;.local&#x2F;share&#x2F;gnome-shell&#x2F;extensions
+rm -rf ~&#x2F;.local&#x2F;share&#x2F;gnome-shell&#x2F;extensions&#x2F;gsconnect@andyholmes.github.io
+unzip -o gsconnect@andyholmes.github.io.zip -d ~&#x2F;.local&#x2F;share&#x2F;gnome-shell&#x2F;extensions&#x2F;gsconnect@andyholmes.github.io</code></pre>
 
 <p>第二种方法如下：</p>
-<div class="hljs"><pre><code class="hljs shell">git clone https://github.com/andyholmes/gnome-shell-extension-gsconnect.git
-cd gnome-shell-extension-gsconnect/
+<pre class="language-shell" data-language="shell"><code class="language-shell">git clone https:&#x2F;&#x2F;github.com&#x2F;andyholmes&#x2F;gnome-shell-extension-gsconnect.git
+cd gnome-shell-extension-gsconnect&#x2F;
 meson _build .
-ninja -C _build install-zip</code></pre></div>
+ninja -C _build install-zip</code></pre>
 
 <p>选择第一种方式更方便，不需要编译，我选择的是第一种方式。</p>
 <p>使用第二种安装方式的时候，编译出现了点问题，缺少两个构建工具：meson， ninja。</p>
-<div class="hljs"><pre><code class="hljs shell">sudo aptitude install meson</code></pre></div>
+<pre class="language-shell" data-language="shell"><code class="language-shell">sudo aptitude install meson</code></pre>
 
 
 
 <p>同时会安装 meson和ninja。</p>
 <p>开始，构建，报错。</p>
-<div class="hljs"><pre><code class="hljs shell">The Meson build system
+<pre class="language-shell" data-language="shell"><code class="language-shell">The Meson build system
 Version: 0.45.1
-Source dir: /home/aim/SoftWare/gnome-shell-extension-gsconnect
-Build dir: /home/aim/SoftWare/gnome-shell-extension-gsconnect/_build
+Source dir: &#x2F;home&#x2F;aim&#x2F;SoftWare&#x2F;gnome-shell-extension-gsconnect
+Build dir: &#x2F;home&#x2F;aim&#x2F;SoftWare&#x2F;gnome-shell-extension-gsconnect&#x2F;_build
 Build type: native build
 
-meson.build:1:0: ERROR: Meson version is 0.45.1 but project requires &gt;= 0.49.0.
+meson.build:1:0: ERROR: Meson version is 0.45.1 but project requires &gt;&#x3D; 0.49.0.
 
-A full log can be found at /home/aim/SoftWare/gnome-shell-extension-gsconnect/_build/meson-logs/meson-log.txt</code></pre></div>
+A full log can be found at &#x2F;home&#x2F;aim&#x2F;SoftWare&#x2F;gnome-shell-extension-gsconnect&#x2F;_build&#x2F;meson-logs&#x2F;meson-log.txt</code></pre>
 
 <p>原来是meson版本低于依赖的版本。安装高版本的meson</p>
-<div class="hljs"><pre><code class="hljs shell">pip install meson==0.49.0</code></pre></div>
+<pre class="language-shell" data-language="shell"><code class="language-shell">pip install meson&#x3D;&#x3D;0.49.0</code></pre>
 
 
 
 <h2 id="2-开始使用"><a href="#2-开始使用" class="headerlink" title="2. 开始使用"></a>2. 开始使用</h2><p>手机要和电脑处在同一个局域网，不然搜索不到。</p>
 <p>手机打开 <code>Kde Connect</code>，点击 <code>⊕ Pair new device</code> 扫描周围设备进行配对，出现电脑名字的时候点击进行配对，电脑上点击<code>accept</code> 即可配对成功。</p>
 <p>同时，为了方便的管理电脑上的剪切板剪切的文件，安装一个剪切板管理软件。</p>
-<div class="hljs"><pre><code class="hljs shell">sudo aptitude install copyq</code></pre></div>
+<pre class="language-shell" data-language="shell"><code class="language-shell">sudo aptitude install copyq</code></pre>
 
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -317,11 +353,11 @@ A full log can be found at /home/aim/SoftWare/gnome-shell-extension-gsconnect/_b
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/0710/46196.html">
@@ -330,57 +366,61 @@ A full log can be found at /home/aim/SoftWare/gnome-shell-extension-gsconnect/_b
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
-                      <a href="/2020/0516/16107.html">
+                      <a href="/2020/0515/16107.html">
                         <span class="hidden-mobile">Hello World</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
               <!-- Comments -->
-              <div class="comments" id="comments">
+              <article class="comments" id="comments">
                 
                 
-  <div id="vcomments"></div>
-  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
-
+  <div id="remark42"></div>
   <script type="text/javascript">
-    var oldLoadVa = window.onload;
-    window.onload = function () {
-      oldLoadVa && oldLoadVa();
-
-      new Valine({
-        el: "#vcomments",
-        app_id: "9fck0lrfgTkadCTPC0rmyW7x-gzGzoHsz",
-        app_key: "9RfdRyDNxVVNx6NG7xrawiRh",
-        placeholder: "说点什么",
-        path: window.location.pathname,
-        avatar: "retro",
-        meta: ["nick","mail","link"],
-        pageSize: "10",
-        lang: "zh-CN",
-        highlight: true,
-        recordIP: true,
-        serverURLs: ""
-      });
+    var schema = document.documentElement.getAttribute('data-user-color-scheme');
+    if (schema !== 'light' && schema !== 'dark') {
+      schema = 'light';
+    }
+    var remark_config = {
+      host: 'https://remark.haoyizebo.com',
+      site_id: 'haoyizebo',
+      components: ['embed'],
+      url: '/2020/0516/12368.html',
+      max_shown_comments: '10',
+      theme: schema,
+      page_title: 'Linux与Android剪切板同步方案',
+      locale: 'zh'
     };
+
+    function loadRemark42() {
+      (function (c) {
+        for (var i = 0; i < c.length; i++) {
+          var d = document, s = d.createElement('script');
+          s.src = remark_config.host + '/web/' + c[i] + '.js';
+          s.defer = true;
+          (d.head || d.body).appendChild(s);
+        }
+      })(remark_config.components || [ 'embed' ]);
+    }
+
+    waitElementVisible('remark42', loadRemark42);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
-      powered by Valine.</a></noscript>
 
 
-              </div>
+              </article>
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -439,44 +479,20 @@ A full log can be found at /home/aim/SoftWare/gnome-shell-extension-gsconnect/_b
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
+      <a href="https://travellings.now.sh/" target="blank" title="开往-友链接力"><img src="https://travellings.now.sh/assets/logo.gif" srcset="/img/loading.gif" alt="开往-友链接力" width="120"></a><br/>
       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      theme by
       <i class="iconfont icon-love"></i>
       <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
         <span>Fluid</span></a>
     </div>
     
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- LeanCloud 统计PV -->
-        <span id="leancloud-site-pv-container" style="display: none">
-            总访问量 
-            <span id="leancloud-site-pv"></span>
-             次
-          </span>
-      
-      
-        <!-- LeanCloud 统计UV -->
-        <span id="leancloud-site-uv-container" style="display: none">
-            总访客数 
-            <span id="leancloud-site-uv"></span>
-             人
-          </span>
-      
-
-    
-  </div>
-
 
     
 
     
   </div>
 </footer>
+
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
@@ -488,6 +504,12 @@ A full log can be found at /home/aim/SoftWare/gnome-shell-extension-gsconnect/_b
 
   
     <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+    
   
 
 
@@ -509,7 +531,7 @@ A full log can be found at /home/aim/SoftWare/gnome-shell-extension-gsconnect/_b
 
       tocbot.init({
         tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
+        contentSelector: '#post-body',
         headingSelector: 'h1,h2,h3,h4,h5,h6',
         linkClass: 'tocbot-link',
         activeLinkClass: 'tocbot-active-link',
@@ -530,8 +552,6 @@ A full log can be found at /home/aim/SoftWare/gnome-shell-extension-gsconnect/_b
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
-
-    
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
@@ -539,7 +559,7 @@ A full log can be found at /home/aim/SoftWare/gnome-shell-extension-gsconnect/_b
       ],
       cursorChar: "_",
       typeSpeed: 70,
-      loop: true,
+      loop: false,
     });
     typed.stop();
     $(document).ready(function () {
@@ -556,7 +576,7 @@ A full log can be found at /home/aim/SoftWare/gnome-shell-extension-gsconnect/_b
       placement: "right",
       visible: "hover",
       
-      icon: "#"
+      icon: "§"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
@@ -598,45 +618,6 @@ A full log can be found at /home/aim/SoftWare/gnome-shell-extension-gsconnect/_b
 
 
 
-
-  
-
-  
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
-
-  
 
 
 
@@ -698,38 +679,6 @@ A full log can be found at /home/aim/SoftWare/gnome-shell-extension-gsconnect/_b
 
 
 
-  <script  src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js" ></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({"theme":"default"});
-    }
-  </script>
-
-
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?90a70dbf0fa17899c8ce6ec6c09a7b99";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 
 
