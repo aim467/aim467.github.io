@@ -7,44 +7,44 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://img.imgdb.cn/item/604db6635aedab222ce5a0bd.png">
+  <link rel="icon" href="https://img.imgdb.cn/item/604db6635aedab222ce5a0bd.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="个人网站">
+  
+    <meta name="description" content="在Flask中，提供了丰富的全局配置来方便开发，以下是开发过程当中几个常用的配置选项。">
+  
   <meta name="author" content="DedSec">
   <meta name="keywords" content="DedSec">
+  
   <title>深入Flask配置 - DedSec&#39;s blog</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
     
       
-      
-        
-        
-        
-      
-      <link  rel="stylesheet" href="https://cdn.staticfile.org/prism/1.21.0/themes/prism-tomorrow.min.css" />
-      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/atom-one-light.min.css" />
     
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
@@ -56,9 +56,13 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="DedSec's blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="DedSec's blog" type="application/atom+xml">
 </head>
 
 
@@ -67,7 +71,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Dedsec's Blog</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Dedsec</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -151,30 +155,6 @@
             </li>
           
         
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/messages/">
-                <i class="iconfont icon-pen"></i>
-                留言板
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/capriccio/">
-                <i class="iconfont icon-pen"></i>
-                随想
-              </a>
-            </li>
-          
-        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
@@ -192,13 +172,13 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://s1.ax1x.com/2020/07/10/UKQ9US.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="深入Flask配置">
               
             </span>
 
@@ -220,7 +200,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.2k 字
+      4.5k 字
     </span>
   
 
@@ -230,7 +210,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      55
+      60
        分钟
     </span>
   
@@ -252,23 +232,23 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">深入Flask配置</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 天前
+                  本文最后更新于：2020年11月5日 下午
                 
               </p>
             
-            <div class="markdown-body" id="post-body">
+            <div class="markdown-body">
               <h1 id="深入Flask配置"><a href="#深入Flask配置" class="headerlink" title="深入Flask配置"></a>深入Flask配置</h1><p>在Flask中，提供了丰富的全局配置来方便开发，以下是开发过程当中几个常用的配置选项。</p>
 <table>
 <thead>
@@ -296,76 +276,18 @@
 </tbody></table>
 <p>更多的配置详见<a target="_blank" rel="noopener" href="http://docs.jinkan.org/docs/flask/config.html">官方文档</a>。</p>
 <p>如果要在 <code>Flask</code> 中激活某些的配置，通常有以下8种方式，前面的两种都是针对某个单独配置。第三种方式，就是采用字典的更新键值对的方法，因为 <code>Config</code> 类本身就是继承自字典，所以同时也继承了字典的 <code>update</code> 方法。 而后面的几种方式，则可以对多个配置项进行处理。</p>
-<pre class="language-python" data-language="python"><code class="language-python">app<span class="token punctuation">.</span>debug  <span class="token operator">=</span> <span class="token boolean">True</span>
-app<span class="token punctuation">.</span>config<span class="token punctuation">[</span><span class="token string">"debug"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">True</span>
-app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">)</span>
-app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>from_envvar<span class="token punctuation">(</span><span class="token punctuation">)</span>
-app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>from_json<span class="token punctuation">(</span><span class="token punctuation">)</span>
-app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>from_mapping<span class="token punctuation">(</span><span class="token punctuation">)</span>
-app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>from_pyfile<span class="token punctuation">(</span><span class="token punctuation">)</span>
-app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>from_object<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">app.debug  = <span class="hljs-literal">True</span><br>app.config[<span class="hljs-string">&quot;debug&quot;</span>] = <span class="hljs-literal">True</span><br>app.config.update()<br>app.config.from_envvar()<br>app.config.from_json()<br>app.config.from_mapping()<br>app.config.from_pyfile()<br>app.config.from_object()<br></code></pre></div></td></tr></table></figure>
 
 <p>下面谈谈其他几种方法的内部操作以及原理。</p>
 <h2 id="一、Config-配置类的创建过程"><a href="#一、Config-配置类的创建过程" class="headerlink" title="一、Config 配置类的创建过程"></a>一、<code>Config</code> 配置类的创建过程</h2><p>首先 <code>Config</code> 类是在 <code>flask/config.py</code> 文件里面。</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token comment"># 从这里可以看出 Config类 继承了 dict</span>
-<span class="token keyword">class</span> <span class="token class-name">Config</span><span class="token punctuation">(</span><span class="token builtin">dict</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root_path<span class="token punctuation">,</span> defaults<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token builtin">dict</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">,</span> defaults <span class="token keyword">or</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>root_path <span class="token operator">=</span> root_path</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># 从这里可以看出 Config类 继承了 dict</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Config</span>(<span class="hljs-params"><span class="hljs-built_in">dict</span></span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self, root_path, defaults=<span class="hljs-literal">None</span></span>):</span><br>        <span class="hljs-built_in">dict</span>.__init__(self, defaults <span class="hljs-keyword">or</span> &#123;&#125;)<br>        self.root_path = root_path<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>下面是 <code>flask/app.py</code> 里面的 <code>Flask</code> 类，由于这个类的代码数量庞大，所以只贴出一点用到了 <code>Config</code> 类的地方。</p>
 <p>可以看到 <code>default_config</code>  是一个 <code>ImmutableDict</code> <strong>（不可变字典对象）</strong>，里面是所有支持的配置项，并且都给出了默认值。</p>
 <p>而 <code>Config</code> 类会被赋值给 <code>Flask</code> 的成员对象 <code>config_class</code>，但此时这个成员对象，也就是字典对象，还没有任何数据；所以要通过 <code>Flask</code> 的 <code>make_config</code> 来为 <code>config_class</code> 赋值字典数据，而此时传入的配置就是 <code>defaults</code>，包包含了  <code>Flask</code> 全部配置项。  初始时的两个配置项 <code>ENV</code> 和 <code>DEBUG</code> 会通过 <code>get_env()</code> 方法 和 <code>get_debug()</code> 方法设置为 <code>production</code> 和 <code>False</code>。 </p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Flask</span><span class="token punctuation">(</span>_PackageBoundObject<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment"># 这里的 Config 类就是 flask/Config.py 下面的 Config 类</span>
-    config_class <span class="token operator">=</span> Config
-    
-    <span class="token comment"># 所有支持的配置项</span>
-    default_config <span class="token operator">=</span> ImmutableDict<span class="token punctuation">(</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token string">"ENV"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
-            <span class="token string">"DEBUG"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
-            <span class="token string">"TESTING"</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
-            <span class="token string">"PROPAGATE_EXCEPTIONS"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
-            <span class="token string">"PRESERVE_CONTEXT_ON_EXCEPTION"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
-            <span class="token string">"SECRET_KEY"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
-            <span class="token string">"PERMANENT_SESSION_LIFETIME"</span><span class="token punctuation">:</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">31</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            <span class="token string">"USE_X_SENDFILE"</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
-            <span class="token string">"SERVER_NAME"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
-            <span class="token string">"APPLICATION_ROOT"</span><span class="token punctuation">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
-            <span class="token string">"SESSION_COOKIE_NAME"</span><span class="token punctuation">:</span> <span class="token string">"session"</span><span class="token punctuation">,</span>
-            <span class="token string">"SESSION_COOKIE_DOMAIN"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
-            <span class="token string">"SESSION_COOKIE_PATH"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
-            <span class="token string">"SESSION_COOKIE_HTTPONLY"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
-            <span class="token string">"SESSION_COOKIE_SECURE"</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
-            <span class="token string">"SESSION_COOKIE_SAMESITE"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
-            <span class="token string">"SESSION_REFRESH_EACH_REQUEST"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
-            <span class="token string">"MAX_CONTENT_LENGTH"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
-            <span class="token string">"SEND_FILE_MAX_AGE_DEFAULT"</span><span class="token punctuation">:</span> timedelta<span class="token punctuation">(</span>hours<span class="token operator">=</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            <span class="token string">"TRAP_BAD_REQUEST_ERRORS"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
-            <span class="token string">"TRAP_HTTP_EXCEPTIONS"</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
-            <span class="token string">"EXPLAIN_TEMPLATE_LOADING"</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
-            <span class="token string">"PREFERRED_URL_SCHEME"</span><span class="token punctuation">:</span> <span class="token string">"http"</span><span class="token punctuation">,</span>
-            <span class="token string">"JSON_AS_ASCII"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
-            <span class="token string">"JSON_SORT_KEYS"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
-            <span class="token string">"JSONIFY_PRETTYPRINT_REGULAR"</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
-            <span class="token string">"JSONIFY_MIMETYPE"</span><span class="token punctuation">:</span> <span class="token string">"application/json"</span><span class="token punctuation">,</span>
-            <span class="token string">"TEMPLATES_AUTO_RELOAD"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
-            <span class="token string">"MAX_COOKIE_SIZE"</span><span class="token punctuation">:</span> <span class="token number">4093</span><span class="token punctuation">,</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">)</span>
-    
-    <span class="token comment"># 返回初始完毕的配置类</span>
-    <span class="token keyword">def</span> <span class="token function">make_config</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance_relative<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        root_path <span class="token operator">=</span> self<span class="token punctuation">.</span>root_path
-        <span class="token keyword">if</span> instance_relative<span class="token punctuation">:</span>
-            root_path <span class="token operator">=</span> self<span class="token punctuation">.</span>instance_path
-        defaults <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>default_config<span class="token punctuation">)</span>
-        defaults<span class="token punctuation">[</span><span class="token string">"ENV"</span><span class="token punctuation">]</span> <span class="token operator">=</span> get_env<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        defaults<span class="token punctuation">[</span><span class="token string">"DEBUG"</span><span class="token punctuation">]</span> <span class="token operator">=</span> get_debug_flag<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>config_class<span class="token punctuation">(</span>root_path<span class="token punctuation">,</span> defaults<span class="token punctuation">)</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Flask</span>(<span class="hljs-params">_PackageBoundObject</span>):</span><br>    <span class="hljs-comment"># 这里的 Config 类就是 flask/Config.py 下面的 Config 类</span><br>    config_class = Config<br>    <br>    <span class="hljs-comment"># 所有支持的配置项</span><br>    default_config = ImmutableDict(<br>        &#123;<br>            <span class="hljs-string">&quot;ENV&quot;</span>: <span class="hljs-literal">None</span>,<br>            <span class="hljs-string">&quot;DEBUG&quot;</span>: <span class="hljs-literal">None</span>,<br>            <span class="hljs-string">&quot;TESTING&quot;</span>: <span class="hljs-literal">False</span>,<br>            <span class="hljs-string">&quot;PROPAGATE_EXCEPTIONS&quot;</span>: <span class="hljs-literal">None</span>,<br>            <span class="hljs-string">&quot;PRESERVE_CONTEXT_ON_EXCEPTION&quot;</span>: <span class="hljs-literal">None</span>,<br>            <span class="hljs-string">&quot;SECRET_KEY&quot;</span>: <span class="hljs-literal">None</span>,<br>            <span class="hljs-string">&quot;PERMANENT_SESSION_LIFETIME&quot;</span>: timedelta(days=<span class="hljs-number">31</span>),<br>            <span class="hljs-string">&quot;USE_X_SENDFILE&quot;</span>: <span class="hljs-literal">False</span>,<br>            <span class="hljs-string">&quot;SERVER_NAME&quot;</span>: <span class="hljs-literal">None</span>,<br>            <span class="hljs-string">&quot;APPLICATION_ROOT&quot;</span>: <span class="hljs-string">&quot;/&quot;</span>,<br>            <span class="hljs-string">&quot;SESSION_COOKIE_NAME&quot;</span>: <span class="hljs-string">&quot;session&quot;</span>,<br>            <span class="hljs-string">&quot;SESSION_COOKIE_DOMAIN&quot;</span>: <span class="hljs-literal">None</span>,<br>            <span class="hljs-string">&quot;SESSION_COOKIE_PATH&quot;</span>: <span class="hljs-literal">None</span>,<br>            <span class="hljs-string">&quot;SESSION_COOKIE_HTTPONLY&quot;</span>: <span class="hljs-literal">True</span>,<br>            <span class="hljs-string">&quot;SESSION_COOKIE_SECURE&quot;</span>: <span class="hljs-literal">False</span>,<br>            <span class="hljs-string">&quot;SESSION_COOKIE_SAMESITE&quot;</span>: <span class="hljs-literal">None</span>,<br>            <span class="hljs-string">&quot;SESSION_REFRESH_EACH_REQUEST&quot;</span>: <span class="hljs-literal">True</span>,<br>            <span class="hljs-string">&quot;MAX_CONTENT_LENGTH&quot;</span>: <span class="hljs-literal">None</span>,<br>            <span class="hljs-string">&quot;SEND_FILE_MAX_AGE_DEFAULT&quot;</span>: timedelta(hours=<span class="hljs-number">12</span>),<br>            <span class="hljs-string">&quot;TRAP_BAD_REQUEST_ERRORS&quot;</span>: <span class="hljs-literal">None</span>,<br>            <span class="hljs-string">&quot;TRAP_HTTP_EXCEPTIONS&quot;</span>: <span class="hljs-literal">False</span>,<br>            <span class="hljs-string">&quot;EXPLAIN_TEMPLATE_LOADING&quot;</span>: <span class="hljs-literal">False</span>,<br>            <span class="hljs-string">&quot;PREFERRED_URL_SCHEME&quot;</span>: <span class="hljs-string">&quot;http&quot;</span>,<br>            <span class="hljs-string">&quot;JSON_AS_ASCII&quot;</span>: <span class="hljs-literal">True</span>,<br>            <span class="hljs-string">&quot;JSON_SORT_KEYS&quot;</span>: <span class="hljs-literal">True</span>,<br>            <span class="hljs-string">&quot;JSONIFY_PRETTYPRINT_REGULAR&quot;</span>: <span class="hljs-literal">False</span>,<br>            <span class="hljs-string">&quot;JSONIFY_MIMETYPE&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,<br>            <span class="hljs-string">&quot;TEMPLATES_AUTO_RELOAD&quot;</span>: <span class="hljs-literal">None</span>,<br>            <span class="hljs-string">&quot;MAX_COOKIE_SIZE&quot;</span>: <span class="hljs-number">4093</span>,<br>        &#125;<br>    )<br>    <br>    <span class="hljs-comment"># 返回初始完毕的配置类</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">make_config</span>(<span class="hljs-params">self, instance_relative=<span class="hljs-literal">False</span></span>):</span><br>        root_path = self.root_path<br>        <span class="hljs-keyword">if</span> instance_relative:<br>            root_path = self.instance_path<br>        defaults = <span class="hljs-built_in">dict</span>(self.default_config)<br>        defaults[<span class="hljs-string">&quot;ENV&quot;</span>] = get_env()<br>        defaults[<span class="hljs-string">&quot;DEBUG&quot;</span>] = get_debug_flag()<br>        <span class="hljs-keyword">return</span> self.config_class(root_path, defaults)<br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -373,458 +295,163 @@ app<span class="token punctuation">.</span>config<span class="token punctuation"
 
 <h2 id="二、从环境变量中读取配置属性"><a href="#二、从环境变量中读取配置属性" class="headerlink" title="二、从环境变量中读取配置属性"></a>二、从环境变量中读取配置属性</h2><p>当在环境变量中设置了配置文件的环境变量，那么则可以使用这个方法。</p>
 <p>首先是使用 <code>os</code> 模块的 <code>environ.get()</code> 方法来获取环境变量属性值，而后再调用另一个方法，这个环境变量的属性值是一个文件路径，通常的话，这个配置文件应该方法在和启动文件在同一个路径下。</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">from_envvar</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> variable_name<span class="token punctuation">,</span> silent<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        rv <span class="token operator">=</span> os<span class="token punctuation">.</span>environ<span class="token punctuation">.</span>get<span class="token punctuation">(</span>variable_name<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token keyword">not</span> rv<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> silent<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">False</span>
-            <span class="token keyword">raise</span> RuntimeError<span class="token punctuation">(</span>
-                <span class="token string">"The environment variable %r is not set "</span>
-                <span class="token string">"and as such configuration could not be "</span>
-                <span class="token string">"loaded.  Set this variable and make it "</span>
-                <span class="token string">"point to a configuration file"</span> <span class="token operator">%</span> variable_name
-            <span class="token punctuation">)</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>from_pyfile<span class="token punctuation">(</span>rv<span class="token punctuation">,</span> silent<span class="token operator">=</span>silent<span class="token punctuation">)</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">from_envvar</span>(<span class="hljs-params">self, variable_name, silent=<span class="hljs-literal">False</span></span>):</span><br>        rv = os.environ.get(variable_name)<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> rv:<br>            <span class="hljs-keyword">if</span> silent:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            <span class="hljs-keyword">raise</span> RuntimeError(<br>                <span class="hljs-string">&quot;The environment variable %r is not set &quot;</span><br>                <span class="hljs-string">&quot;and as such configuration could not be &quot;</span><br>                <span class="hljs-string">&quot;loaded.  Set this variable and make it &quot;</span><br>                <span class="hljs-string">&quot;point to a configuration file&quot;</span> % variable_name<br>            )<br>        <span class="hljs-keyword">return</span> self.from_pyfile(rv, silent=silent)<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>在项目的同目录下创建一个 <code>config.cfg</code> 配置文件，写入两个简单的配置项。</p>
-<pre class="language-shell" data-language="shell"><code class="language-shell"><span class="token assign-left variable">DEBUG</span><span class="token operator">=</span>True
-<span class="token assign-left variable">SECRET_KEY</span><span class="token operator">=</span><span class="token string">"something"</span></code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">DEBUG=True<br>SECRET_KEY=&quot;something&quot;<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>使用os模块临时设置一个环境变量，当从环境变量中读取到配置文件后，在网页中能打印到配置属性的值。</p>
 <p>还有一种办法是(针对 <code>Linux</code> 环境)，新开一个终端，切换到项目的目录下，在启动项目前，先使用 <code>export FLASK_CONFIG=config.cfg</code>，然后启动文件里面只需要写 <code>app.config.from_envvar(&quot;FLASK_CONFIG&quot;)</code>就可以，当然使用 <code>export</code> 设置的也只是一个临时变量，只对目前的终端有效。</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
-
-
-<span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask
-
-app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
-
-os<span class="token punctuation">.</span>environ<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span><span class="token string">"FLASK_CONFIG"</span><span class="token punctuation">,</span> <span class="token string">"config.cfg"</span><span class="token punctuation">)</span>
-
-app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>from_envvar<span class="token punctuation">(</span><span class="token string">"FLASK_CONFIG"</span><span class="token punctuation">)</span>
-
-<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span>
-<span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token string">"DEBUG %s SECRET_KEY %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"DEBUG"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"SECRET_KEY"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
-    app<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><br><br><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask<br><br>app = Flask(__name__)<br><br>os.environ.setdefault(<span class="hljs-string">&quot;FLASK_CONFIG&quot;</span>, <span class="hljs-string">&quot;config.cfg&quot;</span>)<br><br>app.config.from_envvar(<span class="hljs-string">&quot;FLASK_CONFIG&quot;</span>)<br><br><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&quot;/&quot;</span></span>)</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span>():</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;DEBUG %s SECRET_KEY %s&quot;</span> % (app.config.get(<span class="hljs-string">&quot;DEBUG&quot;</span>), app.config.get(<span class="hljs-string">&quot;SECRET_KEY&quot;</span>))<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    app.run()<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>我比较在意的是这个 <code>silent</code> 参数， 这个参数的含义是，当配置文件丢失时，或者环境变量没有设置时，设置 <code>silent</code> 参数为True，那么就等于没有配置这个文件。</p>
 <p>那么可以写一个函数来检测这个配置文件是否存在，是否设置环境变量，当两个都没有时，返回 <code>True</code>，然后 <code>from_envvar</code> 方法将会不起作用，触发异常。</p>
 <p>下面是一个简单的例子。</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask
-
-<span class="token keyword">import</span> os
-
-app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">is_set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>environ<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"FLASK_CONFIG"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
-    <span class="token keyword">elif</span> <span class="token keyword">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token string">"config.cfg"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token boolean">False</span>
-
-app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>from_envvar<span class="token punctuation">(</span><span class="token string">"FLASK_CONFIG"</span><span class="token punctuation">,</span> silent<span class="token operator">=</span>is_set<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span>
-<span class="token keyword">def</span> index
-    <span class="token keyword">return</span> <span class="token string">"DEBUG %s SECRET_KEY %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"DEBUG"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"SECRET_KEY"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
-    app<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask<br><br><span class="hljs-keyword">import</span> os<br><br>app = Flask(__name__)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_set</span>():</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.environ.get(<span class="hljs-string">&quot;FLASK_CONFIG&quot;</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>    <span class="hljs-keyword">elif</span> <span class="hljs-keyword">not</span> os.path.exists(<span class="hljs-string">&quot;config.cfg&quot;</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>app.config.from_envvar(<span class="hljs-string">&quot;FLASK_CONFIG&quot;</span>, silent=is_set())<br><br><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&quot;/&quot;</span></span>)</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span></span><br><span class="hljs-function">    <span class="hljs-title">return</span> &quot;<span class="hljs-title">DEBUG</span> %<span class="hljs-title">s</span> <span class="hljs-title">SECRET_KEY</span> %<span class="hljs-title">s</span>&quot; % (<span class="hljs-params">app.config.get(<span class="hljs-params"><span class="hljs-string">&quot;DEBUG&quot;</span></span>), app.config.get(<span class="hljs-params"><span class="hljs-string">&quot;SECRET_KEY&quot;</span></span>)</span>)</span><br><span class="hljs-function"></span><br>if __name__ == &quot;__main__&quot;:<br>    app.run()<br></code></pre></div></td></tr></table></figure>
 
 <p>针对 <code>silent</code> 参数，写出一个方法来最终决定 <code>silent</code> 的值，这样防止了中间环境变量配置出错以及文件不存在等等情况。</p>
 <h2 id="三、-从-python-文件中读取配置属性"><a href="#三、-从-python-文件中读取配置属性" class="headerlink" title="三、 从 python 文件中读取配置属性"></a>三、 从 <code>python</code> 文件中读取配置属性</h2><blockquote>
 <p>  当创建一个 <code>Flask</code> 的实例对象之后，使用 <code>app.config.from_pyfile</code> 方法，传入一个配置文件字符串，从配置文件中读取属性并且写入，前面的 <code>from_envvar</code> 方法获取到配置文件后最终也会调用这个方法，并且，这个方法最终也会调用下一个方法 <code>from_object</code>。</p>
 </blockquote>
-<pre class="language-C" data-language="C"><code class="language-C">def from_pyfile(self, filename, silent&#x3D;False):
-    filename &#x3D; os.path.join(self.root_path, filename)
-        d &#x3D; types.ModuleType(&quot;config&quot;)
-        d.__file__ &#x3D; filename
-    try:
-		with open(filename, mode&#x3D;&quot;rb&quot;) as config_file:
-		exec(compile(config_file.read(), filename, &quot;exec&quot;), d.__dict__)
-    except IOError as e:
-		if silent and e.errno in (errno.ENOENT, errno.EISDIR, errno.ENOTDIR):
-			return False
-    	e.strerror &#x3D; &quot;Unable to load configuration file (%s)&quot; % e.strerror
-    	raise
-    self.from_object(d)
-    return True</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C"><span class="hljs-function">def <span class="hljs-title">from_pyfile</span><span class="hljs-params">(self, filename, silent=False)</span>:</span><br><span class="hljs-function">    filename </span>= os.path.join(self.root_path, filename)<br>        d = types.ModuleType(<span class="hljs-string">&quot;config&quot;</span>)<br>        d.__file__ = filename<br>    <span class="hljs-keyword">try</span>:<br>		with open(filename, mode=<span class="hljs-string">&quot;rb&quot;</span>) as config_file:<br>		exec(compile(config_file.read(), filename, <span class="hljs-string">&quot;exec&quot;</span>), d.__dict__)<br>    except IOError as e:<br>		<span class="hljs-keyword">if</span> silent <span class="hljs-keyword">and</span> e.errno in (errno.ENOENT, errno.EISDIR, errno.ENOTDIR):<br>			<span class="hljs-keyword">return</span> False<br>    	e.strerror = <span class="hljs-string">&quot;Unable to load configuration file (%s)&quot;</span> % e.strerror<br>    	raise<br>    self.from_object(d)<br>    <span class="hljs-keyword">return</span> True<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>在项目的根目录下创建一个名为 <code>config.cfg</code> 简单配置文件。</p>
-<pre class="language-python" data-language="python"><code class="language-python">DEBUG<span class="token operator">=</span><span class="token boolean">True</span>
-SECRET_KEY<span class="token operator">=</span><span class="token string">"something"</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">DEBUG=<span class="hljs-literal">True</span><br>SECRET_KEY=<span class="hljs-string">&quot;something&quot;</span><br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>先看 <code>from_pyfile</code> 文件前面的三段代码， 首先使用 <code>os</code>获取配置文件的绝对路径，然后用 <code>types.ModuleType</code> 方法动态创建了一个 <code>config</code> 模块，并且设置文件名为传进来的文件名的绝对路径文件名，此时这个 <code>config</code> 算是一个模块了，不是用普通的 <code>import</code> 方法导入的。</p>
-<pre class="language-python" data-language="python"><code class="language-python">filename <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>self<span class="token punctuation">.</span>root_path<span class="token punctuation">,</span> filename<span class="token punctuation">)</span>
-d <span class="token operator">=</span> types<span class="token punctuation">.</span>ModuleType<span class="token punctuation">(</span><span class="token string">"config"</span><span class="token punctuation">)</span>
-d<span class="token punctuation">.</span>__file__ <span class="token operator">=</span> filename</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">filename = os.path.join(self.root_path, filename)<br>d = types.ModuleType(<span class="hljs-string">&quot;config&quot;</span>)<br>d.__file__ = filename<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p><code>types</code> 属于 <code>Python</code>的标准库，里面的几个常用的方法没怎么了解，有如下几个。</p>
 <ul>
-<li><code>FunctionType</code>：通过不使用 <code>def</code> 的方式动态创建一个函数。</li>
-<li><code>MethodType</code>：将创建在类外的某个方法动态绑定到类的实例上。</li>
-<li><code>ModuleType</code>：动态的创建一个临时的模块。</li>
+<li>  <code>FunctionType</code>：通过不使用 <code>def</code> 的方式动态创建一个函数。</li>
+<li>  <code>MethodType</code>：将创建在类外的某个方法动态绑定到类的实例上。</li>
+<li>  <code>ModuleType</code>：动态的创建一个临时的模块。</li>
 </ul>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> sys
-<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> types
-
-<span class="token comment"># 动态创建一个模块</span>
-<span class="token operator">>></span><span class="token operator">></span> m <span class="token operator">=</span> types<span class="token punctuation">.</span>ModuleType<span class="token punctuation">(</span><span class="token string">"sample"</span><span class="token punctuation">,</span> <span class="token string">"sample module."</span><span class="token punctuation">)</span>  <span class="token comment"># 传入一个模块名，以及模块的文档字符串</span>
-<span class="token operator">>></span><span class="token operator">></span> m
-<span class="token operator">&lt;</span>module <span class="token string">'sample'</span><span class="token operator">></span>
-<span class="token operator">>></span><span class="token operator">></span> m<span class="token punctuation">.</span>__dict__
-<span class="token punctuation">&#123;</span><span class="token string">'__name__'</span><span class="token punctuation">:</span> <span class="token string">'sample'</span><span class="token punctuation">,</span> <span class="token string">'__doc__'</span><span class="token punctuation">:</span> <span class="token string">'sample module.'</span><span class="token punctuation">,</span> <span class="token string">'__package__'</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token string">'__loader__'</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token string">'__spec__'</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">&#125;</span>
-<span class="token operator">>></span><span class="token operator">></span> m <span class="token keyword">in</span> sys<span class="token punctuation">.</span>modules   <span class="token comment"># 模块不包含在系统模块中</span>
-<span class="token boolean">False</span>
-
-<span class="token comment"># 动态添加类方法</span>
-<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">pass</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> 
-<span class="token operator">>></span><span class="token operator">></span> p <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">def</span> <span class="token function">say</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> p<span class="token punctuation">.</span>say <span class="token operator">=</span> types<span class="token punctuation">.</span>MethodType<span class="token punctuation">(</span>say<span class="token punctuation">,</span> p<span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> p<span class="token punctuation">.</span>say<span class="token punctuation">(</span><span class="token punctuation">)</span>
-hello
-
-<span class="token comment"># 动态创建一个函数</span>
-<span class="token operator">>></span> foo_code <span class="token operator">=</span> <span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">'def foo(): return "bar"'</span><span class="token punctuation">,</span> <span class="token string">"&lt;string>"</span><span class="token punctuation">,</span> <span class="token string">"exec"</span><span class="token punctuation">)</span>
-<span class="token operator">>></span> foo_func <span class="token operator">=</span> types<span class="token punctuation">.</span>FunctionType<span class="token punctuation">(</span>foo_code<span class="token punctuation">.</span>co_consts<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">globals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"foo"</span><span class="token punctuation">)</span>
-<span class="token operator">>></span> <span class="token keyword">print</span><span class="token punctuation">(</span>foo_func<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-bar</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> sys<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> types<br><br><span class="hljs-comment"># 动态创建一个模块</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>m = types.ModuleType(<span class="hljs-string">&quot;sample&quot;</span>, <span class="hljs-string">&quot;sample module.&quot;</span>)  <span class="hljs-comment"># 传入一个模块名，以及模块的文档字符串</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>m<br>&lt;module <span class="hljs-string">&#x27;sample&#x27;</span>&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>m.__dict__<br>&#123;<span class="hljs-string">&#x27;__name__&#x27;</span>: <span class="hljs-string">&#x27;sample&#x27;</span>, <span class="hljs-string">&#x27;__doc__&#x27;</span>: <span class="hljs-string">&#x27;sample module.&#x27;</span>, <span class="hljs-string">&#x27;__package__&#x27;</span>: <span class="hljs-literal">None</span>, <span class="hljs-string">&#x27;__loader__&#x27;</span>: <span class="hljs-literal">None</span>, <span class="hljs-string">&#x27;__spec__&#x27;</span>: <span class="hljs-literal">None</span>&#125;<br><span class="hljs-meta">&gt;&gt;&gt; </span>m <span class="hljs-keyword">in</span> sys.modules   <span class="hljs-comment"># 模块不包含在系统模块中</span><br><span class="hljs-literal">False</span><br><br><span class="hljs-comment"># 动态添加类方法</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>:</span><br><span class="hljs-meta">... </span>    <span class="hljs-keyword">pass</span><br><span class="hljs-meta">... </span><br><span class="hljs-meta">&gt;&gt;&gt; </span>p = Person()<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">say</span>(<span class="hljs-params">self</span>):</span> print(<span class="hljs-string">&quot;hello&quot;</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span>p.say = types.MethodType(say, p)<br><span class="hljs-meta">&gt;&gt;&gt; </span>p.say()<br>hello<br><br><span class="hljs-comment"># 动态创建一个函数</span><br>&gt;&gt; foo_code = <span class="hljs-built_in">compile</span>(<span class="hljs-string">&#x27;def foo(): return &quot;bar&quot;&#x27;</span>, <span class="hljs-string">&quot;&lt;string&gt;&quot;</span>, <span class="hljs-string">&quot;exec&quot;</span>)<br>&gt;&gt; foo_func = types.FunctionType(foo_code.co_consts[<span class="hljs-number">0</span>], <span class="hljs-built_in">globals</span>(), <span class="hljs-string">&quot;foo&quot;</span>)<br>&gt;&gt; print(foo_func())<br>bar<br></code></pre></div></td></tr></table></figure>
 
 
 
 
 <p>继续看 <code>from_pyfile</code> 方法剩下的代码，读取配置文件的配置属性，此时把属性放进动态创建的模块的字典里头，最后是调用另一个方法。</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>
-    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filename<span class="token punctuation">,</span> mode<span class="token operator">=</span><span class="token string">"rb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> config_file<span class="token punctuation">:</span>
-		<span class="token keyword">exec</span><span class="token punctuation">(</span><span class="token builtin">compile</span><span class="token punctuation">(</span>config_file<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> filename<span class="token punctuation">,</span> <span class="token string">"exec"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> d<span class="token punctuation">.</span>__dict__<span class="token punctuation">)</span>
-<span class="token keyword">except</span> IOError <span class="token keyword">as</span> e<span class="token punctuation">:</span>
-	<span class="token keyword">if</span> silent <span class="token keyword">and</span> e<span class="token punctuation">.</span>errno <span class="token keyword">in</span> <span class="token punctuation">(</span>errno<span class="token punctuation">.</span>ENOENT<span class="token punctuation">,</span> errno<span class="token punctuation">.</span>EISDIR<span class="token punctuation">,</span> errno<span class="token punctuation">.</span>ENOTDIR<span class="token punctuation">)</span><span class="token punctuation">:</span>
-		<span class="token keyword">return</span> <span class="token boolean">False</span>
-    e<span class="token punctuation">.</span>strerror <span class="token operator">=</span> <span class="token string">"Unable to load configuration file (%s)"</span> <span class="token operator">%</span> e<span class="token punctuation">.</span>strerror
-	<span class="token keyword">raise</span>
-self<span class="token punctuation">.</span>from_object<span class="token punctuation">(</span>d<span class="token punctuation">)</span>
-<span class="token keyword">return</span> <span class="token boolean">True</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">try</span>:<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(filename, mode=<span class="hljs-string">&quot;rb&quot;</span>) <span class="hljs-keyword">as</span> config_file:<br>		exec(<span class="hljs-built_in">compile</span>(config_file.read(), filename, <span class="hljs-string">&quot;exec&quot;</span>), d.__dict__)<br><span class="hljs-keyword">except</span> IOError <span class="hljs-keyword">as</span> e:<br>	<span class="hljs-keyword">if</span> silent <span class="hljs-keyword">and</span> e.errno <span class="hljs-keyword">in</span> (errno.ENOENT, errno.EISDIR, errno.ENOTDIR):<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    e.strerror = <span class="hljs-string">&quot;Unable to load configuration file (%s)&quot;</span> % e.strerror<br>	<span class="hljs-keyword">raise</span><br>self.from_object(d)<br><span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br></code></pre></div></td></tr></table></figure>
 
 
 
 <h2 id="四、从-python对象中提取属性"><a href="#四、从-python对象中提取属性" class="headerlink" title="四、从  python对象中提取属性"></a>四、从  <code>python</code>对象中提取属性</h2><p>从 <code>python</code> 对象中提取配置相对简单，一般写一个配置类的 <code>python</code> 文件，里面定义一个基类，设定一些基本配置，然后使用类继承的方法为各种环境设置扩展配置类，一个简单的配置类如下。</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Config</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    DEBUG <span class="token operator">=</span> <span class="token boolean">False</span>
-    TESTING <span class="token operator">=</span> <span class="token boolean">False</span>
-    DATABASE_URI <span class="token operator">=</span> <span class="token string">'sqlite://:memory:'</span>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Config</span>(<span class="hljs-params"><span class="hljs-built_in">object</span></span>):</span><br>    DEBUG = <span class="hljs-literal">False</span><br>    TESTING = <span class="hljs-literal">False</span><br>    DATABASE_URI = <span class="hljs-string">&#x27;sqlite://:memory:&#x27;</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProductionConfig</span>(<span class="hljs-params">Config</span>):</span><br>    DATABASE_URI = <span class="hljs-string">&#x27;mysql://user@localhost/foo&#x27;</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DevelopmentConfig</span>(<span class="hljs-params">Config</span>):</span><br>    DEBUG = <span class="hljs-literal">True</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestingConfig</span>(<span class="hljs-params">Config</span>):</span><br>    TESTING = <span class="hljs-literal">True</span><br></code></pre></div></td></tr></table></figure>
 
-<span class="token keyword">class</span> <span class="token class-name">ProductionConfig</span><span class="token punctuation">(</span>Config<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    DATABASE_URI <span class="token operator">=</span> <span class="token string">'mysql://user@localhost/foo'</span>
-
-<span class="token keyword">class</span> <span class="token class-name">DevelopmentConfig</span><span class="token punctuation">(</span>Config<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    DEBUG <span class="token operator">=</span> <span class="token boolean">True</span>
-
-<span class="token keyword">class</span> <span class="token class-name">TestingConfig</span><span class="token punctuation">(</span>Config<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    TESTING <span class="token operator">=</span> <span class="token boolean">True</span></code></pre>
-
-<p>之后就是在 <code>from_object</code> 方法里传入一个类名，或者一个完整的模块字符串就可以配置好配置属性。如果传入的是一个配置类，那么 <code>if isinstance(obj, string_types)</code> 直接为 <code>False</code>，然后这个传入的配置类的所有属性，如果包含大写的属性，将存入 <code>app.config</code> 的字典中。如果是字符串，那么会先把模块里面的类导入再提取属性。</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">from_object</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> obj<span class="token punctuation">)</span><span class="token punctuation">:</span>
-   <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> string_types<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            obj <span class="token operator">=</span> import_string<span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
-    <span class="token keyword">for</span> key <span class="token keyword">in</span> <span class="token builtin">dir</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> key<span class="token punctuation">.</span>isupper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            self<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">getattr</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> key<span class="token punctuation">)</span></code></pre>
+<p>之后就是在 <code>from_object</code> 方法里传入一个类名，或者一个完整的模块字符串就可以配置好配置属性。如果传入的是一个配置类，那么 <code>   if isinstance(obj, string_types)</code> 直接为 <code>False</code>，然后这个传入的配置类的所有属性，如果包含大写的属性，将存入 <code>app.config</code> 的字典中。如果是字符串，那么会先把模块里面的类导入再提取属性。</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">from_object</span>(<span class="hljs-params">self, obj</span>):</span><br>   <span class="hljs-keyword">if</span> <span class="hljs-built_in">isinstance</span>(obj, string_types):<br>            obj = import_string(obj)<br>    <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> <span class="hljs-built_in">dir</span>(obj):<br>        <span class="hljs-keyword">if</span> key.isupper():<br>            self[key] = <span class="hljs-built_in">getattr</span>(obj, key)<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p><code>string_types</code> ，这个变量在  <code>flask</code> 包的  <code>_compat.py</code>  下，其实就是<code>string</code> 类型，所以简单对传进来的参数检查是不是个字符串，如果是字符串，则会调用 <code>import_string</code> 方法，如果不是字符串而是一个具体的类则直接执行 <code>for</code> 循环对类的属性遍历。</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>  <span class="token comment"># Python 2</span>
-    text_type <span class="token operator">=</span> <span class="token builtin">unicode</span>
-    string_types <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">unicode</span><span class="token punctuation">)</span>
-    integer_types <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">long</span><span class="token punctuation">)</span>
-<span class="token keyword">except</span> NameError<span class="token punctuation">:</span>  <span class="token comment"># Python 3</span>
-    text_type <span class="token operator">=</span> <span class="token builtin">str</span>
-    string_types <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
-    integer_types <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">,</span><span class="token punctuation">)</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">try</span>:  <span class="hljs-comment"># Python 2</span><br>    text_type = unicode<br>    string_types = (<span class="hljs-built_in">str</span>, unicode)<br>    integer_types = (<span class="hljs-built_in">int</span>, long)<br><span class="hljs-keyword">except</span> NameError:  <span class="hljs-comment"># Python 3</span><br>    text_type = <span class="hljs-built_in">str</span><br>    string_types = (<span class="hljs-built_in">str</span>,)<br>    integer_types = (<span class="hljs-built_in">int</span>,)<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>然后是  <code>import_string</code> 方法，因为传进来的仅仅是个字符串，还没对模块进行导入，所以会用到 <code>werkzeug.utils</code> 包下的 <code>import_string</code> 方法对模块进行导入。</p>
 <p>可以看到 <code>import_string</code>  的第一行代码会对字符串进行替换，那说明有两种写法，而恰恰函数文档也说明了。</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token triple-quoted-string string">"""
-提供两种模块写法：例如
-xml.sax.saxutils.escape
-xml.sax.saxutils:escape
-无论是那种写法，最后都会变成下面这种写法
-xml.sax.saxutils.escape
-"""</span>
-import_name <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>import_name<span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">":"</span><span class="token punctuation">,</span> <span class="token string">"."</span><span class="token punctuation">)</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">提供两种模块写法：例如</span><br><span class="hljs-string">xml.sax.saxutils.escape</span><br><span class="hljs-string">xml.sax.saxutils:escape</span><br><span class="hljs-string">无论是那种写法，最后都会变成下面这种写法</span><br><span class="hljs-string">xml.sax.saxutils.escape</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br>import_name = <span class="hljs-built_in">str</span>(import_name).replace(<span class="hljs-string">&quot;:&quot;</span>, <span class="hljs-string">&quot;.&quot;</span>)<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>接下来就是使用不寻常的导包方式，一般导包都是两种方式，<code>import package</code>或者是 <code>from package import module</code>，因为我们这里传进来的是字符串，所以不能用正常的导包方式，只能使用 <code>__import__</code> 这个内建方法，实际上 <code>import</code> 也是调用 <code>__import__</code>。假设配置类 <code>BaseConfig</code> 在 <code>Config</code>  包下的 <code>Settings.py</code> 模块下，那么可以写为 <code>Config.Settings:BaseConfig</code>，或者 <code>Config.Settings.BaseConfig</code> ，两者的可以。最终，如果导入为空时，那么会从 <code>sys.modules</code> 里面查询这个包。</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>
-    <span class="token builtin">__import__</span><span class="token punctuation">(</span>import_name<span class="token punctuation">)</span>
-<span class="token keyword">except</span> ImportError<span class="token punctuation">:</span>
-    <span class="token keyword">if</span> <span class="token string">"."</span> <span class="token keyword">not</span> <span class="token keyword">in</span> import_name<span class="token punctuation">:</span>
-        <span class="token keyword">raise</span>
-<span class="token keyword">else</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> sys<span class="token punctuation">.</span>modules<span class="token punctuation">[</span>import_name<span class="token punctuation">]</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">try</span>:<br>    <span class="hljs-built_in">__import__</span>(import_name)<br><span class="hljs-keyword">except</span> ImportError:<br>    <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;.&quot;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> import_name:<br>        <span class="hljs-keyword">raise</span><br><span class="hljs-keyword">else</span>:<br>    <span class="hljs-keyword">return</span> sys.modules[import_name]<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>如果这个传入的配置类字符串为 <code>Config.Settings.BaseConfig</code>，那么先把模块名和对象名分开，再尝试使用 <code>__import__</code> 方法导入，此时已经把模块名和对象名分开了，分别把模块名和对象名传入 <code>__import__</code> 就可以正常导入。再使用 <code>getattr</code> 方法获取模块里面的对象，这个方法告一段落。最后就是把返回的对象遍历获取里面的配置属性添加到 <code>Config</code> 对象中。</p>
 <p><code>__import_</code> 的四个参数：</p>
 <ul>
-<li><code>name (required)</code>: 被加载 <code>module</code> 的名称</li>
-<li><code>globals (optional)</code> : 包含全局变量的字典，该选项很少使用，采用默认值 <code>global()</code></li>
-<li><code>locals (optional)</code>:  包含局部变量的字典，内部标准实现未用到该变量，采用默认值 <code>local()</code></li>
-<li><code>fromlist (Optional)</code> : 被导入的子模块名称</li>
+<li>  <code>name (required)</code>: 被加载 <code>module</code> 的名称</li>
+<li>  <code>globals (optional)</code> : 包含全局变量的字典，该选项很少使用，采用默认值 <code>global()</code></li>
+<li>  <code>locals (optional)</code>:  包含局部变量的字典，内部标准实现未用到该变量，采用默认值 <code>local()</code></li>
+<li>  <code>fromlist (Optional)</code> : 被导入的子模块名称</li>
 </ul>
-<pre class="language-python" data-language="python"><code class="language-python">module_name<span class="token punctuation">,</span> obj_name <span class="token operator">=</span> import_name<span class="token punctuation">.</span>rsplit<span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
-module <span class="token operator">=</span> <span class="token builtin">__import__</span><span class="token punctuation">(</span>module_name<span class="token punctuation">,</span> <span class="token builtin">globals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">locals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>obj_name<span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token keyword">try</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token builtin">getattr</span><span class="token punctuation">(</span>module<span class="token punctuation">,</span> obj_name<span class="token punctuation">)</span>
-<span class="token keyword">except</span> AttributeError <span class="token keyword">as</span> e<span class="token punctuation">:</span>
-    <span class="token keyword">raise</span> ImportError<span class="token punctuation">(</span>e<span class="token punctuation">)</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">module_name, obj_name = import_name.rsplit(<span class="hljs-string">&quot;.&quot;</span>, <span class="hljs-number">1</span>)<br>module = <span class="hljs-built_in">__import__</span>(module_name, <span class="hljs-built_in">globals</span>(), <span class="hljs-built_in">locals</span>(), [obj_name])<br><span class="hljs-keyword">try</span>:<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">getattr</span>(module, obj_name)<br><span class="hljs-keyword">except</span> AttributeError <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-keyword">raise</span> ImportError(e)<br></code></pre></div></td></tr></table></figure>
 
 <p>总的来说这个方法提供了两种导入配置的选择，一种是传入模块字符串，一种是直接传入配置类。便于导入的时候选择导入方式和可扩展性。</p>
 <h2 id="五、从-json-文件中读取配置属性到映射为字典"><a href="#五、从-json-文件中读取配置属性到映射为字典" class="headerlink" title="五、从 json 文件中读取配置属性到映射为字典"></a>五、从 <code>json</code> 文件中读取配置属性到映射为字典</h2><p>这个方法最终也会调用 <code>Config</code> 类的最后一个方法，对于这个方法而言，只是简单的读取一下 <code>json</code> 文件，并且把 <code>json</code> 文件里面的数据转化为 <code>Python</code> 当中的字典类型。同时可以设置 <code>silent</code> 为 <code>True</code>，当文件读取失败的时候，方法直接失效，如果不设置为 <code>True</code> 的话，也可以，直接触发标准错误。</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">from_json</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> filename<span class="token punctuation">,</span> silent<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    filename <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>self<span class="token punctuation">.</span>root_path<span class="token punctuation">,</span> filename<span class="token punctuation">)</span>
-
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span> <span class="token keyword">as</span> json_file<span class="token punctuation">:</span>
-            obj <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>json_file<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-	<span class="token keyword">except</span> IOError <span class="token keyword">as</span> e<span class="token punctuation">:</span>
-		<span class="token keyword">if</span> silent <span class="token keyword">and</span> e<span class="token punctuation">.</span>errno <span class="token keyword">in</span> <span class="token punctuation">(</span>errno<span class="token punctuation">.</span>ENOENT<span class="token punctuation">,</span> errno<span class="token punctuation">.</span>EISDIR<span class="token punctuation">)</span><span class="token punctuation">:</span>
-			<span class="token keyword">return</span> <span class="token boolean">False</span>
-		e<span class="token punctuation">.</span>strerror <span class="token operator">=</span> <span class="token string">"Unable to load configuration file (%s)"</span> <span class="token operator">%</span> e<span class="token punctuation">.</span>strerror
-		<span class="token keyword">raise</span>
-	<span class="token keyword">return</span> self<span class="token punctuation">.</span>from_mapping<span class="token punctuation">(</span>obj<span class="token punctuation">)</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">from_json</span>(<span class="hljs-params">self, filename, silent=<span class="hljs-literal">False</span></span>):</span><br>    filename = os.path.join(self.root_path, filename)<br><br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(filename) <span class="hljs-keyword">as</span> json_file:<br>            obj = json.loads(json_file.read())<br>	<span class="hljs-keyword">except</span> IOError <span class="hljs-keyword">as</span> e:<br>		<span class="hljs-keyword">if</span> silent <span class="hljs-keyword">and</span> e.errno <span class="hljs-keyword">in</span> (errno.ENOENT, errno.EISDIR):<br>			<span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>		e.strerror = <span class="hljs-string">&quot;Unable to load configuration file (%s)&quot;</span> % e.strerror<br>		<span class="hljs-keyword">raise</span><br>	<span class="hljs-keyword">return</span> self.from_mapping(obj)<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>在项目的根目录下创建一个名为 <code>config.json</code> 的配置文件。</p>
-<pre class="language-C" data-language="C"><code class="language-C">&#123;
-    &quot;DEBUG&quot;: &quot;True&quot;,
-    &quot;SECRET_KEY&quot;: &quot;something&quot;
-&#125;</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs C">&#123;<br>    <span class="hljs-string">&quot;DEBUG&quot;</span>: <span class="hljs-string">&quot;True&quot;</span>,<br>    <span class="hljs-string">&quot;SECRET_KEY&quot;</span>: <span class="hljs-string">&quot;something&quot;</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 
 
-<p>示例代码，当程序启动时，打开 <code>http://127.0.0.1:5000/</code> 就可以看到 <code>DEBUG</code> 和 <code>SECRET_KEY</code> 的值。</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask
-
-
-app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
-
-app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>from_json<span class="token punctuation">(</span><span class="token string">"config.json"</span><span class="token punctuation">)</span>
-
-<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span>
-<span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token string">"DEBUG %s SECRET_KEY %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"DEBUG"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"SECRET_KEY"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
-    app<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>示例代码，当程序启动时，打开 <code>http://127.0.0.1:5000/</code> 就可以看到 <code>DEBUG</code> 和 <code>SECRET_KEY </code> 的值。</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask<br><br><br>app = Flask(__name__)<br><br>app.config.from_json(<span class="hljs-string">&quot;config.json&quot;</span>)<br><br><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&quot;/&quot;</span></span>)</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span>():</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;DEBUG %s SECRET_KEY %s&quot;</span> % (app.config.get(<span class="hljs-string">&quot;DEBUG&quot;</span>), app.config.get(<span class="hljs-string">&quot;SECRET_KEY&quot;</span>))<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    app.run()<br>    print(app.config.items())<br></code></pre></div></td></tr></table></figure>
 
 
 
 
 
 <h2 id="六、从-python-键值对-dict-中配置属性"><a href="#六、从-python-键值对-dict-中配置属性" class="headerlink" title="六、从 python 键值对 ( dict ) 中配置属性"></a>六、从 <code>python</code> 键值对 <code>( dict )</code> 中配置属性</h2><p>设置一个简单的字典对象，待会传入 <code>from_mappings</code> 方法。</p>
-<pre class="language-python" data-language="python"><code class="language-python">configs <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-    <span class="token string">"DEBUG"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
-    <span class="token string">"SECRET_KEY"</span><span class="token punctuation">:</span> <span class="token string">"Something"</span>
-<span class="token punctuation">&#125;</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">configs = &#123;<br>    <span class="hljs-string">&quot;DEBUG&quot;</span>: <span class="hljs-literal">True</span>,<br>    <span class="hljs-string">&quot;SECRET_KEY&quot;</span>: <span class="hljs-string">&quot;Something&quot;</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>最后一个方法，针对传进来的键值对，也就是字典，这里对应第三个参数 <code>**kwargs</code>，使用 <code>kwargs.items()</code> 提取出所有的键值对( 列表格式 ) 存放进 <code>mappings</code> 列表里，然后再通过二层循环提取出每个配置的键和值，存放进 <code>Config</code> 类的里面。</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">from_mapping</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">*</span>mapping<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    	
-        mappings <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>mapping<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> <span class="token builtin">hasattr</span><span class="token punctuation">(</span>mapping<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"items"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                mappings<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mapping<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                mappings<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mapping<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">elif</span> <span class="token builtin">len</span><span class="token punctuation">(</span>mapping<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">:</span>
-            <span class="token keyword">raise</span> TypeError<span class="token punctuation">(</span>
-                <span class="token string">"expected at most 1 positional argument, got %d"</span> <span class="token operator">%</span> <span class="token builtin">len</span><span class="token punctuation">(</span>mapping<span class="token punctuation">)</span>
-            <span class="token punctuation">)</span>
-        mappings<span class="token punctuation">.</span>append<span class="token punctuation">(</span>kwargs<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">for</span> mapping <span class="token keyword">in</span> mappings<span class="token punctuation">:</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token keyword">in</span> mapping<span class="token punctuation">:</span>
-                <span class="token keyword">if</span> key<span class="token punctuation">.</span>isupper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                    self<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> value
-        <span class="token keyword">return</span> <span class="token boolean">True</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">from_mapping</span>(<span class="hljs-params">self, *mapping, **kwargs</span>):</span><br>    	<br>        mappings = []<br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(mapping) == <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">hasattr</span>(mapping[<span class="hljs-number">0</span>], <span class="hljs-string">&quot;items&quot;</span>):<br>                mappings.append(mapping[<span class="hljs-number">0</span>].items())<br>            <span class="hljs-keyword">else</span>:<br>                mappings.append(mapping[<span class="hljs-number">0</span>])<br>        <span class="hljs-keyword">elif</span> <span class="hljs-built_in">len</span>(mapping) &gt; <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">raise</span> TypeError(<br>                <span class="hljs-string">&quot;expected at most 1 positional argument, got %d&quot;</span> % <span class="hljs-built_in">len</span>(mapping)<br>            )<br>        mappings.append(kwargs.items())<br>        <span class="hljs-keyword">for</span> mapping <span class="hljs-keyword">in</span> mappings:<br>            <span class="hljs-keyword">for</span> (key, value) <span class="hljs-keyword">in</span> mapping:<br>                <span class="hljs-keyword">if</span> key.isupper():<br>                    self[key] = value<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>例子示范，当启动程序时，在浏览器进入 <code>http://127.0.0.1:5000/</code> 就能看到 <code>DEBUG</code> 和 <code>SECRET_KEY</code> 的值。</p>
-<pre class="language-Python" data-language="Python"><code class="language-Python">from flask import Flask
-
-
-app &#x3D; Flask(__name__)
-
-configs &#x3D; &#123;
-    &quot;DEBUG&quot;: True,
-    &quot;SECRET_KEY&quot;: &quot;Something&quot;
-&#125;
-
-app.config.from_mappings(configs)
-
-@app.route(&quot;&#x2F;&quot;)
-def index():
-    return &quot;DEBUG %s SECRET_KEY %s&quot; % (app.config.get(&quot;DEBUG&quot;), app.config.get(&quot;SECRET_KEY&quot;))
-
-if __name__ &#x3D;&#x3D; &quot;__main__&quot;:
-    app.run()
-    print(app.config.items())</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Python"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask<br><br><br>app = Flask(__name__)<br><br>configs = &#123;<br>    <span class="hljs-string">&quot;DEBUG&quot;</span>: <span class="hljs-literal">True</span>,<br>    <span class="hljs-string">&quot;SECRET_KEY&quot;</span>: <span class="hljs-string">&quot;Something&quot;</span><br>&#125;<br><br>app.config.from_mappings(configs)<br><br><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&quot;/&quot;</span></span>)</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span>():</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;DEBUG %s SECRET_KEY %s&quot;</span> % (app.config.get(<span class="hljs-string">&quot;DEBUG&quot;</span>), app.config.get(<span class="hljs-string">&quot;SECRET_KEY&quot;</span>))<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    app.run()<br>    print(app.config.items())<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>然后这个方法还提供另一种细化的使用，上面只是传入了第三个参数，第二个参数还没使用，显然这个函数是会使用到第二参数，那么这个参数格式有几种写法：</p>
-<pre class="language-python" data-language="python"><code class="language-python">mapping <span class="token operator">=</span> <span class="token punctuation">(</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token string">"DEBUG"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
-        <span class="token string">"SECRET_KEY"</span><span class="token punctuation">:</span> <span class="token string">"Something"</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">)</span>
-<span class="token comment"># 直接执行 mappings.append(mapping[0])</span>
-
-mapping <span class="token operator">=</span> <span class="token punctuation">(</span>
-    <span class="token punctuation">(</span><span class="token string">'DEBUG'</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token punctuation">(</span><span class="token string">'TESTING'</span><span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span>
-<span class="token comment"># 传入元祖，直接执行 mappings.append(mapping[0])</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">mapping = (<br>    &#123;<br>        <span class="hljs-string">&quot;DEBUG&quot;</span>: <span class="hljs-literal">True</span>,<br>        <span class="hljs-string">&quot;SECRET_KEY&quot;</span>: <span class="hljs-string">&quot;Something&quot;</span><br>    &#125;<br>)<br><span class="hljs-comment"># 直接执行 mappings.append(mapping[0])</span><br><br>mapping = (<br>    (<span class="hljs-string">&#x27;DEBUG&#x27;</span>, <span class="hljs-literal">True</span>),<br>    (<span class="hljs-string">&#x27;TESTING&#x27;</span>, <span class="hljs-literal">False</span>)<br>)<br><span class="hljs-comment"># 传入元祖，直接执行 mappings.append(mapping[0])</span><br></code></pre></div></td></tr></table></figure>
 
 <p>此时就不需要传入第三个参数，也就是说这个方法提供两种参数传入方式，也方便扩展，如果单纯使用键值对，那么前面的代码将不会被执行，如果使用 <code>tuple</code> ，也会对这个参数进行操作，提取里面的属性值。</p>
 <h2 id="七、自定义读取-yaml-properties配置文件"><a href="#七、自定义读取-yaml-properties配置文件" class="headerlink" title="七、自定义读取 yaml/properties配置文件"></a>七、自定义读取 yaml/properties配置文件</h2><blockquote>
 <p>  上面提到可以用 <code>types.MethodType</code> 来创建动态方法，这里就可以利用这个来为 <code>config</code> 扩展读取更多类型的配置文件。</p>
 </blockquote>
 <p>示例如下：</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> types
-
-<span class="token comment"># 创建一个 Person 类，此时类里还没有任何方法</span>
-<span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
-    <span class="token keyword">pass</span>
-
-<span class="token keyword">def</span> <span class="token function">say</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span>
-    
-p <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token comment"># 强行把方法赋值到实例对象上</span>
-p<span class="token punctuation">.</span>say <span class="token operator">=</span> say
-
-p<span class="token punctuation">.</span>say<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"nick"</span><span class="token punctuation">)</span> 
-<span class="token comment"># 报错</span>
-<span class="token comment"># say() missing 1 required positional argument: 'self'</span>
-
-<span class="token comment"># 把 say 方法绑定到 Person 类的实例上</span>
-p<span class="token punctuation">.</span>say <span class="token operator">=</span> types<span class="token punctuation">.</span>MethodType<span class="token punctuation">(</span>say<span class="token punctuation">,</span> p<span class="token punctuation">)</span>
-
-p<span class="token punctuation">.</span>say<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"nick"</span><span class="token punctuation">)</span>
-
-<span class="token comment"># result: hello nick</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> types<br><br><span class="hljs-comment"># 创建一个 Person 类，此时类里还没有任何方法</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>:</span><br>    <span class="hljs-keyword">pass</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">say</span>(<span class="hljs-params">self, name</span>):</span><br>    self.name = name<br>    print(<span class="hljs-string">&quot;hello&quot;</span>, name)<br>    <br>p = Person()<br><br><span class="hljs-comment"># 强行把方法赋值到实例对象上</span><br>p.say = say<br><br>p.say(name=<span class="hljs-string">&quot;nick&quot;</span>) <br><span class="hljs-comment"># 报错</span><br><span class="hljs-comment"># say() missing 1 required positional argument: &#x27;self&#x27;</span><br><br><span class="hljs-comment"># 把 say 方法绑定到 Person 类的实例上</span><br>p.say = types.MethodType(say, p)<br><br>p.say(name=<span class="hljs-string">&quot;nick&quot;</span>)<br><br><span class="hljs-comment"># result: hello nick</span><br></code></pre></div></td></tr></table></figure>
 
 
 
 
 
 <p>创建一个名为 <code>config.yaml</code> 的配置文件，写入两个简单的配置项。</p>
-<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">DEBUG</span><span class="token punctuation">:</span> <span class="token boolean important">True</span>
-<span class="token key atrule">SECRET_KEY</span><span class="token punctuation">:</span> something</code></pre>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">DEBUG:</span> <span class="hljs-literal">True</span><br><span class="hljs-attr">SECRET_KEY:</span> <span class="hljs-string">something</span><br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>读取 <code>yaml</code> 文件，编写读取 <code>yaml</code> 文件方法，利用了 <code>pyyaml</code> 库，使用  <code>yaml</code> 读取出来的数据是字典格式，然后传递给  <code>Config</code> 对象的        <code>from_mapping</code> 方法，然后利用 <code>types.MethodType</code> 方法为 <code>Config</code> 类动态添加方法，绑定在 <code>config</code> 对象上。</p>
-<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask
-
-<span class="token keyword">import</span> types
-<span class="token keyword">import</span> os
-<span class="token keyword">import</span> yaml
-
-
-app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
-
-
-<span class="token keyword">def</span> <span class="token function">from_yaml</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> filename<span class="token punctuation">,</span> silent<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    filename <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>self<span class="token punctuation">.</span>root_path<span class="token punctuation">,</span> filename<span class="token punctuation">)</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span> <span class="token keyword">as</span> yaml_file<span class="token punctuation">:</span>
-            obj <span class="token operator">=</span> yaml<span class="token punctuation">.</span>load<span class="token punctuation">(</span>yaml_file<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Loader<span class="token operator">=</span>yaml<span class="token punctuation">.</span>FullLoader<span class="token punctuation">)</span>
-    <span class="token keyword">except</span> IOError <span class="token keyword">as</span> e<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> silent<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">False</span>
-    <span class="token keyword">return</span> self<span class="token punctuation">.</span>from_mapping<span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
-
-<span class="token comment"># MethodType 方法第一个参数是需要动态添加的方法名，第二个参数是类的实例对象。</span>
-app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>from_yaml <span class="token operator">=</span> types<span class="token punctuation">.</span>MethodType<span class="token punctuation">(</span>from_yaml<span class="token punctuation">,</span> app<span class="token punctuation">.</span>config<span class="token punctuation">)</span>
-app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>from_yaml<span class="token punctuation">(</span><span class="token string">"config.yaml"</span><span class="token punctuation">)</span>
-
-<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span>
-<span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token string">"DEBUG %s SECRET_KEY %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"DEBUG"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"SECRET_KEY"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
-    app<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask<br><br><span class="hljs-keyword">import</span> types<br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> yaml<br><br><br>app = Flask(__name__)<br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">from_yaml</span>(<span class="hljs-params">self, filename, silent=<span class="hljs-literal">False</span></span>):</span><br>    filename = os.path.join(self.root_path, filename)<br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(filename) <span class="hljs-keyword">as</span> yaml_file:<br>            obj = yaml.load(yaml_file.read(), Loader=yaml.FullLoader)<br>    <span class="hljs-keyword">except</span> IOError <span class="hljs-keyword">as</span> e:<br>        <span class="hljs-keyword">if</span> silent:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    <span class="hljs-keyword">return</span> self.from_mapping(obj)<br><br><span class="hljs-comment"># MethodType 方法第一个参数是需要动态添加的方法名，第二个参数是类的实例对象。</span><br>app.config.from_yaml = types.MethodType(from_yaml, app.config)<br>app.config.from_yaml(<span class="hljs-string">&quot;config.yaml&quot;</span>)<br><br><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&quot;/&quot;</span></span>)</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span>():</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;DEBUG %s SECRET_KEY %s&quot;</span> % (app.config.get(<span class="hljs-string">&quot;DEBUG&quot;</span>), app.config.get(<span class="hljs-string">&quot;SECRET_KEY&quot;</span>))<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    app.run()<br>    print(app.config.items())<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>创建一个名为 <code>config.properties</code> 的简单配置文件，写入以下简单配置项。</p>
-<pre class="language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">DEBUG</span><span class="token punctuation">=</span><span class="token attr-value">True</span>
-<span class="token attr-name">SECRET_KEY</span><span class="token punctuation">=</span><span class="token attr-value">something</span></code></pre>
+<figure class="highlight properties"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs properties"><span class="hljs-attr">DEBUG</span>=<span class="hljs-string">True</span><br><span class="hljs-attr">SECRET_KEY</span>=<span class="hljs-string">something</span><br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>创建一个读取 <code>from_properties</code> 方法， 这个方法遍历  <code>properties</code> 文件的每一行，把  <code>=</code>  两边的属性名和属性值放进 <code>obj</code> 中，最终会调用现有的 <code>from_mapping</code> 方法，最后还是要利用 <code>types.MethodType</code> 方法为 <code>Config</code> 类动态添加方法，绑定在 <code>config</code> 对象上，这样这个方法才会起作用。</p>
-<pre class="language-python" data-language="python"><code class="language-python">app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">from_properties</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> filename<span class="token punctuation">,</span> silent<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> encode<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    filename <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>self<span class="token punctuation">.</span>root_path<span class="token punctuation">,</span> filename<span class="token punctuation">)</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span> <span class="token keyword">as</span> properties_file<span class="token punctuation">:</span>
-            obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
-            <span class="token keyword">for</span> line <span class="token keyword">in</span> properties_file<span class="token punctuation">:</span>
-                <span class="token keyword">if</span> line<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'='</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
-                    s <span class="token operator">=</span> line<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span>
-                    obj<span class="token punctuation">[</span>s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-    <span class="token keyword">except</span> IOError <span class="token keyword">as</span> e<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> silent<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">False</span>
-    <span class="token keyword">return</span> self<span class="token punctuation">.</span>from_mapping<span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
-
-app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>from_properties <span class="token operator">=</span> types<span class="token punctuation">.</span>MethodType<span class="token punctuation">(</span>from_properties<span class="token punctuation">,</span> app<span class="token punctuation">.</span>config<span class="token punctuation">)</span>
-
-app<span class="token punctuation">.</span>config<span class="token punctuation">.</span>from_properties<span class="token punctuation">(</span><span class="token string">"config.properties"</span><span class="token punctuation">)</span>
-
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">app = Flask(__name__)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">from_properties</span>(<span class="hljs-params">self, filename, silent=<span class="hljs-literal">False</span>, encode=<span class="hljs-literal">None</span></span>):</span><br>    filename = os.path.join(self.root_path, filename)<br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(filename) <span class="hljs-keyword">as</span> properties_file:<br>            obj = &#123;&#125;<br>            <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> properties_file:<br>                <span class="hljs-keyword">if</span> line.find(<span class="hljs-string">&#x27;=&#x27;</span>) &gt; <span class="hljs-number">0</span>:<br>                    s = line.replace(<span class="hljs-string">&#x27;\n&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>).split(<span class="hljs-string">&quot;=&quot;</span>)<br>                    obj[s[<span class="hljs-number">0</span>]] = s[<span class="hljs-number">1</span>]<br>    <span class="hljs-keyword">except</span> IOError <span class="hljs-keyword">as</span> e:<br>        <span class="hljs-keyword">if</span> silent:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    <span class="hljs-keyword">return</span> self.from_mapping(obj)<br><br>app.config.from_properties = types.MethodType(from_properties, app.config)<br><br>app.config.from_properties(<span class="hljs-string">&quot;config.properties&quot;</span>)<br><br><br></code></pre></div></td></tr></table></figure>
 
 <p>当然，这两个方法可能也有不完善的地方，例如，<code>yaml</code> 文件可能是多层级的，这里只考虑到一层级，什么时候下才会出现多层级的配置项，例如，可以在一个 <code>yaml</code> 文件里面设置多个环境配置，开发环境配置，生产环境配置，部署环境配置等。</p>
 <ul>
-<li><input disabled="" type="checkbox"> <code>yaml</code> 方法修改。</li>
-<li><input disabled="" type="checkbox"> 实例代码上传至 <code>github</code></li>
+<li>  [ ] <code>yaml</code> 方法修改。</li>
+<li>  [ ] 实例代码上传至 <code>github</code></li>
 </ul>
 
             </div>
@@ -849,12 +476,22 @@ app<span class="token punctuation">.</span>config<span class="token punctuation"
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2020/1114/16107.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
@@ -875,37 +512,32 @@ app<span class="token punctuation">.</span>config<span class="token punctuation"
               <!-- Comments -->
               <article class="comments" id="comments">
                 
+                  
                 
-  <div id="remark42"></div>
+                
   <script type="text/javascript">
-    var schema = document.documentElement.getAttribute('data-user-color-scheme');
-    if (schema !== 'light' && schema !== 'dark') {
-      schema = 'light';
-    }
-    var remark_config = {
-      host: 'https://remark.haoyizebo.com',
-      site_id: 'haoyizebo',
-      components: ['embed'],
-      url: '/2020/0710/46196.html',
-      max_shown_comments: '10',
-      theme: schema,
-      page_title: '深入Flask配置',
-      locale: 'zh'
-    };
-
-    function loadRemark42() {
-      (function (c) {
-        for (var i = 0; i < c.length; i++) {
-          var d = document, s = d.createElement('script');
-          s.src = remark_config.host + '/web/' + c[i] + '.js';
-          s.defer = true;
-          (d.head || d.body).appendChild(s);
-        }
-      })(remark_config.components || [ 'embed' ]);
-    }
-
-    waitElementVisible('remark42', loadRemark42);
+    Fluid.utils.waitElementVisible('comments', function() {
+      var light = 'github-dark';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'aim467/commit-utteranc');
+      s.setAttribute('issue-term', 'title');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
   </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 
 
               </article>
@@ -918,7 +550,7 @@ app<span class="token punctuation">.</span>config<span class="token punctuation"
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -930,16 +562,15 @@ app<span class="token punctuation">.</span>config<span class="token punctuation"
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -960,34 +591,41 @@ app<span class="token punctuation">.</span>config<span class="token punctuation"
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://travellings.now.sh/" target="blank" title="开往-友链接力"><img src="https://travellings.now.sh/assets/logo.gif" srcset="/img/loading.gif" alt="开往-友链接力" width="120"></a><br/>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
     
 
     
+  </main>
 
-    
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
+
+  
+
+  
 </footer>
 
 <!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
@@ -999,110 +637,52 @@ app<span class="token punctuation">.</span>config<span class="token punctuation"
 
 
   
-    
-  
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "深入Flask配置&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-      icon: "§"
+      typing(title)
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+    })(window, document);
   </script>
 
 
 
   <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
   </script>
 
 
@@ -1111,55 +691,6 @@ app<span class="token punctuation">.</span>config<span class="token punctuation"
 
 
 
-  
-  
-    <script type="text/javascript">
-      //定义获取词语下标
-      var a_idx = 0;
-      jQuery(document).ready(function ($) {
-        //点击body时触发事件
-        $("body").click(function (e) {
-          //需要显示的词语
-          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
-          //设置词语给span标签
-          var $i = $("<span/>").text(a[a_idx]);
-          //下标等于原来下标+1  余 词语总数
-          a_idx = (a_idx + 1) % a.length;
-          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
-          //获取x和y的指针坐标
-          var x = e.pageX, y = e.pageY;
-          //在鼠标的指针的位置给$i定义的span标签添加css样式
-          $i.css({
-            "z-index": 999,
-            "top": y - 20,
-            "left": x,
-            "position": "absolute",
-            "font-weight": "bold",
-            "color": rand_color()
-          });
-          // 随机颜色
-          function rand_color() {
-            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-          }
-          //在body添加这个标签
-          $("body").append($i);
-          //animate() 方法执行 CSS 属性集的自定义动画。
-          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
-          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
-          $i.animate({
-            //将原来的位置向上移动180
-            "top": y - 180,
-            "opacity": 0
-            //1500动画的速度
-          }, 1500, function () {
-            //时间到了自动删除
-            $i.remove();
-          });
-        });
-      })
-      ;
-    </script>
-  
 
 
 
@@ -1168,9 +699,8 @@ app<span class="token punctuation">.</span>config<span class="token punctuation"
 
 
 
-
-
-
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 

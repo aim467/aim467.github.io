@@ -3,10 +3,10 @@
   <title>DedSec&#39;s blog</title>
   
   
-  <link href="/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-10-06T11:29:33.316Z</updated>
+  <updated>2020-05-16T09:41:59.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,23 +17,46 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2020/1114/16107.html"/>
+    <id>http://yoursite.com/2020/1114/16107.html</id>
+    <published>2020-11-14T06:16:07.327Z</published>
+    <updated>2020-05-16T09:41:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="测试" scheme="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+    <category term="Code" scheme="http://yoursite.com/tags/Code/"/>
+    
+  </entry>
+  
+  <entry>
     <title>深入Flask配置</title>
     <link href="http://yoursite.com/2020/0710/46196.html"/>
     <id>http://yoursite.com/2020/0710/46196.html</id>
     <published>2020-07-10T06:55:59.000Z</published>
-    <updated>2020-10-06T11:29:33.316Z</updated>
-    
-    <summary type="html">
-    
-      在Flask中，提供了丰富的全局配置来方便开发，以下是开发过程当中几个常用的配置选项。
-    
-    </summary>
+    <updated>2020-11-05T08:43:10.000Z</updated>
     
     
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    <summary type="html">在Flask中，提供了丰富的全局配置来方便开发，以下是开发过程当中几个常用的配置选项。</summary>
     
     
-      <category term="Flask" scheme="http://yoursite.com/tags/Flask/"/>
+    
+    <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+    <category term="Flask" scheme="http://yoursite.com/tags/Flask/"/>
     
   </entry>
   
@@ -42,46 +65,17 @@
     <link href="http://yoursite.com/2020/0516/12368.html"/>
     <id>http://yoursite.com/2020/0516/12368.html</id>
     <published>2020-05-16T14:27:19.000Z</published>
-    <updated>2020-09-14T02:57:07.989Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Linux-与-Android-剪切板同步方案&quot;&gt;&lt;a href=&quot;#Linux-与-Android-剪切板同步方案&quot; class=&quot;headerlink&quot; title=&quot;Linux 与 Android 剪切板同步方案&quot;&gt;&lt;/a&gt;&lt;code&gt;Linux&lt;/code&gt; 与 &lt;code&gt;Android&lt;/code&gt; 剪切板同步方案&lt;/h1&gt;&lt;p&gt;在 &lt;code&gt;Linux&lt;/code&gt; 传输文件，图片，或是发送文字，都不如 &lt;code&gt;Windows&lt;/code&gt; 那样方便，在 &lt;code&gt;Windows&lt;/code&gt;  可以通过 &lt;code&gt;QQ&lt;/code&gt; 里面发送文件，图片，或是文字等等。虽然说在&lt;code&gt;Linux&lt;/code&gt;上可以通过其他方式来解决传文件的文件，例如：&lt;/p&gt;
-    
-    </summary>
+    <updated>2020-09-14T02:57:07.000Z</updated>
     
     
-      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    <summary type="html">&lt;h1 id=&quot;Linux-与-Android-剪切板同步方案&quot;&gt;&lt;a href=&quot;#Linux-与-Android-剪切板同步方案&quot; class=&quot;headerlink&quot; title=&quot;Linux 与 Android 剪切板同步方案&quot;&gt;&lt;/a&gt;&lt;code&gt;Linux&lt;/code&gt; 与 &lt;code&gt;Android&lt;/code&gt; 剪切板同步方案&lt;/h1&gt;&lt;p&gt;在 &lt;code&gt;Linux&lt;/code&gt; 传输文件，图片，或是发送文字，都不如 &lt;code&gt;Windows&lt;/code&gt; 那样方便，在 &lt;code&gt;Windows&lt;/code&gt;  可以通过 &lt;code&gt;QQ&lt;/code&gt; 里面发送文件，图片，或是文字等等。虽然说在&lt;code&gt;Linux&lt;/code&gt;上可以通过其他方式来解决传文件的文件，例如：&lt;/p&gt;</summary>
     
     
-      <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2020/0515/16107.html"/>
-    <id>http://yoursite.com/2020/0515/16107.html</id>
-    <published>2020-05-15T09:00:19.563Z</published>
-    <updated>2020-05-16T09:41:59.580Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;
-        
-      
-    
-    </summary>
+    <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
     
     
-      <category term="测试" scheme="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="Code" scheme="http://yoursite.com/tags/Code/"/>
+    <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
