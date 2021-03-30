@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-16T09:41:59.000Z</updated>
+  <updated>2021-03-30T11:59:04.880Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浅谈上下文</title>
+    <link href="http://yoursite.com/2021/0326/10778.html"/>
+    <id>http://yoursite.com/2021/0326/10778.html</id>
+    <published>2021-03-26T12:00:52.000Z</published>
+    <updated>2021-03-30T11:59:04.880Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;上下文管理器&quot;&gt;&lt;a href=&quot;#上下文管理器&quot; class=&quot;headerlink&quot; title=&quot;上下文管理器&quot;&gt;&lt;/a&gt;上下文管理器&lt;/h1&gt;&lt;p&gt;写 &lt;code&gt; Python&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+    <category term="上下文" scheme="http://yoursite.com/tags/%E4%B8%8A%E4%B8%8B%E6%96%87/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>

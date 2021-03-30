@@ -323,20 +323,19 @@
 
 
 
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
-  </script>
-
-
+    <script  src="/js/local-search.js" ></script>
+        <script>
+            (function() {
+                var path = "/local-search.xml";
+                $('#local-search-input').on('click', function() {
+                    searchFunc(path, 'local-search-input', 'local-search-result');
+                });
+                $('#modalSearch').on('shown.bs.modal', function() {
+                    $('#local-search-input').focus();
+                });
+            })()
+        </script>
+        
 
 
 

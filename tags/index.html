@@ -191,7 +191,7 @@
                 
 
 <div class="text-center tagcloud">
-  <a href="/tags/Code/" style="font-size: 15px; color: #bbe">Code</a> <a href="/tags/Flask/" style="font-size: 15px; color: #bbe">Flask</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 15px; color: #bbe">工具</a>
+  <a href="/tags/Code/" style="font-size: 15px; color: #bbe">Code</a> <a href="/tags/Flask/" style="font-size: 15px; color: #bbe">Flask</a> <a href="/tags/%E4%B8%8A%E4%B8%8B%E6%96%87/" style="font-size: 15px; color: #bbe">上下文</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 15px; color: #bbe">工具</a>
 </div>
 
               </div>
@@ -304,20 +304,19 @@
 
 
 
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
-  </script>
-
-
+    <script  src="/js/local-search.js" ></script>
+        <script>
+            (function() {
+                var path = "/local-search.xml";
+                $('#local-search-input').on('click', function() {
+                    searchFunc(path, 'local-search-input', 'local-search-result');
+                });
+                $('#modalSearch').on('shown.bs.modal', function() {
+                    $('#local-search-input').focus();
+                });
+            })()
+        </script>
+        
 
 
 

@@ -296,6 +296,12 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2021/0326/10778.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">浅谈上下文</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
@@ -475,20 +481,19 @@
 
 
 
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
-  </script>
-
-
+    <script  src="/js/local-search.js" ></script>
+        <script>
+            (function() {
+                var path = "/local-search.xml";
+                $('#local-search-input').on('click', function() {
+                    searchFunc(path, 'local-search-input', 'local-search-result');
+                });
+                $('#modalSearch').on('shown.bs.modal', function() {
+                    $('#local-search-input').focus();
+                });
+            })()
+        </script>
+        
 
 
 
