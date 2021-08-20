@@ -244,7 +244,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年9月14日 上午
+                  本文最后更新于：2021年8月20日 下午
                 
               </p>
             
@@ -272,30 +272,30 @@
 <p><code>KDE Connect</code>可以在 <code>Google Play</code> 下载。</p>
 <h2 id="1-安装方式"><a href="#1-安装方式" class="headerlink" title="1. 安装方式"></a>1. 安装方式</h2><p><code>GSConnect</code> 提供了两种安装方式，一种是通过从官方仓库的 <code>release</code> 页面下载最后一个版本的压缩包安装，另一种方式就是克隆官方仓库进行编译。</p>
 <p>第一种方式的方法如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">mkdir -p ~/.local/share/gnome-shell/extensions<br>rm -rf ~/.local/share/gnome-shell/extensions/gsconnect@andyholmes.github.io<br>unzip -o gsconnect@andyholmes.github.io.zip -d ~/.local/share/gnome-shell/extensions/gsconnect@andyholmes.github.io<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">mkdir -p ~/.local/share/gnome-shell/extensions<br>rm -rf ~/.local/share/gnome-shell/extensions/gsconnect@andyholmes.github.io<br>unzip -o gsconnect@andyholmes.github.io.zip -d ~/.local/share/gnome-shell/extensions/gsconnect@andyholmes.github.io<br></code></pre></div></td></tr></table></figure>
 
 <p>第二种方法如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git clone https://github.com/andyholmes/gnome-shell-extension-gsconnect.git<br>cd gnome-shell-extension-gsconnect/<br>meson _build .<br>ninja -C _build install-zip<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git clone https://github.com/andyholmes/gnome-shell-extension-gsconnect.git<br>cd gnome-shell-extension-gsconnect/<br>meson _build .<br>ninja -C _build install-zip<br></code></pre></div></td></tr></table></figure>
 
 <p>选择第一种方式更方便，不需要编译，我选择的是第一种方式。</p>
 <p>使用第二种安装方式的时候，编译出现了点问题，缺少两个构建工具：meson， ninja。</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo aptitude install meson<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo aptitude install meson<br></code></pre></div></td></tr></table></figure>
 
 
 
 <p>同时会安装 meson和ninja。</p>
 <p>开始，构建，报错。</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">The Meson build system<br>Version: 0.45.1<br>Source dir: /home/aim/SoftWare/gnome-shell-extension-gsconnect<br>Build dir: /home/aim/SoftWare/gnome-shell-extension-gsconnect/_build<br>Build type: native build<br><br>meson.build:1:0: ERROR: Meson version is 0.45.1 but project requires &gt;= 0.49.0.<br><br>A full log can be found at /home/aim/SoftWare/gnome-shell-extension-gsconnect/_build/meson-logs/meson-log.txt<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">The Meson build system<br>Version: 0.45.1<br>Source dir: /home/aim/SoftWare/gnome-shell-extension-gsconnect<br>Build dir: /home/aim/SoftWare/gnome-shell-extension-gsconnect/_build<br>Build type: native build<br><br>meson.build:1:0: ERROR: Meson version is 0.45.1 but project requires &gt;= 0.49.0.<br><br>A full log can be found at /home/aim/SoftWare/gnome-shell-extension-gsconnect/_build/meson-logs/meson-log.txt<br></code></pre></div></td></tr></table></figure>
 
 <p>原来是meson版本低于依赖的版本。安装高版本的meson</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">pip install meson==0.49.0<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">pip install meson==0.49.0<br></code></pre></div></td></tr></table></figure>
 
 
 
 <h2 id="2-开始使用"><a href="#2-开始使用" class="headerlink" title="2. 开始使用"></a>2. 开始使用</h2><p>手机要和电脑处在同一个局域网，不然搜索不到。</p>
 <p>手机打开 <code>Kde Connect</code>，点击 <code>⊕ Pair new device</code> 扫描周围设备进行配对，出现电脑名字的时候点击进行配对，电脑上点击<code>accept</code> 即可配对成功。</p>
 <p>同时，为了方便的管理电脑上的剪切板剪切的文件，安装一个剪切板管理软件。</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo aptitude install copyq<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo aptitude install copyq<br></code></pre></div></td></tr></table></figure>
 
 
             </div>

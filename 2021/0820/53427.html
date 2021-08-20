@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://img.imgdb.cn/item/604db6635aedab222ce5a0bd.png">
+    <link rel="icon" href="https://img.imgdb.cn/item/604db6635aedab222ce5a0bd.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <meta name="theme-color" content="#2f4154">
+
+    <meta name="description" content="个人网站">
+
+    <meta name="author" content="DedSec">
+    <meta name="keywords" content="DedSec">
+
+    <title>记一次博客部署 - DedSec&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+    <link rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/atom-one-light.min.css" />
+
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+
+    <!-- 主题依赖的图标库，不要自行修改 -->
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+    <link rel="stylesheet" href="/css/main.css" />
+
+    <!-- 自定义样式保持在最底部 -->
+
+
+    <script id="fluid-configs">
+        var Fluid = window.Fluid || {};
+        var CONFIG = {
+            "hostname": "dedesec2z.top",
+            "root": "/",
+            "version": "1.8.8",
+            "typing": {
+                "enable": true,
+                "typeSpeed": 70,
+                "cursorChar": "_",
+                "loop": false
+            },
+            "anchorjs": {
+                "enable": true,
+                "element": "h1,h2,h3,h4,h5,h6",
+                "placement": "right",
+                "visible": "hover",
+                "icon": "❡"
+            },
+            "progressbar": {
+                "enable": true,
+                "height_px": 3,
+                "color": "#29d",
+                "options": {
+                    "showSpinner": false,
+                    "trickleSpeed": 100
+                }
+            },
+            "copy_btn": true,
+            "image_zoom": {
+                "enable": true
+            },
+            "toc": {
+                "enable": true,
+                "headingSelector": "h1,h2,h3,h4,h5,h6",
+                "collapseDepth": 0
+            },
+            "lazyload": {
+                "enable": true,
+                "onlypost": false
+            },
+            "web_analytics": {
+                "enable": false,
+                "baidu": null,
+                "google": null,
+                "gtag": null,
+                "tencent": {
+                    "sid": null,
+                    "cid": null
+                },
+                "woyaola": null,
+                "cnzz": null,
+                "leancloud": {
+                    "app_id": null,
+                    "app_key": null,
+                    "server_url": null
+                }
+            }
+        };
+    </script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/color-schema.js"></script>
+    <meta name="generator" content="Hexo 5.4.0">
+    <link rel="alternate" href="/atom.xml" title="DedSec's blog" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header style="height: 70vh;">
+        <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/">&nbsp;<strong>Dedsec</strong>&nbsp;</a>
+
+                <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto text-center">
+
+
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">
+                                <i class="iconfont icon-home-fill"></i> 首页
+                            </a>
+                        </li>
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/archives/">
+                                <i class="iconfont icon-archive-fill"></i> 归档
+                            </a>
+                        </li>
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/categories/">
+                                <i class="iconfont icon-category-fill"></i> 分类
+                            </a>
+                        </li>
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tags/">
+                                <i class="iconfont icon-tags-fill"></i> 标签
+                            </a>
+                        </li>
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about/">
+                                <i class="iconfont icon-user-fill"></i> 关于
+                            </a>
+                        </li>
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/links/">
+                                <i class="iconfont icon-link-fill"></i> 友链
+                            </a>
+                        </li>
+
+
+
+                        <li class="nav-item" id="search-btn">
+                            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+                        </li>
+
+
+                        <li class="nav-item" id="color-toggle-btn">
+                            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="banner" id="banner" parallax=true style="background: url('https://buckets-me.oss-cn-beijing.aliyuncs.com/wallhaven-z8ok9y.jpg') no-repeat center center;
+           background-size: cover;">
+            <div class="full-bg-img">
+                <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+                    <div class="page-header text-center fade-in-up">
+                        <span class="h2" id="subtitle" title="记一次博客部署">
+              
+            </span>
+
+
+                        <div class="mt-3">
+
+
+                            <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-08-20 16:30" pubdate>
+        2021年8月20日 下午
+      </time>
+    </span>
+
+                        </div>
+
+                        <div class="mt-1">
+
+
+                            <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.9k 字
+    </span>
+
+
+
+
+                            <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      23
+       分钟
+    </span>
+
+
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+
+
+        <div class="container-fluid nopadding-x">
+            <div class="row nomargin-x">
+                <div class="d-none d-lg-block col-lg-2"></div>
+                <div class="col-lg-8 nopadding-x-md">
+                    <div class="container nopadding-x-md" id="board-ctn">
+                        <div class="py-5" id="board">
+                            <article class="post-content mx-auto">
+                                <!-- SEO header -->
+                                <h1 style="display: none">记一次博客部署</h1>
+
+                                <p class="note note-info">
+
+                                    本文最后更新于：2021年8月20日 下午
+
+                                </p>
+
+                                <div class="markdown-body">
+                                    <h1 id="一次博客部署的经历">
+                                        <a href="#一次博客部署的经历" class="headerlink" title="一次博客部署的经历"></a>一次博客部署的经历</h1>
+                                    <h2 id="一、前言">
+                                        <a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2>
+                                    <p>在六七月份前前后后花了一个多月写一个博客项目，但是我还没有在真实环境部署过项目的经历，正好现在已经部署完了，就把部署过程写下来吧，以后忘记怎么部署了还可以看看。:)</p>
+                                    <h2 id="二、服务器-域名购买">
+                                        <a href="#二、服务器-域名购买" class="headerlink" title="二、服务器/域名购买"></a>二、服务器/域名购买</h2>
+                                    <p>考虑到国内的服务器和域名还是比较便宜的，所以就选择了在国内购买服务器和域名。我购买的是阿里云的服务器以及域名。</p>
+                                    <p>为域名配置好了 <code>www</code> 记录，让域名指向我购买的服务器 <code>IP</code> 地址。</p>
+                                    <h2 id="三，服务器相关配置">
+                                        <a href="#三，服务器相关配置" class="headerlink" title="三，服务器相关配置"></a>三，服务器相关配置</h2>
+                                    <p>购买服务器的第一件事就是配置 <code>ssh</code> 远程连接。首先修改服务器的 <code>/etc/ssh/sshd_config</code>，修改如下配置。</p>
+                                    <figure class="highlight sh">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs sh"><span class="hljs-comment"># 禁止密码登录</span><br>PasswordAuthentication no<br><span class="hljs-comment"># 关闭 root 登录</span><br>PermitRootLogin no<br><span class="hljs-comment"># 修改 ssh 端口</span><br>Port 2022<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>这些配置防止一些频繁的暴力破解攻击，接下来在本地生成公私钥对。</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 如果没特殊需求可以一路回车</span><br>ssh-keygen -t rsa<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>把私钥留在本地，上传公钥到服务器，并且将公钥中的内容导入 <code>.ssh/authorized_keys</code> 中。</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">scp .ssh/id_rsa.pub root@xx.xx.xx.xx:/root/. <br><br>cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>这个时候还不可以登录，因为修改了默认的 22 端口，默认 22 是被阿里云的安全组放行的，但我修改的端口是没被阿里云的安全组放行的，所以要配置安全组规则。</p>
+                                    <p>找到安全组设置，手动添加一条规则，优先级任意，协议类型为自定义 <code>TCP</code>，目的为 2022，源为：<code>0.0.0.0/0</code>，保存。</p>
+                                    <p>重启 <code>ssh</code> ，退出服务器，采用密钥登录。</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">service ssh restart<br><br><br><span class="hljs-meta">#</span><span class="bash"> 采用密钥登录</span><br>ssh -i ~/.ssh/id_rsa root xx.xx.xx.xx<br><br>vim /etc/ssh/ssh_config<br><span class="hljs-meta">#</span><span class="bash"> 取消下面这行的注释，配置私钥默认路径</span><br>IdentityFile ~/.ssh/id_rsa<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>当然有了这些还不够，所以还可以使用 <code>fail2ban</code> 来做更强力的防护。</p>
+                                    <p>安装 <code>fail2ban</code>。</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt-get update<br>sudo apt-get install fail2ban<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>检查 <code>fail2ban</code> 是否启动</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">sudo systemctl status fail2ban<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>在 <code>/etc/fail2ban/jail.d/</code> 中创建一个 <code>sshd.local</code>，也就是创建一个新的监狱规则。<code>fail2ban</code> 最终会读取这个 监狱配置。</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">[sshd]<br><span class="hljs-meta">#</span><span class="bash"> 是否启用，不启用则为 <span class="hljs-literal">false</span></span><br>enabled = true<br><br><span class="hljs-meta">#</span><span class="bash"> 如果 SSH 是其他端口，需要在这里修改</span><br>port = ssh<br><br><span class="hljs-meta">#</span><span class="bash"> 存储日志文件的路径</span><br>logpath = %(sshd_log)s<br><br><span class="hljs-meta">#</span><span class="bash"> 最大尝试次数</span><br>maxretry = 3<br><br><span class="hljs-meta">#</span><span class="bash"> 拦截时间</span><br>bantime = 172800<br><br><span class="hljs-meta">#</span><span class="bash"> 过滤规则</span><br>filter = sshd<br><br><span class="hljs-meta">#</span><span class="bash"> 过滤的时长（秒）</span><br>findtime = 3600 <br><br><span class="hljs-meta">#</span><span class="bash"> 执行的动作</span><br>action = iptables[name=SSH, port=ssh, protocol=tcp]<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>重启 <code>fail2ban</code>，并且查看规则。</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">fail2ban-client reload<br><br>fail2ban-client status sshd <br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+
+
+                                    <h2 id="三，项目部署">
+                                        <a href="#三，项目部署" class="headerlink" title="三，项目部署"></a>三，项目部署</h2>
+                                    <p>在本地进行 <code>maven</code> 打包，并且上传到服务器。</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">maven package<br><br>scp target/MyBlog.jar  root@xx.xx.xx.xx:/root/.<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>在服务器中安装 <code>jre</code>，由于只是每次部署到服务器的都是编译好的，所以只需安装 <code>jre</code> 即可。</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">apt-get install default-jre<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>安装数据库，这里安装的是 <code>mariadb</code> 数据库。</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">apt-get install mariadb-server <br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>进行 <code>mariadb</code> 初始化。</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">sudo mysql_secure_installation<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>修改 <code>/etc/mysql/mysql.conf.d/mysqld.cnf</code> 配置数据库的字符集编码。</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">[client]<br>default-character-set=utf8<br><br>[mysqld]<br>character-set-server=utf8<br>collation-server=utf8_general_ci<br><br>[mysql]<br>default-character-set=utf8<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>由于高版本 (8) 的 <code>mysql</code> 加密规则是 <code>caching_sha2_password</code>，会导致普通用户连接不上，所以这里修改加密规则为 <code>mysql_native_password</code>，首先以 <code>root</code> 环境登录进 <code>mysql</code> 交互终端，执行以下命令。</p>
+                                    <figure class="highlight plain">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs mysql">UPDATE mysql.user SET plugin &#x3D; &#39;mysql_native_password&#39; WHERE user &#x3D; &#39;root&#39; AND plugin &#x3D; &#39;unix_socket&#39;;<br>FLUSH PRIVILEGES;<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>退出 <code>mysql</code> ，重启。</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">sudo /etc/init.d/mysql restart <br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>创建相应的数据库并且导入相应的数据库脚本和数据脚本。</p>
+                                    <p>由于每次启动都需要写很长的命令，所以写一个脚本，方便运行。</p>
+                                    <p>启动脚本：</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/bash</span><br>name=MyBlog.jar<br>nohup java -jar $&#123;name&#125; &amp;<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>暂停脚本：</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/bash</span><br>port=8080<br><span class="hljs-meta">#</span><span class="bash">根据端口号查询对应的pid</span><br>pid=$(netstat -nlp | grep :$port | awk &#x27;&#123;print $7&#125;&#x27; | awk -F&quot;/&quot; &#x27;&#123; print $1 &#125;&#x27;);<br><br>echo &quot;pid=$pid&quot;<br><span class="hljs-meta">#</span><span class="bash">杀掉对应的进程，如果pid不存在，则不执行</span><br>if [  -n  &quot;$pid&quot;  ];  then<br>    echo &quot;正在执行kill命令...&quot;<br>    if kill  -9  $pid; then<br>       echo &quot;执行成功&quot;<br>    fi<br>fi<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>更改 <code>start.sh</code> 和 <code>stop.sh</code> 的权限。</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">chmod u+x start.sh<br>chmod u+x start.sh<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>找到安全组设置，手动添加一条规则，优先级任意，协议类型为自定义 <code>TCP</code>，目的为 8080，源为：<code>0.0.0.0/0</code>，保存。</p>
+                                    <p>执行 <code>start.sh</code> 脚本，打开浏览器输入服务器 <code>IP</code> 地址 + 8080，即能看到效果。</p>
+                                    <h2 id="四，反向代理与HTTPS">
+                                        <a href="#四，反向代理与HTTPS" class="headerlink" title="四，反向代理与HTTPS"></a>四，反向代理与HTTPS</h2>
+                                    <p>为了让项目更好的访问以及安全性，接下来配置 <code>nginx</code> 和 <code>https</code>，不过这两个前提都是，服务器需要先备案。</p>
+                                    <h3 id="1-备案">
+                                        <a href="#1-备案" class="headerlink" title="1. 备案"></a>1. 备案</h3>
+                                    <p>首先域名是要进行实名认证的，才能进行 <code>ICP</code> 备案，这个实名认证很快。</p>
+                                    <p>然后找到阿里云中的 <strong>备案服务号申请</strong>，右侧是 <code>ECS</code> 名称，在下方列表中选择当前实例，进行申请。</p>
+                                    <blockquote>
+                                        <p>基本都是填一下基本个人信息进行核验，然后就是一些主办者信息(我这里主办者是个人)，网站信息，就是描述这个网站是干什么用的( 由于我写的是博客相关的关键字，后来有客服来打电话帮我修改= = )，后面就是上传个人身份证正反面以及人脸识别，最后信息校验，进入 <code>ICP</code> 备案初审。</p>
+                                        <p>差不过隔了一天，就收到了 <strong>阿里云</strong> 的短信，提示备案订单已经提交交管局审核，去工信部验证页面使用刚才的短信验证码验证。</p>
+                                        <p>隔天之后，收到 <strong>工信部</strong> 的短信，告诉我备案已经成功并且给了备案号，这个需要放入网站的底部中间位置。</p>
+                                    </blockquote>
+                                    <h3 id="2-Nginx-配置与安装">
+                                        <a href="#2-Nginx-配置与安装" class="headerlink" title="2. Nginx 配置与安装"></a>2. Nginx 配置与安装</h3>
+                                    <p><code>nginx</code> 安装：</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">apt-get install nginx<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>修改 <code>/etc/nginx/nginx.conf</code>，加入以下配置：</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">server &#123;<br>    listen 80;<br>    server_name youdomain;<br>    <br>    location / &#123;<br>        proxy_pass http://127.0.0.1:8080; # 端口要对应<br>        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>        proxy_set_header X-Forwarded-Proto $scheme;<br>        proxy_set_header X-Forwarded-Port $server_port;<br>        &#125;<br>&#125;<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>重启 <code> nginx</code></p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">sudo nginx -s reload<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>找到安全组设置，手动添加一条规则，优先级任意，协议类型为自定义 <code>TCP</code>，目的为 80，源为：<code>0.0.0.0/0</code>，保存。</p>
+                                    <p>打开浏览器，输入 域名 即可访问到网站，但此时还不是 HTTPS 的 </p>
+                                    <h3 id="3-HTTPS-配置">
+                                        <a href="#3-HTTPS-配置" class="headerlink" title="3. HTTPS 配置"></a>3. HTTPS 配置</h3>
+                                    <p>要配置 <code>https</code> 首先要有 <code>ssl</code> 证书，这里证书是通过阿里云免费获取。</p>
+                                    <p><img src="https://image-static.segmentfault.com/219/571/2195717228-5a6c3110d3730_fix732" srcset="/img/loading.gif" alt="clipboard.png"></p>
+                                    <p>当申请完成后，在证书管理的列表中选择已申请的证书，进行下载，选择 <code>nginx</code> 格式下载。</p>
+                                    <p>上传到服务器的 <code>/usr/local/nginx/cert</code> 下，一个文件为 <code>pem</code> 后缀的，一个文件为 <code>key</code> 后缀的。</p>
+                                    <p>修改 <code>/etc/nginx/nginx.conf</code> 配置。</p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">server &#123;<br>    listen 80; #监听80 http 重定向到https<br>    server_name you domain;<br>    # 强制转到 https<br>    rewrite ^(.*)$ https://$&#123;server_name&#125;$1 permanent;<br>&#125;<br><br>server &#123;<br>    listen 443 ssl; #监听443 https<br>    server_name you domain; #配置域名<br>    ssl_certificate cert/xxx.pem; #配置证书位置<br>    ssl_certificate_key cert/xxx.key; #配置证书位置<br>    location / &#123;<br>        proxy_pass http://localhost:8080; # 要反向代理的服务器<br>        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>        proxy_set_header X-Forwarded-Proto $scheme;<br>        proxy_set_header X-Forwarded-Port $server_port;<br>    &#125;<br>&#125;<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>重启 <code> nginx</code></p>
+                                    <figure class="highlight shell">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter hljs">
+                                                    <div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div>
+                                                </td>
+                                                <td class="code">
+                                                    <div class="hljs code-wrapper"><pre><code class="hljs shell">sudo nginx -s reload<br></code></pre></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+
+                                    <p>找到安全组设置，手动添加一条规则，优先级任意，协议类型为自定义 <code>TCP</code>，目的为 443，源为：<code>0.0.0.0/0</code>，保存。</p>
+                                    <p>打开浏览器，输入 <code>https:// + 域名</code> ，就可以看到右上角的小绿锁咯。</p>
+
+                                </div>
+                                <hr>
+                                <div>
+                                    <div class="post-metas mb-3">
+
+                                        <div class="post-meta mr-3">
+                                            <i class="iconfont icon-category"></i>
+
+                                            <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+
+                                        </div>
+
+
+                                        <div class="post-meta">
+                                            <i class="iconfont icon-tags"></i>
+
+                                            <a class="hover-with-bg" href="/tags/SpringBoot/">SpringBoot</a>
+
+                                            <a class="hover-with-bg" href="/tags/Nginx/">Nginx</a>
+
+                                            <a class="hover-with-bg" href="/tags/Java/">Java</a>
+
+                                        </div>
+
+                                    </div>
+
+                                    <p class="note note-warning">
+
+                                        本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+
+                                    </p>
+
+
+                                    <div class="post-prevnext">
+                                        <article class="post-prev col-6">
+
+
+                                        </article>
+                                        <article class="post-next col-6">
+
+
+                                            <a href="/2021/0326/10778.html">
+                                                <span class="hidden-mobile">浅谈上下文</span>
+                                                <span class="visible-mobile">下一篇</span>
+                                                <i class="iconfont icon-arrowright"></i>
+                                            </a>
+
+                                        </article>
+                                    </div>
+
+                                </div>
+
+
+                                <!-- Comments -->
+                                <article class="comments" id="comments">
+
+
+
+
+                                    <script type="text/javascript">
+                                        Fluid.utils.waitElementVisible('comments', function() {
+                                            var light = 'github-dark';
+                                            var dark = 'github-dark';
+                                            var schema = document.documentElement.getAttribute('data-user-color-scheme');
+                                            if (schema === 'dark') {
+                                                schema = dark;
+                                            } else {
+                                                schema = light;
+                                            }
+                                            window.UtterancesThemeLight = light;
+                                            window.UtterancesThemeDark = dark;
+                                            var s = document.createElement('script');
+                                            s.setAttribute('src', 'https://utteranc.es/client.js');
+                                            s.setAttribute('repo', 'aim467/commit-utteranc');
+                                            s.setAttribute('issue-term', 'title');
+
+                                            s.setAttribute('theme', schema);
+                                            s.setAttribute('crossorigin', 'anonymous');
+                                            document.getElementById('comments').appendChild(s);
+                                        })
+                                    </script>
+                                    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+                                </article>
+
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+                    <div id="toc">
+                        <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+                        <div class="toc-body" id="toc-body"></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Custom -->
+
+
+
+
+
+        <a id="scroll-top-button" href="#" role="button">
+            <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+        </a>
+
+
+
+        <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+                        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                    </div>
+                    <div class="modal-body mx-3">
+                        <div class="md-form mb-5">
+                            <input type="text" id="local-search-input" class="form-control validate">
+                            <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+                        </div>
+                        <div class="list-group" id="local-search-result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <footer class="text-center mt-5 py-3">
+        <div class="footer-content">
+            <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+        </div>
+
+
+
+
+
+    </footer>
+
+    <!-- SCRIPTS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+    <script>
+        NProgress.configure({
+            "showSpinner": false,
+            "trickleSpeed": 100
+        })
+        NProgress.start()
+        window.addEventListener('load', function() {
+            NProgress.done();
+        })
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+    <script src="/js/debouncer.js"></script>
+    <script src="/js/events.js"></script>
+    <script src="/js/plugins.js"></script>
+
+    <!-- Plugins -->
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js"></script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js"></script>
+
+
+
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
+    <script>
+        (function(window, document) {
+            var typing = Fluid.plugins.typing;
+            var title = document.getElementById('subtitle').title;
+
+            typing(title)
+
+        })(window, document);
+    </script>
+
+
+
+    <script src="/js/local-search.js"></script>
+    <script>
+        (function() {
+            var path = "/local-search.xml";
+            $('#local-search-input').on('click', function() {
+                searchFunc(path, 'local-search-input', 'local-search-result');
+            });
+            $('#modalSearch').on('shown.bs.modal', function() {
+                $('#local-search-input').focus();
+            });
+        })()
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 主题的启动项 保持在最底部 -->
+    <script src="/js/boot.js"></script>
+
+
+
+</body>
+
+</html>
