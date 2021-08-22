@@ -3,11 +3,11 @@
   <title>DedSec&#39;s blog</title>
   
   
-  <link href="http://dedesec2z.top/atom.xml" rel="self"/>
+  <link href="http://dedsec2z.top/atom.xml" rel="self"/>
   
-  <link href="http://dedesec2z.top/"/>
+  <link href="http://dedsec2z.top/"/>
   <updated>2021-08-20T08:40:38.254Z</updated>
-  <id>http://dedesec2z.top/</id>
+  <id>http://dedsec2z.top/</id>
   
   <author>
     <name>DedSec</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>记一次博客部署</title>
-    <link href="http://dedesec2z.top/2021/0820/53427.html"/>
-    <id>http://dedesec2z.top/2021/0820/53427.html</id>
+    <link href="http://dedsec2z.top/2021/0820/53427.html"/>
+    <id>http://dedsec2z.top/2021/0820/53427.html</id>
     <published>2021-08-20T08:30:02.000Z</published>
     <updated>2021-08-20T08:40:38.254Z</updated>
     
@@ -34,21 +34,21 @@
     
     
     
-    <category term="学习笔记" scheme="http://dedesec2z.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="http://dedsec2z.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="SpringBoot" scheme="http://dedesec2z.top/tags/SpringBoot/"/>
+    <category term="SpringBoot" scheme="http://dedsec2z.top/tags/SpringBoot/"/>
     
-    <category term="Nginx" scheme="http://dedesec2z.top/tags/Nginx/"/>
+    <category term="Nginx" scheme="http://dedsec2z.top/tags/Nginx/"/>
     
-    <category term="Java" scheme="http://dedesec2z.top/tags/Java/"/>
+    <category term="Java" scheme="http://dedsec2z.top/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>浅谈上下文</title>
-    <link href="http://dedesec2z.top/2021/0326/10778.html"/>
-    <id>http://dedesec2z.top/2021/0326/10778.html</id>
+    <link href="http://dedsec2z.top/2021/0326/10778.html"/>
+    <id>http://dedsec2z.top/2021/0326/10778.html</id>
     <published>2021-03-26T12:00:52.000Z</published>
     <updated>2021-08-20T08:40:30.070Z</updated>
     
@@ -63,19 +63,19 @@
     
     
     
-    <category term="学习笔记" scheme="http://dedesec2z.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="学习笔记" scheme="http://dedsec2z.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="上下文" scheme="http://dedesec2z.top/tags/%E4%B8%8A%E4%B8%8B%E6%96%87/"/>
+    <category term="上下文" scheme="http://dedsec2z.top/tags/%E4%B8%8A%E4%B8%8B%E6%96%87/"/>
     
-    <category term="Python" scheme="http://dedesec2z.top/tags/Python/"/>
+    <category term="Python" scheme="http://dedsec2z.top/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://dedesec2z.top/2020/1114/16107.html"/>
-    <id>http://dedesec2z.top/2020/1114/16107.html</id>
+    <link href="http://dedsec2z.top/2020/1114/16107.html"/>
+    <id>http://dedsec2z.top/2020/1114/16107.html</id>
     <published>2020-11-14T06:16:07.327Z</published>
     <updated>2020-05-16T09:41:59.000Z</updated>
     
@@ -90,17 +90,17 @@
     
     
     
-    <category term="测试" scheme="http://dedesec2z.top/categories/%E6%B5%8B%E8%AF%95/"/>
+    <category term="测试" scheme="http://dedsec2z.top/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
-    <category term="Code" scheme="http://dedesec2z.top/tags/Code/"/>
+    <category term="Code" scheme="http://dedsec2z.top/tags/Code/"/>
     
   </entry>
   
   <entry>
     <title>深入Flask配置</title>
-    <link href="http://dedesec2z.top/2020/0710/46196.html"/>
-    <id>http://dedesec2z.top/2020/0710/46196.html</id>
+    <link href="http://dedsec2z.top/2020/0710/46196.html"/>
+    <id>http://dedsec2z.top/2020/0710/46196.html</id>
     <published>2020-07-10T06:55:59.000Z</published>
     <updated>2021-08-20T08:40:44.158Z</updated>
     
@@ -109,19 +109,19 @@
     
     
     
-    <category term="源码阅读" scheme="http://dedesec2z.top/categories/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
+    <category term="源码阅读" scheme="http://dedsec2z.top/categories/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
     
     
-    <category term="Flask" scheme="http://dedesec2z.top/tags/Flask/"/>
+    <category term="Flask" scheme="http://dedsec2z.top/tags/Flask/"/>
     
-    <category term="Python" scheme="http://dedesec2z.top/tags/Python/"/>
+    <category term="Python" scheme="http://dedsec2z.top/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Linux与Android剪切板同步方案</title>
-    <link href="http://dedesec2z.top/2020/0516/12368.html"/>
-    <id>http://dedesec2z.top/2020/0516/12368.html</id>
+    <link href="http://dedsec2z.top/2020/0516/12368.html"/>
+    <id>http://dedsec2z.top/2020/0516/12368.html</id>
     <published>2020-05-16T14:27:19.000Z</published>
     <updated>2021-08-20T08:40:46.406Z</updated>
     
@@ -130,10 +130,10 @@
     
     
     
-    <category term="Linux" scheme="http://dedesec2z.top/categories/Linux/"/>
+    <category term="Linux" scheme="http://dedsec2z.top/categories/Linux/"/>
     
     
-    <category term="工具" scheme="http://dedesec2z.top/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="工具" scheme="http://dedsec2z.top/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
