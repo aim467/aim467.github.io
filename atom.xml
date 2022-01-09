@@ -6,7 +6,7 @@
   <link href="http://dedsec2z.top/atom.xml" rel="self"/>
   
   <link href="http://dedsec2z.top/"/>
-  <updated>2021-08-20T08:40:38.254Z</updated>
+  <updated>2022-01-09T15:08:33.351Z</updated>
   <id>http://dedsec2z.top/</id>
   
   <author>
@@ -17,11 +17,51 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>再见,2021</title>
+    <link href="http://dedsec2z.top/2022/0109/24084.html"/>
+    <id>http://dedsec2z.top/2022/0109/24084.html</id>
+    <published>2022-01-09T08:37:37.000Z</published>
+    <updated>2022-01-09T15:08:33.351Z</updated>
+    
+    
+    <summary type="html">我的2021</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://dedsec2z.top/2021/0828/16107.html"/>
+    <id>http://dedsec2z.top/2021/0828/16107.html</id>
+    <published>2021-08-28T07:28:32.644Z</published>
+    <updated>2020-05-16T09:41:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="测试" scheme="http://dedsec2z.top/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+    <category term="Code" scheme="http://dedsec2z.top/tags/Code/"/>
+    
+  </entry>
+  
+  <entry>
     <title>记一次博客部署</title>
     <link href="http://dedsec2z.top/2021/0820/53427.html"/>
     <id>http://dedsec2z.top/2021/0820/53427.html</id>
     <published>2021-08-20T08:30:02.000Z</published>
-    <updated>2021-08-20T08:40:38.254Z</updated>
+    <updated>2021-08-20T08:40:38.000Z</updated>
     
     
       
@@ -50,7 +90,7 @@
     <link href="http://dedsec2z.top/2021/0326/10778.html"/>
     <id>http://dedsec2z.top/2021/0326/10778.html</id>
     <published>2021-03-26T12:00:52.000Z</published>
-    <updated>2021-08-20T08:40:30.070Z</updated>
+    <updated>2021-08-20T08:40:30.000Z</updated>
     
     
       
@@ -73,36 +113,11 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://dedsec2z.top/2020/1114/16107.html"/>
-    <id>http://dedsec2z.top/2020/1114/16107.html</id>
-    <published>2020-11-14T06:16:07.327Z</published>
-    <updated>2020-05-16T09:41:59.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
-        
-      
-    
-    
-    
-    <category term="测试" scheme="http://dedsec2z.top/categories/%E6%B5%8B%E8%AF%95/"/>
-    
-    
-    <category term="Code" scheme="http://dedsec2z.top/tags/Code/"/>
-    
-  </entry>
-  
-  <entry>
     <title>深入Flask配置</title>
     <link href="http://dedsec2z.top/2020/0710/46196.html"/>
     <id>http://dedsec2z.top/2020/0710/46196.html</id>
     <published>2020-07-10T06:55:59.000Z</published>
-    <updated>2021-08-20T08:40:44.158Z</updated>
+    <updated>2022-01-09T08:41:21.944Z</updated>
     
     
     <summary type="html">在Flask中，提供了丰富的全局配置来方便开发，以下是开发过程当中几个常用的配置选项。</summary>
@@ -112,9 +127,9 @@
     <category term="源码阅读" scheme="http://dedsec2z.top/categories/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
     
     
-    <category term="Flask" scheme="http://dedsec2z.top/tags/Flask/"/>
-    
     <category term="Python" scheme="http://dedsec2z.top/tags/Python/"/>
+    
+    <category term="Flask" scheme="http://dedsec2z.top/tags/Flask/"/>
     
   </entry>
   
@@ -123,7 +138,7 @@
     <link href="http://dedsec2z.top/2020/0516/12368.html"/>
     <id>http://dedsec2z.top/2020/0516/12368.html</id>
     <published>2020-05-16T14:27:19.000Z</published>
-    <updated>2021-08-20T08:40:46.406Z</updated>
+    <updated>2021-08-20T08:40:46.000Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Linux-与-Android-剪切板同步方案&quot;&gt;&lt;a href=&quot;#Linux-与-Android-剪切板同步方案&quot; class=&quot;headerlink&quot; title=&quot;Linux 与 Android 剪切板同步方案&quot;&gt;&lt;/a&gt;&lt;code&gt;Linux&lt;/code&gt; 与 &lt;code&gt;Android&lt;/code&gt; 剪切板同步方案&lt;/h1&gt;&lt;p&gt;在 &lt;code&gt;Linux&lt;/code&gt; 传输文件，图片，或是发送文字，都不如 &lt;code&gt;Windows&lt;/code&gt; 那样方便，在 &lt;code&gt;Windows&lt;/code&gt;  可以通过 &lt;code&gt;QQ&lt;/code&gt; 里面发送文件，图片，或是文字等等。虽然说在&lt;code&gt;Linux&lt;/code&gt;上可以通过其他方式来解决传文件的文件，例如：&lt;/p&gt;</summary>
