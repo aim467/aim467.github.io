@@ -6,7 +6,7 @@
   <link href="http://dedsec2z.top/atom.xml" rel="self"/>
   
   <link href="http://dedsec2z.top/"/>
-  <updated>2022-01-27T06:16:19.078Z</updated>
+  <updated>2022-06-14T08:13:39.702Z</updated>
   <id>http://dedsec2z.top/</id>
   
   <author>
@@ -17,14 +17,14 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>再见,2021</title>
-    <link href="http://dedsec2z.top/2022/0109/24084.html"/>
-    <id>http://dedsec2z.top/2022/0109/24084.html</id>
-    <published>2022-01-09T08:37:37.000Z</published>
-    <updated>2022-01-27T06:16:19.078Z</updated>
+    <title>6月总结</title>
+    <link href="http://dedsec2z.top/2022/0614/9138.html"/>
+    <id>http://dedsec2z.top/2022/0614/9138.html</id>
+    <published>2022-06-14T08:09:37.000Z</published>
+    <updated>2022-06-14T08:13:39.702Z</updated>
     
     
-    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    <summary type="html">And the sun shone, having no alternative. Well, it&#39;s time to seize the fucking day!</summary>
     
     
     
@@ -33,9 +33,9 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://dedsec2z.top/2021/0828/16107.html"/>
-    <id>http://dedsec2z.top/2021/0828/16107.html</id>
-    <published>2021-08-28T07:28:32.644Z</published>
+    <link href="http://dedsec2z.top/2022/0404/16107.html"/>
+    <id>http://dedsec2z.top/2022/0404/16107.html</id>
+    <published>2022-04-04T06:03:24.129Z</published>
     <updated>2020-05-16T09:41:59.000Z</updated>
     
     
@@ -53,6 +53,21 @@
     
     
     <category term="Code" scheme="http://dedsec2z.top/tags/Code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>再见,2021</title>
+    <link href="http://dedsec2z.top/2022/0109/24084.html"/>
+    <id>http://dedsec2z.top/2022/0109/24084.html</id>
+    <published>2022-01-09T08:37:37.000Z</published>
+    <updated>2022-06-02T01:02:01.589Z</updated>
+    
+    
+    <summary type="html">我的2021</summary>
+    
+    
+    
     
   </entry>
   
@@ -117,7 +132,7 @@
     <link href="http://dedsec2z.top/2020/0710/46196.html"/>
     <id>http://dedsec2z.top/2020/0710/46196.html</id>
     <published>2020-07-10T06:55:59.000Z</published>
-    <updated>2022-01-09T08:41:21.944Z</updated>
+    <updated>2022-06-14T08:10:12.589Z</updated>
     
     
     <summary type="html">在Flask中，提供了丰富的全局配置来方便开发，以下是开发过程当中几个常用的配置选项。</summary>

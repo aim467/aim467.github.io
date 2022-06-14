@@ -1,0 +1,980 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://img.imgdb.cn/item/604db6635aedab222ce5a0bd.png">
+  <link rel="icon" href="https://img.imgdb.cn/item/604db6635aedab222ce5a0bd.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="DedSec">
+  <meta name="keywords" content="DedSec">
+  
+    <meta name="description" content="And the sun shone, having no alternative. Well, it&#39;s time to seize the fucking day!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="6月总结">
+<meta property="og:url" content="http://dedsec2z.top/2022/0614/9138.html">
+<meta property="og:site_name" content="DedSec&#39;s blog">
+<meta property="og:description" content="And the sun shone, having no alternative. Well, it&#39;s time to seize the fucking day!">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2022/06/14/X4fjfA.png">
+<meta property="article:published_time" content="2022-06-14T08:09:37.000Z">
+<meta property="article:modified_time" content="2022-06-14T08:13:39.702Z">
+<meta property="article:author" content="DedSec">
+<meta property="article:tag" content="DedSec">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s1.ax1x.com/2022/06/14/X4fjfA.png">
+  
+  
+  
+  <title>6月总结 - DedSec&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dedsec2z.top","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"f37065c112a18b90d7504fca7fe9928a","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="DedSec's blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Dedsec</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://s1.ax1x.com/2022/06/14/X4fjfA.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="6月总结"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-14 16:09" pubdate>
+          2022年6月14日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          16k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          135 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">6月总结</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2022年6月14日 下午
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="6月总结"><a href="#6月总结" class="headerlink" title="6月总结"></a>6月总结</h1><h2 id="0x01-多线程"><a href="#0x01-多线程" class="headerlink" title="0x01 多线程"></a>0x01 多线程</h2><p>在公司进行 BUG 处理的时候遇到一个很诡异的问题，流程是这样的：</p>
+<ul>
+<li>前端根据提供搜索参数，后台根据搜索参数在数据库进行过滤查询</li>
+<li>公司使用自己封装的 ORM 框架对数据库进行条件查询</li>
+<li>返回查询出的结果</li>
+</ul>
+<p>问题就出在查询的逻辑中，下面是出现的几个问题。</p>
+<ul>
+<li>切换页码，首次在页面上显示的总条数不一样，从第二页开始固定在一个值。(核心问题)</li>
+<li>时不时回出现  <code>No Column id found</code></li>
+<li>Jpa 出现查询事务报错</li>
+</ul>
+<h3 id="1-并行流与线程安全"><a href="#1-并行流与线程安全" class="headerlink" title="1. 并行流与线程安全"></a>1. 并行流与线程安全</h3><p>先说说 <code>No Column id found</code> 的问题，如下是发生问题的地方，<code>table(TableSchema)</code> 是模型映射到数据库的一个映射类，主要作用于实体类上，<code>FieldSchema</code> 则是属于 <code>table</code> 的映射字段，这里的作用就是取出映射的数据库字段。</p>
+<p>乍一看好像没什么问题，使用内部迭代的方式，写法很简洁，可读性很好，但是这里使用的是 <code>parallelStream</code> 而不是 <code>stream</code>，问题就出在这里，最终取出来的数据库映射字段不是完整的，导致每次进行映射的时候就会出现 <code>No Column id</code> 的问题。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Java">Map&lt;String, FieldSchema&gt; fields = <span class="hljs-keyword">new</span> HashMap&lt;&gt;(table.getKeys().size());<br>table.getKeys().parallelStream().forEach(key -&gt;<br>                                         fields.put(key.getProperty_id(), key));<br></code></pre></td></tr></table></figure>
+
+<p>这里使用一个例子来展示线程安全的问题：一个很简单的例子，计算数组每个元素的倍数，在多次测试的情况下，得出的总数和原来数组的总数不一致。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testParallelTrap</span><span class="hljs-params">()</span> </span>&#123;<br>    List&lt;Integer&gt; data = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(<span class="hljs-number">10000</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10000</span>; i++) &#123;<br>        data.add(i);<br>    &#125;<br>    List&lt;Integer&gt; result = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>    data.parallelStream().forEach(key -&gt; result.add(key * <span class="hljs-number">2</span>));<br>    System.out.println(<span class="hljs-string">&quot;the result size is: &quot;</span> + result.size());<br>&#125;<br><br><span class="hljs-comment">// the result size is: 9770</span><br><span class="hljs-comment">// the result size is: 9248</span><br></code></pre></td></tr></table></figure>
+
+<p>正确的方式是，在 <code>parallelStream</code> 中使用线程安全的容器，或者使用 <code>stream</code> 中的结束方法 <code>collect()</code> 配合 <code>Collectors</code> 的<code>toList(), toMap(),toSet()</code> 方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-comment">// 使用并发容器</span><br>Map&lt;String, FieldSchema&gt; tables = <span class="hljs-keyword">new</span> Hashtable();<br>Map&lt;String, FieldSchema&gt; conTables = <span class="hljs-keyword">new</span> ConcurrentHashMap();<br>Map&lt;String, FieldSchema&gt; syncTables = Collections.synchronizedMap(<span class="hljs-keyword">new</span> HashMap&lt;&gt;());<br><br>table.getKeys().parallelStream().forEach(key -&gt;<br>                                         tables.put(key.getProperty_id(), key));<br><br><span class="hljs-comment">// 使用 stream 提供的 toMap 方法，如果是 List 就使用 toList，如果是 Set 就使用 toSet</span><br>Map&lt;String, FieldSchema&gt; fields = table.parallelStream().collect(<br>                Collectors.toMap(FieldSchema::getProperty_id, key -&gt; key));<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-static-与线程安全"><a href="#2-static-与线程安全" class="headerlink" title="2. static 与线程安全"></a>2. static 与线程安全</h3><p>找了很久，终于发现出现问题的地方了，由于从数据库获取数据到进行数据转换是多线程方式，目的是为了提高搜索效率；由于 <code>findByIds</code> 以及外部是多线程操作，同时 <code>TableSchema</code> 被定义为静态变量，导致多线程获取的表名会出现重复的情况，所以每次从数据库查询获取的总数不一样。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Address</span> </span>&#123;<br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> TableSchema schema;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> TableSchema <span class="hljs-title">geSchema</span><span class="hljs-params">(String deviceId)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (deviceId.length() &lt; LENGTH) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IndexOutOfBoundsException(<span class="hljs-string">&quot;device id length must greater then 5&quot;</span>);<br>        &#125;<br>        schema.setName(getTableName(deviceId));<br>        <span class="hljs-keyword">return</span> schema;<br>    &#125;    <br>&#125;<br><br><br><span class="hljs-comment">// 这里及其方法外部是多线程操作</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Policy&gt; <span class="hljs-title">findByIds</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String deviceId, <span class="hljs-keyword">final</span> List&lt;UUID&gt; ids)</span></span><br><span class="hljs-function">            <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>        <span class="hljs-keyword">final</span> TableSchema schema = Policy.getPolicySchema(deviceId);<br>        Query query = <span class="hljs-keyword">new</span> Query();<br>        query.setSchema(schema);<br>    	<span class="hljs-comment">// ....</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>多线程中的静态方法：多个线程并发的调用某个类的静态方法，如果静态方法内部没有操作静态成员，那么就不会出现线程安全问题。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testStaticMemberTrap</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++) &#123;<br>        <span class="hljs-keyword">int</span> finalI = i;<br>        Thread thread = <span class="hljs-keyword">new</span> Thread(() -&gt; &#123;<br>            Runner.print(finalI);<br>        &#125;);<br>        thread.start();<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Runner</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span> number)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> count = <span class="hljs-number">10</span>;<br>        count = count * number;<br>        System.out.println(<span class="hljs-string">&quot;result: &quot;</span> + count);<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">result: 10</span><br><span class="hljs-comment">result: 20</span><br><span class="hljs-comment">result: 30</span><br><span class="hljs-comment">result: 40</span><br><span class="hljs-comment">result: 50</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<p>但是如果多个线程调用静态方法时，静态方法内部操作了本类的静态成员变量，那么就会出现线程安全问题：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testStaticMemberTrap</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++) &#123;<br>        <span class="hljs-keyword">int</span> finalI = i;<br>        Thread thread = <span class="hljs-keyword">new</span> Thread(() -&gt; &#123;<br>            Runner.print(finalI);<br>        &#125;);<br>        thread.start();<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Runner</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> count = <span class="hljs-number">10</span>;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span> number)</span> </span>&#123;<br>        count = count * number;<br>        System.out.println(<span class="hljs-string">&quot;result: &quot;</span> + count);<br>    &#125;<br>&#125;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">result: 10</span><br><span class="hljs-comment">result: 20</span><br><span class="hljs-comment">result: 60</span><br><span class="hljs-comment">result: 240</span><br><span class="hljs-comment">result: 1200</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<p>对于静态成员变量来说，属于类的成员变量，所有类的对象同时共享，值的修改对于其他对象均可见，不恰当的使用则会造成线程安全问题。解决的方法是，不要在静态方法里面使用类的静态变量，应该在方法内部使用局部变量，才不会造成线程安全的问题。</p>
+<p>对于项目里的代码来说，需要改成如下方式：由于 <code>TableSchema</code> 的数据在静态代码块就已经填充完毕，故使用克隆的形式重新创建一份新的 <code>TableSchema</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> TableSchema <span class="hljs-title">getSchema</span><span class="hljs-params">(String deviceId)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (deviceId.length() &lt; LENGTH) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IndexOutOfBoundsException(<span class="hljs-string">&quot;设备id必须大于5才合法&quot;</span>);<br>    &#125;<br>    TableSchema cloneAddressSchema = <span class="hljs-keyword">new</span> TableSchema();<br>    BeanUtils.copyProperties(schema, cloneAddressSchema);<br>    cloneAddressSchema.setName(getTableName(deviceId));<br>    <span class="hljs-keyword">return</span> cloneAddressSchema;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="0x02-Spring-JPA"><a href="#0x02-Spring-JPA" class="headerlink" title="0x02 Spring JPA"></a>0x02 Spring JPA</h2><h3 id="1-常用注解"><a href="#1-常用注解" class="headerlink" title="1. 常用注解"></a>1. 常用注解</h3><p><code>@DynamicInsert</code>：作用于使用 <code>@Entity</code> 标注的实体类上，目的是为了插入语句的时候动态插入，当成员变量为空的时候不会参与到插入语句中。</p>
+<p><code>@DynamicUpdate</code>：作用于使用 <code>@Entity</code> 标注的实体类上，目的是为了更新语句的时候动态更新，当成员变量为空的时候不会参与到更新语句中。</p>
+<p><code>@OrderBy</code>：作用于字段，生成 <code>SQL</code> 语句的时候指定特定的字段进行排序。</p>
+<p><code>@GeneratedValue</code>：作用于字段，指定当前实体类主键的生成策略。</p>
+<p><code>@Enumerated</code>：作用于枚举字段，把枚举字段的值映射到数据库的字符串字段。</p>
+<p><code>@Transient</code>：作用于字段，指定字段不会被持久化到数据库。</p>
+<p><code>@TypeDef</code>：作用于类上或 <code>package-info.java</code> 上，搭配 <code>@Type</code> 注解使用。</p>
+<p><code>@TypeDefs</code>：作用于类上或 <code>package-info.java</code> 上，当一个类的字段包含多个不同的自定义映射类型时，可以使用。</p>
+<p><code>@Type</code>：作用于字段上或方法上，定义某字段类型为自定义映射类型，搭配 <code>@TypeDef</code> 注解使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-meta">@Entity</span><br><span class="hljs-meta">@Table</span><br><span class="hljs-meta">@TypeDefs(value = &#123;</span><br><span class="hljs-meta">        @TypeDef(name = &quot;jsonb&quot;, typeClass = JsonBinaryType.class)</span><br><span class="hljs-meta">&#125;)</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@DynamicInsert</span><br><span class="hljs-meta">@DynamicUpdate</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Address</span> </span>&#123;<br><br>    <span class="hljs-meta">@Id</span><br>    <span class="hljs-keyword">private</span> Long id;<br><br>    <span class="hljs-meta">@Column</span><br>    <span class="hljs-keyword">private</span> String city;<br><br>    <span class="hljs-meta">@Column</span><br>    <span class="hljs-keyword">private</span> String area;<br><br>    <span class="hljs-meta">@Column</span><br>    <span class="hljs-keyword">private</span> String street;<br><br>    <span class="hljs-meta">@Type(type = &quot;jsonb&quot;)</span><br>    <span class="hljs-meta">@Column(columnDefinition = &quot;jsonb&quot;)</span><br>    <span class="hljs-keyword">private</span> String detail;<br><br>    <span class="hljs-meta">@Column</span><br>    <span class="hljs-keyword">private</span> Date createdTime;<br><br>    <span class="hljs-meta">@Column</span><br>    <span class="hljs-keyword">private</span> Date updatedTime;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-Entity-的生命周期"><a href="#2-Entity-的生命周期" class="headerlink" title="2. Entity 的生命周期"></a>2. Entity 的生命周期</h3><p><img src="https://thorben-janssen.com/wp-content/uploads/2020/07/Lifecycle-Model-1024x576.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>每个实体在 <code>persistence context</code> 中都存在四种状态：</p>
+<ul>
+<li>New: 新建对象，没有和 <code>persistence context</code> 建立关系，修改实体类数据不会触发更新。</li>
+<li>Transient &amp; Managed: 持久化和被托管状态的对象，通过 <code>EntityManager#persist</code>，<code>JPQL</code>，等查询方式和 <code>persistence context</code> 建立联系，任何实体类的改动都会触发数据库的更新。</li>
+<li>Detached: 游离状态，从 <code>Transient &amp; Managed</code> 状态转变而来，使用 <code>EntityManager#detach</code>，<code>clear</code>，<code>close</code>，<code>evict</code> 等方法均会使实体里从持久化状态转变到游离状态，脱离和 <code>persistence context</code> 的联系，想要重新和 <code>persistence context</code> 建立联系需要使用 <code>EntityManager#merge</code> 方法。</li>
+<li>Removed: 移除状态，使用 <code>EntityManager#remove</code> 可以转换为移除状态，但是数据库记录不会里面删除；在事务提交或 <code>EntityManager#flush</code> 之前 <code>persistence context</code> 会生成删除语句等待删除记录。</li>
+</ul>
+<p><code>Managed</code> 状态下的数据保存，更新以及删除数据下的 <code>Removed</code> 状态，数据都不会立即更新到数据库，只有当你事务提交(<code>@Transactional</code>)或者 <code>em.flush()</code>，才会立即更新到数据库。</p>
+<h3 id="3-Repository-自定义方法与-Transactional-Modifying"><a href="#3-Repository-自定义方法与-Transactional-Modifying" class="headerlink" title="3. Repository 自定义方法与 @Transactional/@Modifying"></a>3. Repository 自定义方法与 <code>@Transactional/@Modifying</code></h3><p>在 JPA <code>Repository</code> 中，可以通过继承 <code>JpaRepository</code> 接口的形式得到现成的CRUD方法，但是有的时候 <code>JpaRepository</code> 中的方法不能满足需求，就需要自定义接口方法。</p>
+<p>需要注意的是，如果自定义(增删改)方法是使用 <code>@Query</code> 的方式，那么需要搭配 <code>@Modifying</code> 注解用于自定义接口方法，告诉 JPA 这是一个增删改语句。同时，不管是使用 <code>@Query</code> 的自定义接口方法或其他自定义接口方法，都应该在业务层的方法中使用 <code>@Transactional</code> 注解修饰。</p>
+<h2 id="0x03-postgresql"><a href="#0x03-postgresql" class="headerlink" title="0x03 postgresql"></a>0x03 postgresql</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h3><p>使用 docker 方式快速安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=123 -v postgres:/var/lib/postgresql/data postgres:latest<br></code></pre></td></tr></table></figure>
+
+<p>更好的 cli 客户端：<code>pgcli</code>，安装方式如下。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt install pgcli<br></code></pre></td></tr></table></figure>
+
+<p>使用方式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">pgcli -h host -u username -d schema<br></code></pre></td></tr></table></figure>
+
+<p>创建用户：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> username <span class="hljs-keyword">WITH</span> PASSWORD <span class="hljs-string">&#x27;*****&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>授权数据给刚刚创建的用户：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">ALL</span> PRIVILEGES <span class="hljs-keyword">ON</span> DATABASE database <span class="hljs-keyword">TO</span> username;<br></code></pre></td></tr></table></figure>
+
+<p>授权数据库里的表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">ALL</span> PRIVILEGES <span class="hljs-keyword">ON</span> <span class="hljs-keyword">all</span> tables <span class="hljs-keyword">in</span> schema public <span class="hljs-keyword">TO</span> username;<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-常用函数"><a href="#2-常用函数" class="headerlink" title="2. 常用函数"></a>2. 常用函数</h3><p>由于公司项目中的一些数据都存在 <code>postgresql</code> 的 <code>jsonb</code> 字段中，所以有的时候写 <code>sql</code> 查询特别麻烦，记一下常用的 <code>sql</code> 函数。</p>
+<p><code>jsonb_extract_path/jsonb_extract_path_text</code>：从 <code>jsonb</code> 字段中提取某个键的值数据，text结尾标识转换为 <code>text</code> 类型，第一个参数为要提取的 <code>jsonb</code> 数据，第二个字段为提取路径，可选还有第三等等字段(取决于值的深度)，为提取路径的路径。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> jsonb_extract_path_text(<span class="hljs-string">&#x27;&#123;</span><br><span class="hljs-string">  &quot;id&quot;: 1,</span><br><span class="hljs-string">  &quot;area&quot;: &#123;</span><br><span class="hljs-string">    &quot;name&quot;: &quot;天河区&quot;,</span><br><span class="hljs-string">    &quot;code&quot;: &#123;</span><br><span class="hljs-string">      &quot;type&quot;: &quot;String&quot;,</span><br><span class="hljs-string">      &quot;code&quot;: 1111</span><br><span class="hljs-string">    &#125;</span><br><span class="hljs-string">  &#125;,</span><br><span class="hljs-string">  &quot;city&quot;: &quot;广州市&quot;,</span><br><span class="hljs-string">  &quot;detail&quot;: null,</span><br><span class="hljs-string">  &quot;street&quot;: &quot;&quot;,</span><br><span class="hljs-string">  &quot;createdTime&quot;: null,</span><br><span class="hljs-string">  &quot;updatedTime&quot;: null</span><br><span class="hljs-string">&#125;&#x27;</span>::jsonb, <span class="hljs-string">&#x27;area&#x27;</span>, <span class="hljs-string">&#x27;code&#x27;</span>, <span class="hljs-string">&#x27;type&#x27;</span>);<br><br><span class="hljs-comment">-- res</span><br><span class="hljs-comment">-- 1</span><br></code></pre></td></tr></table></figure>
+
+<p><code>jsonb_array_elements/jsonb_array_elements_text</code>：从 <code>jsonb</code> 数组中遍历并提取每个数组元素。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> fruits <span class="hljs-keyword">from</span> jsonb_array_elements_text(<span class="hljs-string">&#x27;[&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;, &quot;Grape&quot;]&#x27;</span>) <span class="hljs-keyword">as</span> fruits;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">Apple</span><br><span class="hljs-comment">Banana</span><br><span class="hljs-comment">Orange</span><br><span class="hljs-comment">Grape</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<p><code>jsonb_each/jsonb_each_text</code>：从 <code>jsonb</code> 数据中提取键和值数据，最终结果形成两列。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> key, <span class="hljs-keyword">value</span><br><span class="hljs-keyword">from</span> jsonb_each_text(<span class="hljs-string">&#x27;&#123;</span><br><span class="hljs-string">  &quot;id&quot;: 1,</span><br><span class="hljs-string">  &quot;area&quot;: &#123;</span><br><span class="hljs-string">    &quot;value&quot;: &#123;</span><br><span class="hljs-string">      &quot;name&quot;: &quot;天河区&quot;,</span><br><span class="hljs-string">      &quot;type&quot;: &quot;String&quot;,</span><br><span class="hljs-string">      &quot;code&quot;: 10001</span><br><span class="hljs-string">    &#125;</span><br><span class="hljs-string">  &#125;,</span><br><span class="hljs-string">  &quot;city&quot;: &quot;广州市&quot;,</span><br><span class="hljs-string">  &quot;detail&quot;: null,</span><br><span class="hljs-string">  &quot;street&quot;: &quot;&quot;,</span><br><span class="hljs-string">  &quot;createdTime&quot;: null,</span><br><span class="hljs-string">  &quot;updatedTime&quot;: null</span><br><span class="hljs-string">&#125;&#x27;</span>::jsonb)<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">id,1</span><br><span class="hljs-comment">area,&quot;&#123;&quot;&quot;value&quot;&quot;: &#123;&quot;&quot;code&quot;&quot;: 10001, &quot;&quot;name&quot;&quot;: &quot;&quot;天河区&quot;&quot;, &quot;&quot;type&quot;&quot;: &quot;&quot;String&quot;&quot;&#125;&#125;&quot;</span><br><span class="hljs-comment">city,广州市</span><br><span class="hljs-comment">detail,</span><br><span class="hljs-comment">street,&quot;&quot;</span><br><span class="hljs-comment">createdTime,</span><br><span class="hljs-comment">updatedTime,</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="3-判断-IP-地址是否包含"><a href="#3-判断-IP-地址是否包含" class="headerlink" title="3. 判断 IP 地址是否包含"></a>3. 判断 <code>IP</code> 地址是否包含</h3><p>在公司里写代码的时候，有判断 IP 地址是否包含的需求，这个时候刚好发现 <code>postgresql</code> 提供此功能，现在记录一下：</p>
+<p>使用 <code>inet</code> 函数可以进行如下操作：<code>inet</code> 不支持 <code>192.168.30.51-12</code> 这种格式，当然这种格式本身就有问题，如果是 <code>192.168.30.1-192.168.30.100</code>，需要使用 <code>split_part()</code> 进行分割。</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;</code></td>
+<td>is less than</td>
+<td><code>inet &#39;192.168.1.5&#39; &lt; inet &#39;192.168.1.6&#39;</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>is less than or equal</td>
+<td><code>inet &#39;192.168.1.5&#39; &lt;= inet &#39;192.168.1.5&#39;</code></td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td>equals</td>
+<td><code>inet &#39;192.168.1.5&#39; = inet &#39;192.168.1.5&#39;</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>is greater or equal</td>
+<td><code>inet &#39;192.168.1.5&#39; &gt;= inet &#39;192.168.1.5&#39;</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>is greater than</td>
+<td><code>inet &#39;192.168.1.5&#39; &gt; inet &#39;192.168.1.4&#39;</code></td>
+</tr>
+<tr>
+<td><code>&lt;&gt;</code></td>
+<td>is not equal</td>
+<td><code>inet &#39;192.168.1.5&#39; &lt;&gt; inet &#39;192.168.1.4&#39;</code></td>
+</tr>
+<tr>
+<td><code>&lt;&lt;</code></td>
+<td>is contained within</td>
+<td><code>inet &#39;192.168.1.5&#39; &lt;&lt; inet &#39;192.168.1/24&#39;</code></td>
+</tr>
+<tr>
+<td><code>&lt;&lt;=</code></td>
+<td>is contained within or equals</td>
+<td><code>inet &#39;192.168.1/24&#39; &lt;&lt;= inet &#39;192.168.1/24&#39;</code></td>
+</tr>
+<tr>
+<td><code>&gt;&gt;</code></td>
+<td>contains</td>
+<td><code>inet &#39;192.168.1/24&#39; &gt;&gt; inet &#39;192.168.1.5&#39;</code></td>
+</tr>
+<tr>
+<td><code>&gt;&gt;=</code></td>
+<td>contains or equals</td>
+<td><code>inet &#39;192.168.1/24&#39; &gt;&gt;= inet &#39;192.168.1/24&#39;</code></td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>bitwise NOT</td>
+<td><code>~ inet &#39;192.168.1.6&#39;</code></td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>bitwise AND</td>
+<td><code>inet &#39;192.168.1.6&#39; &amp; inet &#39;0.0.0.255&#39;</code></td>
+</tr>
+<tr>
+<td>`</td>
+<td>`</td>
+<td>bitwise OR</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>addition</td>
+<td><code>inet &#39;192.168.1.6&#39; + 25</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>subtraction</td>
+<td><code>inet &#39;192.168.1.43&#39; - 36</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>subtraction</td>
+<td><code>inet &#39;192.168.1.43&#39; - inet &#39;192.168.1.19&#39;</code></td>
+</tr>
+</tbody></table>
+<h2 id="0x04-序列化"><a href="#0x04-序列化" class="headerlink" title="0x04 序列化"></a>0x04 序列化</h2><h3 id="1-对象之间互相引用导致序列化栈溢出"><a href="#1-对象之间互相引用导致序列化栈溢出" class="headerlink" title="1. 对象之间互相引用导致序列化栈溢出"></a>1. 对象之间互相引用导致序列化栈溢出</h3><p>在使用 <code>JPA</code> 进行一对多处理的时候，模型定义如下：一个作者可以有多本图书，多个图书对应一本读书，两个实体类之间存在互相引用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-meta">@Entity</span><br><span class="hljs-meta">@Table</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Author</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>&#123;<br>    <span class="hljs-meta">@Id</span><br>    <span class="hljs-meta">@GeneratedValue(strategy = GenerationType.AUTO)</span><br>    <span class="hljs-keyword">private</span> Integer id;<br><br>    <span class="hljs-meta">@Column</span><br>    <span class="hljs-keyword">private</span> String name;<br><br>    <span class="hljs-meta">@OneToMany(mappedBy = &quot;author&quot;, fetch = FetchType.EAGER)</span><br>    <span class="hljs-keyword">private</span> List&lt;Book&gt; bookList;<br>&#125;<br><br><span class="hljs-meta">@Entity</span><br><span class="hljs-meta">@Table</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Book</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>&#123;<br><br>    <span class="hljs-meta">@Id</span><br>    <span class="hljs-meta">@GeneratedValue(strategy = GenerationType.AUTO)</span><br>    <span class="hljs-keyword">private</span> Integer id;<br><br>    <span class="hljs-meta">@Column</span><br>    <span class="hljs-keyword">private</span> String title;<br><br>    <span class="hljs-meta">@ManyToOne(fetch = FetchType.EAGER)</span><br>    <span class="hljs-keyword">private</span> Author author;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>测试代码：无论是序列化 Book 还是 Author，都会触发 <code>com.fasterxml.jackson.databind.JsonMappingException: Infinite recursion (StackOverflowError) </code> 的报错，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testReferenceError</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> JsonProcessingException </span>&#123;<br>    Author author = <span class="hljs-keyword">new</span> Author();<br>    author.setId(<span class="hljs-number">1</span>);<br>    author.setName(<span class="hljs-string">&quot;东野圭吾&quot;</span>);<br><br>    Book book1 = <span class="hljs-keyword">new</span> Book();<br>    book1.setId(<span class="hljs-number">1</span>);<br>    book1.setAuthor(author);<br>    book1.setTitle(<span class="hljs-string">&quot;虚无的十字架&quot;</span>);<br>    Book book2 = <span class="hljs-keyword">new</span> Book();<br>    book2.setId(<span class="hljs-number">2</span>);<br>    book2.setAuthor(author);<br>    book2.setTitle(<span class="hljs-string">&quot;湖畔&quot;</span>);<br><br>    author.setBooks(Arrays.asList(book1, book2));<br>    ObjectMapper mapper = <span class="hljs-keyword">new</span> ObjectMapper();<br>    <span class="hljs-comment">// String asString = mapper.writeValueAsString(book1);</span><br>    String asString = mapper.writeValueAsString(author);<br>    System.out.println(asString);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-前后端Long的处理"><a href="#2-前后端Long的处理" class="headerlink" title="2. 前后端Long的处理"></a>2. 前后端Long的处理</h3><p>在公司开发的时候，在与前后端联调的时候碰到一个数据类型序列化的问题，Java 传递一个 Long 类型的数据时，对于前端而言，<code>Javascript</code> 无法处理 Long 类型的数据，会导致精度丢失，下面是几种解决方法：</p>
+<p>使用 <code>jackson</code> 的 <code>@JsonSerialize</code> 用于实体类的 Long 字段上。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-meta">@JsonSerialize(using = ToStringSerializer.class)</span><br><span class="hljs-keyword">private</span> Long id;<br></code></pre></td></tr></table></figure>
+
+<p>使用 <code>jackson</code> 的 <code>@JsonFormat</code> 用于实体类的 Long 字段上。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-meta">@JsonFormat(shape = JsonFormat.Shape.STRING)</span><br><span class="hljs-keyword">private</span> Long id;<br></code></pre></td></tr></table></figure>
+
+<p>前面两种方式都是作用于实体类的字段，每个实体类都要设置一遍，特别麻烦，下面是针对整个项目全局的配置：通过实现 <code>WebMvcConfigurer#configureMessageConverters</code> 接口方法，配置整个项目全局的 Long 类型转换。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-meta">@EnableWebMvc</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WebConfig</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">WebMvcConfigurer</span> </span>&#123;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">configureMessageConverters</span><span class="hljs-params">(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters)</span> </span>&#123;<br>        MappingJackson2HttpMessageConverter jackson2HttpMessageConverter = <span class="hljs-keyword">new</span> MappingJackson2HttpMessageConverter();<br>        ObjectMapper objectMapper = <span class="hljs-keyword">new</span> ObjectMapper();<br>        SimpleModule simpleModule = <span class="hljs-keyword">new</span> SimpleModule();<br>        simpleModule.addSerializer(Long.class, ToStringSerializer.instance);<br>        simpleModule.addSerializer(Long.TYPE, ToStringSerializer.instance);<br>        objectMapper.registerModule(simpleModule);<br>        jackson2HttpMessageConverter.setObjectMapper(objectMapper);<br>        converters.add(jackson2HttpMessageConverter);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-反序列化无视未知字段"><a href="#3-反序列化无视未知字段" class="headerlink" title="3. 反序列化无视未知字段"></a>3. 反序列化无视未知字段</h3><p>公司主要使用 <code>jackson</code> 进行序列化和反序列化处理，主要原因是 <code>SpringBoot</code> 自带，以及 <code>jackson</code> 支持Java接口类型 <code>json</code> 动态序列化和反序列化</p>
+<p>在一次对数据库中的 <code>json</code> 字段数据进行反序列化的过程中，发现报了一个错：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Java">com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field &quot;age&quot; (class com.root2z.practice.model.Person), not marked as ignorable (2 known properties: &quot;id&quot;, &quot;name&quot;])<br> at [Source: (String)<span class="hljs-string">&quot;&#123;&quot;</span>id<span class="hljs-string">&quot;:1,&quot;</span>name<span class="hljs-string">&quot;:&quot;</span>mike<span class="hljs-string">&quot;,&quot;</span>age<span class="hljs-string">&quot;:12&#125;&quot;</span>; line: <span class="hljs-number">1</span>, column: <span class="hljs-number">31</span>] (through reference chain: com.root2z.practice.model.Person[<span class="hljs-string">&quot;age&quot;</span>])<br></code></pre></td></tr></table></figure>
+
+<p>这里的意思是说在反序列化 <code>json</code> 的时间检测到了为识别的 <code>json</code> 字段映射到 <code>Person</code> 类上，这里 <code>json</code> 中的 <code>age</code> 字段在 <code>Person</code> 类中是没有定义的，序列化就会报错。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-meta">@Entity</span><br><span class="hljs-meta">@Table</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;<br>    <span class="hljs-meta">@Id</span> <span class="hljs-keyword">private</span> Integer id;<br>    <span class="hljs-meta">@Column</span> <span class="hljs-keyword">private</span> String name;<br>&#125;<br><br><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deserializeUnknownField</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> JsonProcessingException </span>&#123;<br>    String json = <span class="hljs-string">&quot;&#123;\&quot;id\&quot;:1,\&quot;name\&quot;:\&quot;mike\&quot;,\&quot;age\&quot;:12&#125;&quot;</span>;<br>    ObjectMapper objectMapper = <span class="hljs-keyword">new</span> ObjectMapper();<br>    Person person = objectMapper.readValue(json, Person.class);<br>    System.out.println(person);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>解决的方法：</p>
+<ul>
+<li>在类上使用 <code>@JsonIgnoreProperties(ignoreUnknown = true)</code> 注解告诉 <code>jackson</code> 无视 <code>json</code> 中未知字段</li>
+<li>使用 <code>ObjectMapper</code> 配置 <code>DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES</code> 属性。</li>
+</ul>
+<p>方法1的标记在需要反序列化的类上，主要每个需要反序列化的类都需要设置一遍，通常是使用第二种方式，设置全局的 <code>ObjectMapper</code> 属性。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-meta">@Entity</span><br><span class="hljs-meta">@Table</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@JsonIgnoreProperties(ignoreUnknown = true)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;<br>    <span class="hljs-meta">@Id</span> <span class="hljs-keyword">private</span> Integer id;<br>    <span class="hljs-meta">@Column</span> <span class="hljs-keyword">private</span> String name;<br>&#125;<br><br><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deserializeUnknownField</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> JsonProcessingException </span>&#123;<br>    String json = <span class="hljs-string">&quot;&#123;\&quot;id\&quot;:1,\&quot;name\&quot;:\&quot;mike\&quot;,\&quot;age\&quot;:12&#125;&quot;</span>;<br>    ObjectMapper objectMapper = <span class="hljs-keyword">new</span> ObjectMapper();<br>    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, <span class="hljs-keyword">false</span>);<br>    Person person = objectMapper.readValue(json, Person.class);<br>    System.out.println(person);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="0x05-其他"><a href="#0x05-其他" class="headerlink" title="0x05 其他"></a>0x05 其他</h2><h3 id="1-代码规范"><a href="#1-代码规范" class="headerlink" title="1. 代码规范"></a>1. 代码规范</h3><h4 id="1-集合判空"><a href="#1-集合判空" class="headerlink" title="(1). 集合判空"></a>(1). 集合判空</h4><p>不要使用集合的 <code>isEmpty()</code> 方法来判空：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testFindAllAddresses</span><span class="hljs-params">()</span> </span>&#123;<br>    List&lt;Address&gt; addresses = addressService.findAll();<br>    <span class="hljs-comment">// 要是 addresses 为空，那么就会 NullPointException</span><br>    <span class="hljs-keyword">if</span> (addresses.isEmpty()) &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>正确的方式：应该同时判断 <code>null</code> 和 <code>isEmpty()</code>，或者使用第三方的 <code>CollectionUtils.isEmpty</code> 来判空。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testFindAllAddresses</span><span class="hljs-params">()</span> </span>&#123;<br>    List&lt;Address&gt; addresses = addressService.findAll();<br>    <span class="hljs-comment">// 要是 addresses 为空，那么就会 NullPointException</span><br>    <span class="hljs-comment">// if (addresses.isEmpty() || addresses == null) &#123;</span><br>    <span class="hljs-keyword">if</span> (CollectionUtils.isEmpty(addresses)) &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-异常捕捉"><a href="#2-异常捕捉" class="headerlink" title="(2). 异常捕捉"></a>(2). 异常捕捉</h4><p>不应该把异常捕获不抛出：捕获了异常，不进行处理，也不抛出，在错误定位时也无法定位，用户也无法感知到错误，这是不正确的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testGetAddressById</span><span class="hljs-params">(id)</span> </span>&#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        Address address = addressService.getAddress(<span class="hljs-number">1L</span>);<br>    &#125; <span class="hljs-keyword">catch</span> (NoSuchMethodException e) &#123;<br>        <span class="hljs-comment">// do nothing</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>正确的方式，转换成系统自定义的异常，同时携带上下文信息：</p>
+<blockquote>
+<p>tips：在 <code>catch</code> 里抛出了异常就不需要打印异常日志了。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testGetAddressById</span><span class="hljs-params">(Long id)</span> <span class="hljs-keyword">throws</span> NotFoundAddressException</span>&#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        Address address = addressService.getAddress(id);<br>    &#125; <span class="hljs-keyword">catch</span> (NoSuchMethodException e) &#123;<br>        <span class="hljs-comment">// 携带找不到地址信息的ID</span><br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NotFoundAddressException(String.format(<span class="hljs-string">&quot;cannot found address by id:%s&quot;</span>, id));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="3-if-for-嵌套消除"><a href="#3-if-for-嵌套消除" class="headerlink" title="(3). if/for 嵌套消除"></a>(3). if/for 嵌套消除</h4><h3 id="2-第三方库隔离"><a href="#2-第三方库隔离" class="headerlink" title="2. 第三方库隔离"></a>2. 第三方库隔离</h3><blockquote>
+<p>第三方库的滥用，这就是多人开发中通常会碰到的问题。</p>
+</blockquote>
+<p>对于个人开发的项目来说，我可以自由的选择第三方框架和库，控制权属于自己手上，这没问题，我清楚使用了什么库以及在哪里使用。</p>
+<p>但是对于团队而言，还能以这种方式开发么，明显不能，每个人都有自己的编码风格，每个人都有自己擅长使用的库，假设每个人都在开发时都使用自己喜欢的第三方库辅助，那么整个工程将是混乱的。</p>
+<p>假设是下面一个对从数据库取出的数据判空的情况，每个人可能有不同的写法，可能使用 <code>Spring</code> 的 <code>CollectionUtils</code> ，也有可能使用 <code>apache</code> 的 <code>CollectionUtils</code> ，每个库的 <code>CollectionUtils</code> 的 <code>isEmpty</code> 方法(参数类型，参数个数)可能不一样，这个时候，要是别人直接复制过来，刚好这里又已经引入了 <code>CollectionUtils</code> 的包，方法必然是会报错的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">import</span> org.springframework.util.CollectionUtils;<br><span class="hljs-keyword">import</span> org.apache.commons.collections4.CollectionUtils;<br><br><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testFindAllAddresses</span><span class="hljs-params">()</span> </span>&#123;<br>    List&lt;Address&gt; addresses = addressService.findAll();<br>    <span class="hljs-keyword">if</span> (CollectionUtils.isEmpty(addresses)) &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这个时候就有必要进行第三方库的隔离，好处呢：</p>
+<ul>
+<li>屏蔽第三方库的公共调用，由封装模块实现内部调用第三方库的细节</li>
+<li>由于屏蔽了第三方库的公共调用，每个人调用封装库即可，即使替换第三方库也不影响开发。实现第三方库的平滑替换。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CollectionUtils</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isEmpty</span><span class="hljs-params">(<span class="hljs-meta">@Nullable</span> Collection&lt;?&gt; collection)</span> </span>&#123;<br>        <span class="hljs-comment">// 随时替换第三方库</span><br>        <span class="hljs-keyword">return</span> org.springframework.util.CollectionUtils.isEmpty(collection);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isNotEmpty</span><span class="hljs-params">(<span class="hljs-meta">@Nullable</span> Collection&lt;?&gt; collection)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> !CollectionUtils.isEmpty(collection);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>如果是个人开发的项目，也需要做到第三方库的隔离么？对于开发规范以及软件的扩展性和伸缩性是有必要做的。</p>
+<h2 id="0x06-闲谈"><a href="#0x06-闲谈" class="headerlink" title="0x06 闲谈"></a>0x06 闲谈</h2><p>人生第一次经历两次裁员，虽然这事不是发生在我身上，但是我觉得心情还是有点复杂，曾经是一起工作的同事，隔日就要开始为工作奔波。说到底，源头还是疫情的原因，公司面临经济危机才做出的下策，大家都能理解。</p>
+<p>我还记得走之前，组长跟我说到，不要着眼于眼前的东西，多接触几个领域，关注关注 web3.0，区块链等等。</p>
+<p>我现在想做的就是，做好基础建设，语言，算法，消息队列，分布式，技术前沿。</p>
+<p>最近断断续续通关了两个游戏，一个是 FireWatch，一个是 Inside。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/X4YoEF"><img src="https://s1.ax1x.com/2022/06/14/X4YoEF.jpg" srcset="/img/loading.gif" lazyload alt="X4YoEF.jpg"></a></p>
+<p>FireWatch 的色彩风格真是特别的好看，同时游戏本身属于半开放世界游戏，可以随时的停止对话，也就是说可以当一个走路模拟器。中期的时候夹杂着一些悬疑情节，一度让我以为这要变成恐怖游戏了，不过还好没有。</p>
+<p>整个游戏带给我最大的感受是：孤独。作为一个看火人，整个山谷内除了和主角对话的 Deliah 以及失去儿子的 Ned 之外几乎没有任何动物和人。</p>
+<p>主角因为妻子所患阿尔茨海默症无能为力之后选择到俄怀明州的山谷当一名看火人，以此来自我放逐和避世，期间和另一名看火人 Deliah 又互相吸引，Deliah 也是因为某种原因选择当看火人来逃避，两人经历七十九天从陌生到熟悉，我本以为最后会发生什么，结果确没有。</p>
+<p>结尾的一场大火，使得两个人都要离开山谷，这场大火烧毁了两个以此来逃避的安乐园，也烧毁了他们对过去的留念，人总是要往前看的。经历过大火之后，森林也会重新长出萌芽，而他们也会有新的开始。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/X4ghKU"><img src="https://s1.ax1x.com/2022/06/14/X4ghKU.jpg" srcset="/img/loading.gif" lazyload alt="X4ghKU.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/X4RCmF"><img src="https://s1.ax1x.com/2022/06/14/X4RCmF.png" srcset="/img/loading.gif" lazyload alt="X4RCmF.png"></a></p>
+<p>Inside，全程没有对话，解谜难度简单，剧情很不错，结局很震撼。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/X4fPi9"><img src="https://s1.ax1x.com/2022/06/14/X4fPi9.jpg" srcset="/img/loading.gif" lazyload alt="X4fPi9.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/X4fZqO"><img src="https://s1.ax1x.com/2022/06/14/X4fZqO.jpg" srcset="/img/loading.gif" lazyload alt="X4fZqO.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/X4WR2t"><img src="https://s1.ax1x.com/2022/06/14/X4WR2t.jpg" srcset="/img/loading.gif" lazyload alt="X4WR2t.jpg"></a></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>6月总结</div>
+      <div>http://dedsec2z.top/2022/0614/9138.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>DedSec</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月14日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/0404/16107.html" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-dark';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'aim467/commit-utteranc');
+      s.setAttribute('issue-term', 'title');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?f37065c112a18b90d7504fca7fe9928a";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
