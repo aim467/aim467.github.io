@@ -1,0 +1,821 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile.jpeg">
+  <link rel="icon" href="/img/profile.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Dedsec2z">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="EventBus 学习在项目中偶尔会使用到 guava 框架，这个框架归纳了一些很有用的工具类和功能方便开发，我在一次项目里就使用到了 guava 的 EventBus 功能，但是并没有继续了解过这个功能，此笔记就是对此功能进行复习。 一、从发布订阅模式&#x2F;观察者模式说起1. 观察者模式观察者模式（Observer Pattern）是一种行为设计模式，它定义了一种一对多的依赖关系，让多个观">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EventBus 学习">
+<meta property="og:url" content="http://aim467.github.io/2023/06/18/EventBus-%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Dedsec2z&#39;s Blog">
+<meta property="og:description" content="EventBus 学习在项目中偶尔会使用到 guava 框架，这个框架归纳了一些很有用的工具类和功能方便开发，我在一次项目里就使用到了 guava 的 EventBus 功能，但是并没有继续了解过这个功能，此笔记就是对此功能进行复习。 一、从发布订阅模式&#x2F;观察者模式说起1. 观察者模式观察者模式（Observer Pattern）是一种行为设计模式，它定义了一种一对多的依赖关系，让多个观">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-18T13:25:05.000Z">
+<meta property="article:modified_time" content="2023-06-18T13:30:11.206Z">
+<meta property="article:author" content="Dedsec2z">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>EventBus 学习 - Dedsec2z&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"aim467.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"37065c112a18b90d7504fca7fe9928a","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?37065c112a18b90d7504fca7fe9928a";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Dedsec2z&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="EventBus 学习"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-18 21:25" pubdate>
+          2023年6月18日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          10k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          85 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">EventBus 学习</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年6月18日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="EventBus-学习"><a href="#EventBus-学习" class="headerlink" title="EventBus 学习"></a>EventBus 学习</h1><p>在项目中偶尔会使用到 guava 框架，这个框架归纳了一些很有用的工具类和功能方便开发，我在一次项目里就使用到了 guava 的 EventBus 功能，但是并没有继续了解过这个功能，此笔记就是对此功能进行复习。</p>
+<h2 id="一、从发布订阅模式-x2F-观察者模式说起"><a href="#一、从发布订阅模式-x2F-观察者模式说起" class="headerlink" title="一、从发布订阅模式&#x2F;观察者模式说起"></a>一、从发布订阅模式&#x2F;观察者模式说起</h2><h3 id="1-观察者模式"><a href="#1-观察者模式" class="headerlink" title="1. 观察者模式"></a>1. 观察者模式</h3><p>观察者模式（Observer Pattern）是一种行为设计模式，它定义了一种一对多的依赖关系，让多个观察对象同时监听某一个主题对象。当主题对象发生变化时，它的所有观察者都会收到通知并进行相应的更新操作。</p>
+<p>在观察者模式中，有两个核心角色：Subject（主题）和 Observer（观察者）。Subject 维护着一个观察者列表，而 Observer 注册到 Subject 中，并在 Subject 状态改变时接收通知。</p>
+<p>具体来说，观察者模式中包含以下几个要素：</p>
+<ul>
+<li>抽象主题（Subject）：定义了被观察对象的基本行为，它维护着所有观察者对象的引用，提供了增加和删除观察者对象的方法。</li>
+<li>具体主题（ConcreteSubject）：继承或实现了抽象主题，实现了被观察对象状态改变的业务逻辑，并通知所有注册的观察者对象。</li>
+<li>抽象观察者（Observer）：定义了观察者对象的基本行为，它提供了被通知时所需执行的方法。</li>
+<li>具体观察者（ConcreteObserver）：继承或实现了抽象观察者，实现了观察者接收到主题通知后需要执行的业务逻辑。</li>
+</ul>
+<p>观察者模式的优点在于当主题对象的状态发生改变时，所有依赖它的观察者对象都会得到通知并自动更新。这样就避免了对象之间耦合度过高的情况，同时也提高了系统的可维护性和扩展性。</p>
+<p>下面是一个简单的观察者模式实现，先定义一个观察者接口，可以有不同的具体观察者实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Observer</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">update</span><span class="hljs-params">(String message)</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>定义 Subject 接口，并且定义注册观察者，移除观察者，通知所有观察者的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Subject</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">registerObserver</span><span class="hljs-params">(Observer observer)</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">removeObserver</span><span class="hljs-params">(Observer observer)</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">notifyObservers</span><span class="hljs-params">(String message)</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>实现一个 Subject 接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ConcreteSubject</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Subject</span> &#123;<br><br>    <span class="hljs-keyword">private</span> List&lt;Observer&gt; observers = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">registerObserver</span><span class="hljs-params">(Observer observer)</span> &#123;<br>        observers.add(observer);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">removeObserver</span><span class="hljs-params">(Observer observer)</span> &#123;<br>        observers.remove(observer);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">notifyObservers</span><span class="hljs-params">(String message)</span> &#123;<br>        <span class="hljs-keyword">for</span> (Observer observer : observers) &#123;<br>            observer.update(message);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>实现一个观察者：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs plain">public class ConcreteObserver implements Observer &#123;<br><br>    private String name;<br><br>    public ConcreteObserver(String name) &#123;<br>        this.name = name;<br>    &#125;<br><br>    @Override<br>    public void update(String message) &#123;<br>        System.out.println(name + &quot; received message: &quot; + message);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>进行测试：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">ConcreteSubject</span> <span class="hljs-variable">subject</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ConcreteSubject</span>();<br>        <span class="hljs-type">ConcreteObserver</span> <span class="hljs-variable">observer1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ConcreteObserver</span>(<span class="hljs-string">&quot;Alice&quot;</span>);<br>        <span class="hljs-type">ConcreteObserver</span> <span class="hljs-variable">observer2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ConcreteObserver</span>(<span class="hljs-string">&quot;Bob&quot;</span>);<br><br>        subject.registerObserver(observer1);<br>        subject.registerObserver(observer2);<br><br>        subject.notifyObservers(<span class="hljs-string">&quot;Hello world!&quot;</span>);<br><br>        subject.removeObserver(observer1);<br><br>        subject.notifyObservers(<span class="hljs-string">&quot;Goodbye!&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-发布-订阅模式"><a href="#2-发布-订阅模式" class="headerlink" title="2. 发布-订阅模式"></a>2. 发布-订阅模式</h3><p>发布订阅模式（Publish-Subscribe Pattern）是一种消息传递模式，其中发送者（被称为发布者）不会直接将消息发送给接收者（被称为订阅者），而是将消息发送到一个中间代理，称为消息代理（Message Broker），订阅者则从该代理订阅自己关心的消息。</p>
+<p>在这种模式下，发布者和订阅者不需要知道彼此的存在，它们只需要通过消息代理进行通信。发布者将消息发送到消息代理，订阅者从消息代理订阅它们感兴趣的消息。当消息代理接收到消息时，它将根据订阅者的订阅信息将消息传递给相应的订阅者。这种方式可以实现高度解耦，同时也方便扩展和维护。</p>
+<p>发布订阅模式是一种常用的设计模式，在分布式系统、事件驱动系统、消息队列系统等领域都有广泛的应用。</p>
+<p>下面是一个简单的例子，定义一个订阅者接口，负责发布通知：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Subscriber</span> &#123;<br>    &lt;T&gt; <span class="hljs-keyword">void</span> <span class="hljs-title function_">post</span><span class="hljs-params">(T message)</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>然后实现一个发布者，因为不同的订阅者会订阅不同的消息(topic)，所以使用 map 进行存储。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Publisher</span> &#123;<br><br>    <span class="hljs-keyword">private</span> Map&lt;String, List&lt;Subscriber&gt;&gt; subscribers = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">subscribe</span><span class="hljs-params">(String topic, Subscriber subscriber)</span> &#123;<br>        List&lt;Subscriber&gt; subscriberList = subscribers.get(topic);<br>        <span class="hljs-keyword">if</span> (subscriberList == <span class="hljs-literal">null</span>) &#123;<br>            subscriberList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>            subscribers.put(topic, subscriberList);<br>        &#125;<br>        subscriberList.add(subscriber);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">unsubscribe</span><span class="hljs-params">(String topic, Subscriber subscriber)</span> &#123;<br>        List&lt;Subscriber&gt; subscriberList = subscribers.get(topic);<br>        <span class="hljs-keyword">if</span> (subscriberList != <span class="hljs-literal">null</span>) &#123;<br>            subscriberList.remove(subscriber);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> &lt;T&gt; <span class="hljs-keyword">void</span> <span class="hljs-title function_">post</span><span class="hljs-params">(String topic, T message)</span> &#123;<br>        List&lt;Subscriber&gt; subscriberList = subscribers.get(topic);<br>        <span class="hljs-keyword">if</span> (subscriberList != <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">for</span> (Subscriber subscriber : subscriberList) &#123;<br>                subscriber.post(message);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>创建两个实现订阅者接口的具体类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">WeatherSubscriber</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Subscriber</span> &#123;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> &lt;T&gt; <span class="hljs-keyword">void</span> <span class="hljs-title function_">post</span><span class="hljs-params">(T message)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;receive message:&quot;</span> + message);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">NewsSubscriber</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Subscriber</span> &#123;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> &lt;T&gt; <span class="hljs-keyword">void</span> <span class="hljs-title function_">post</span><span class="hljs-params">(T message)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;receive message:&quot;</span> + message);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>写一个简单的测试方法查看效果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">test</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-type">Publisher</span> <span class="hljs-variable">publisher</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Publisher</span>();<br>    publisher.subscribe(<span class="hljs-string">&quot;weather&quot;</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">WeatherSubscriber</span>());<br>    publisher.subscribe(<span class="hljs-string">&quot;news&quot;</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">WeatherSubscriber</span>());<br>    publisher.post(<span class="hljs-string">&quot;news&quot;</span>, <span class="hljs-string">&quot;send news&quot;</span>);<br>    publisher.post(<span class="hljs-string">&quot;weather&quot;</span>, <span class="hljs-string">&quot;send weather&quot;</span>);<br>&#125;<br><span class="hljs-comment">// result</span><br><span class="hljs-comment">// receive message:send news</span><br><span class="hljs-comment">// receive message:send weather</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="二、EventBus-的使用"><a href="#二、EventBus-的使用" class="headerlink" title="二、EventBus 的使用"></a>二、<code>EventBus</code> 的使用</h2><p>下面是 <code>EventBus</code> 的简单使用：</p>
+<p>一个监听器可以定义多个监听方法(事件)，同一个事件可以在一个监听器内定义多次(可以但是没意义)，监听器方法只能有一个参数，不同的监听器的监听方法可以监听同一种事件(也就是参数是同一种类型的)。</p>
+<p>使用 <code>EventBus</code> 主要使用到三个方法：</p>
+<ul>
+<li><code>register(Object)</code>：注册一个监听器</li>
+<li><code>unRegister(Object)</code>：删除已注册的监听器</li>
+<li><code>post(Object)</code>：发布事件</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">News</span> &#123;<br>    <span class="hljs-keyword">private</span> String message;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">News</span><span class="hljs-params">(String message)</span> &#123;<br>        <span class="hljs-built_in">this</span>.message = message;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;News&#123;&quot;</span> +<br>                <span class="hljs-string">&quot;message=&#x27;&quot;</span> + message + <span class="hljs-string">&#x27;\&#x27;&#x27;</span> +<br>                <span class="hljs-string">&#x27;&#125;&#x27;</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Weather</span> &#123;<br>    <span class="hljs-keyword">private</span> String message;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Weather</span><span class="hljs-params">(String message)</span> &#123;<br>        <span class="hljs-built_in">this</span>.message = message;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Weather&#123;&quot;</span> +<br>                <span class="hljs-string">&quot;message=&#x27;&quot;</span> + message + <span class="hljs-string">&#x27;\&#x27;&#x27;</span> +<br>                <span class="hljs-string">&#x27;&#125;&#x27;</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MultiListener</span> &#123;<br>    <br>    <span class="hljs-meta">@Subscribe</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">listenNews</span><span class="hljs-params">(News news)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;receive news: &quot;</span> + news);<br>    &#125;<br><br>    <span class="hljs-meta">@Subscribe</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">listenWeather</span><span class="hljs-params">(Weather weather)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;receive weather: &quot;</span> + weather);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TypeListener</span> &#123;<br>    <br>    <span class="hljs-meta">@Subscribe</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">listenString</span><span class="hljs-params">(String message)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;receive String message: &quot;</span> + message);<br>    &#125;<br><br>    <span class="hljs-meta">@Subscribe</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">listenNumber</span><span class="hljs-params">(Integer number)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;receive number: &quot;</span> + number);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>创建测试方法并且查看结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">test</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-type">EventBus</span> <span class="hljs-variable">eventBus</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">EventBus</span>();<br>    eventBus.register(<span class="hljs-keyword">new</span> <span class="hljs-title class_">MultiListener</span>());<br>    eventBus.register(<span class="hljs-keyword">new</span> <span class="hljs-title class_">TypeListener</span>());<br>    eventBus.post(<span class="hljs-keyword">new</span> <span class="hljs-title class_">News</span>(<span class="hljs-string">&quot;today no news&quot;</span>));<br>    eventBus.post(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Weather</span>(<span class="hljs-string">&quot;today weather is good&quot;</span>));<br>    eventBus.post(<span class="hljs-string">&quot;hello&quot;</span>);<br>    eventBus.post(<span class="hljs-number">1</span>);<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">receive news: News&#123;message=&#x27;today no news&#x27;&#125;</span><br><span class="hljs-comment">receive weather: Weather&#123;message=&#x27;today weather is good&#x27;&#125;</span><br><span class="hljs-comment">receive String message: hello</span><br><span class="hljs-comment">receive number: 1</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="三、深入-EventBus"><a href="#三、深入-EventBus" class="headerlink" title="三、深入 EventBus"></a>三、深入 <code>EventBus</code></h2><h3 id="1、EventBus-组成"><a href="#1、EventBus-组成" class="headerlink" title="1、EventBus 组成"></a>1、<code>EventBus</code> 组成</h3><p><code>Event</code>：事件，可以理解成 <code>kafka</code> 订阅的 <code>topic</code>，在 <code>guava</code> 中则有两种事件类型</p>
+<ul>
+<li>由任意非基础类型定义的对象类型</li>
+<li><code>DeadEvent</code>，没有任何订阅者订阅的异常事件</li>
+</ul>
+<p><code>EventBus</code>：负责将事件分发给注册了相关事件处理方法的订阅者的对象，包含了注册、注销、发送事件等功能。主要有两种实现类</p>
+<ul>
+<li><code>EventBus</code>：默认的事件总线</li>
+<li><code>AsyncEventBus</code>：异步事件总线，提供异步分发事件的能力</li>
+</ul>
+<p><code>SubscriberRegistry</code>：订阅注册中心，发布订阅机制就是中间有一个注册中心负责事件的分发，而 <code>SubscriberRegistry</code> 就是干这个事情的，每个 <code>EventBus</code> 都会绑定一个注册中心</p>
+<ul>
+<li><code>EventBus</code>创建时会创建一个注册中心，并且把自身注入到注册中心中，通过调用 <code>EventBus</code> 的 <code>register</code> 方法，实则是调用注册中心的 <code>register</code>方法把要监听器注册到注册中心，并且转换成一个事件与订阅类型的 <code>Map</code> 映射。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">EventBus</span> &#123;<br>  <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-type">SubscriberRegistry</span> <span class="hljs-variable">subscribers</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SubscriberRegistry</span>(<span class="hljs-built_in">this</span>);<br><br>    <span class="hljs-comment">//....</span><br><br>  	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">register</span><span class="hljs-params">(Object object)</span> &#123;<br>    	subscribers.register(object);<br>  	&#125;<br>&#125;<br><br><span class="hljs-keyword">final</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SubscriberRegistry</span> &#123;<br><br>	<span class="hljs-comment">// 线程安全集合，保存事件类型和对应的监听器的所有监听方法</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ConcurrentMap&lt;Class&lt;?&gt;, CopyOnWriteArraySet&lt;Subscriber&gt;&gt; subscribers =<br>      Maps.newConcurrentMap();<br>      <br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">register</span><span class="hljs-params">(Object listener)</span> &#123;<br>        Multimap&lt;Class&lt;?&gt;, Subscriber&gt; listenerMethods = findAllSubscribers(listener);<br>    <br>        <span class="hljs-keyword">for</span> (Entry&lt;Class&lt;?&gt;, Collection&lt;Subscriber&gt;&gt; entry : listenerMethods.asMap().entrySet()) &#123;<br>          Class&lt;?&gt; eventType = entry.getKey();<br>          Collection&lt;Subscriber&gt; eventMethodsInListener = entry.getValue();<br>    <br>          CopyOnWriteArraySet&lt;Subscriber&gt; eventSubscribers = subscribers.get(eventType);<br>    <br>          <span class="hljs-keyword">if</span> (eventSubscribers == <span class="hljs-literal">null</span>) &#123;<br>            CopyOnWriteArraySet&lt;Subscriber&gt; newSet = <span class="hljs-keyword">new</span> <span class="hljs-title class_">CopyOnWriteArraySet</span>&lt;&gt;();<br>            eventSubscribers =<br>                MoreObjects.firstNonNull(subscribers.putIfAbsent(eventType, newSet), newSet);<br>          &#125;<br>          eventSubscribers.addAll(eventMethodsInListener);<br>    	&#125;<br>  	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<p><code>Subscriber</code>：订阅者，指对事件感兴趣并注册了事件处理方法的对象，通常是POJO类。订阅者需要提供一个或多个处理该事件的方法(即事件处理方法)，主要有两种实现类。</p>
+<ul>
+<li><code>Subscriber</code>：默认的订阅器实现类</li>
+<li><code>SynchronizedSubscriber</code>：同步订阅器，让事件处理同步串行执行</li>
+</ul>
+<p>通过前面的注册中心，注册中心会把对应的监听器包括监听的事件封装成订阅器，所以最终事件被处理是被封装成订阅器来处理。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Subscriber</span> &#123;<br>    <span class="hljs-comment">// 绑定的 EventBus</span><br>    <span class="hljs-meta">@Weak</span> <span class="hljs-keyword">private</span> EventBus bus;<br>    <br>    <span class="hljs-comment">// 绑定的监听器，也就是 EventBus register 传递的参数</span><br>    <span class="hljs-meta">@VisibleForTesting</span> <span class="hljs-keyword">final</span> Object target;<br>    <br>    <span class="hljs-comment">// 绑定的监听器内的监听方法</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Method method;<br>    <br>    <span class="hljs-comment">// EventBus 所使用的执行器</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Executor executor;<br>    <br>    <span class="hljs-comment">// 进行事件的处理与分发</span><br>    <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">dispatchEvent</span><span class="hljs-params">(Object event)</span> &#123;<br>        executor.execute(<br>            () -&gt; &#123;<br>              <span class="hljs-keyword">try</span> &#123;<br>                <span class="hljs-comment">// 使用反射调用监听器内对应事件的监听方法</span><br>                invokeSubscriberMethod(event);<br>              &#125; <span class="hljs-keyword">catch</span> (InvocationTargetException e) &#123;<br>                bus.handleSubscriberException(e.getCause(), context(event));<br>              &#125;<br>        &#125;);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、线程安全"><a href="#2、线程安全" class="headerlink" title="2、线程安全"></a>2、线程安全</h3><p>在 EventBus 中提供了一个 <code>@AllowConcurrentEvents</code> 注解，这个注解标明监听器的监听方法是否线程安全，此方法需要配合 <code>@Subscribe</code> 一起用。</p>
+<ul>
+<li>如果被 <code>@Subscribe</code> 标注的监听方法没有使用 <code>@AllowConcurrentEvents</code> 注解，那么默认使用的是 <code>SynchronizedSubscriber</code> ，在多线程的情况下同一时间下 <code>EventBus</code> 多次发布同一事件时，会进行加锁操作</li>
+<li>如果标注了此注解，则说明执行时可以并发执行(线程安全)，内部不会进行加锁操作</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Subscriber</span>&#123;<br>    <br>    <span class="hljs-keyword">static</span> Subscriber <span class="hljs-title function_">create</span><span class="hljs-params">(EventBus bus, Object listener, Method method)</span> &#123;<br>    	<span class="hljs-keyword">return</span> isDeclaredThreadSafe(method)<br>        	? <span class="hljs-keyword">new</span> <span class="hljs-title class_">Subscriber</span>(bus, listener, method)<br>        	: <span class="hljs-keyword">new</span> <span class="hljs-title class_">SynchronizedSubscriber</span>(bus, listener, method);<br>    &#125;<br><br>    <span class="hljs-comment">// 判断方法是否需要线程安全</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isDeclaredThreadSafe</span><span class="hljs-params">(Method method)</span> &#123;<br>    	<span class="hljs-keyword">return</span> method.getAnnotation(AllowConcurrentEvents.class) != <span class="hljs-literal">null</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SynchronizedSubscriber</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Subscriber</span> &#123;<br>    	<span class="hljs-keyword">private</span> <span class="hljs-title function_">SynchronizedSubscriber</span><span class="hljs-params">(EventBus bus, Object target, Method method)</span> &#123;<br>      		<span class="hljs-built_in">super</span>(bus, target, method);<br>    	&#125;<br><br>    	<span class="hljs-meta">@Override</span><br>    	<span class="hljs-keyword">void</span> <span class="hljs-title function_">invokeSubscriberMethod</span><span class="hljs-params">(Object event)</span> <span class="hljs-keyword">throws</span> InvocationTargetException &#123;<br>      		<span class="hljs-keyword">synchronized</span> (<span class="hljs-built_in">this</span>) &#123;<br>        	<span class="hljs-built_in">super</span>.invokeSubscriberMethod(event);<br>      	&#125;<br>     &#125;<br>   &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="3、父子事件"><a href="#3、父子事件" class="headerlink" title="3、父子事件"></a>3、父子事件</h3><p>当被监听的事件(监听器方法参数)之间存在父子关系时，发布子事件，父事件也会被触发，请看下面的例子。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-type">EventBus</span> <span class="hljs-variable">eventBus</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">EventBus</span>();<br>    eventBus.register(<span class="hljs-keyword">new</span> <span class="hljs-title class_">TypeListener</span>());<br>    eventBus.post(<span class="hljs-number">111</span>);<br>&#125;<br><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TypeListener</span> &#123;<br><br>    <span class="hljs-meta">@Subscribe</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">readObject</span><span class="hljs-params">(Object object)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;receive object message: &quot;</span> + object);<br>    &#125;<br><br>    <span class="hljs-meta">@Subscribe</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">readInteger</span><span class="hljs-params">(Integer number)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;receive integer message: &quot;</span> + number);<br>    &#125;<br>&#125;<br><span class="hljs-comment">// result: </span><br><span class="hljs-comment">// receive integer message: 111</span><br><span class="hljs-comment">// receive object message: 111</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="三、最后"><a href="#三、最后" class="headerlink" title="三、最后"></a>三、最后</h2><p>使用 <code>EventBus</code> 可以在项目中对逻辑进行解耦，例如很多地方登录注册，日志警告，可能都需要发送右键，如果每个地方都需要重写一份发送邮件的逻辑，或者是后面需要从发送邮件改成发送手机短信，那么所有地方都需要进行重写。使用 <code>EventBus</code> 的好处就是可以把这些逻辑进行事件驱动化，并且以事件的形式，支持逻辑的扩展。</p>
+<p>当然 <code>EventBus</code> 也有一些不足之处，例如，事件，消息都存储与本地的内存中，如果服务宕机，那么消息将会丢失，如果是相对复杂的逻辑，或是消息需要持久化，那么建议还是使用诸如 <code>Kafka</code> 或 <code>RabbitMQ</code> 等更合适。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>EventBus 学习</div>
+      <div>http://aim467.github.io/2023/06/18/EventBus-学习/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Dedsec2z</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月18日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2023年6月18日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/24/move%20on/" title="move on">
+                        <span class="hidden-mobile">move on</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'aim467/aim467.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
