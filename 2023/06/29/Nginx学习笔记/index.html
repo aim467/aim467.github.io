@@ -1,0 +1,894 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile.jpeg">
+  <link rel="icon" href="/img/profile.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Dedsec2z">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Nginx 学习笔记最近一阵子经常使用到 Nginx ，对其中的一些配置和原理有了充分的认识，并且踩了许多坑，所以才有这篇文章用来记录。 一、基本使用1. 安装Windows 安装 进入 nginx 官方网站的下载页进行下载，选择最新版本下载即可，解压之后双击 nginx.exe 即可启动 nginx 。 Linux 安装 (以 Ubuntu 为例)  使用 apt 安装： 1sudo apt i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx学习笔记">
+<meta property="og:url" content="http://aim467.github.io/2023/06/29/Nginx%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Dedsec2z&#39;s Blog">
+<meta property="og:description" content="Nginx 学习笔记最近一阵子经常使用到 Nginx ，对其中的一些配置和原理有了充分的认识，并且踩了许多坑，所以才有这篇文章用来记录。 一、基本使用1. 安装Windows 安装 进入 nginx 官方网站的下载页进行下载，选择最新版本下载即可，解压之后双击 nginx.exe 即可启动 nginx 。 Linux 安装 (以 Ubuntu 为例)  使用 apt 安装： 1sudo apt i">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-29T14:42:46.000Z">
+<meta property="article:modified_time" content="2023-06-29T14:42:56.394Z">
+<meta property="article:author" content="Dedsec2z">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Nginx学习笔记 - Dedsec2z&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"aim467.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"37065c112a18b90d7504fca7fe9928a","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?37065c112a18b90d7504fca7fe9928a";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Dedsec2z&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Nginx学习笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-29 22:42" pubdate>
+          2023年6月29日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          69 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Nginx学习笔记</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年6月29日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Nginx-学习笔记"><a href="#Nginx-学习笔记" class="headerlink" title="Nginx 学习笔记"></a>Nginx 学习笔记</h1><p>最近一阵子经常使用到 <code>Nginx</code> ，对其中的一些配置和原理有了充分的认识，并且踩了许多坑，所以才有这篇文章用来记录。</p>
+<h2 id="一、基本使用"><a href="#一、基本使用" class="headerlink" title="一、基本使用"></a>一、基本使用</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h3><p>Windows 安装</p>
+<p>进入 <a target="_blank" rel="noopener" href="https://nginx.org/cn/">nginx</a> 官方网站的下载页进行下载，选择最新版本下载即可，解压之后双击 <code>nginx.exe</code> 即可启动 <code>nginx</code> 。</p>
+<p>Linux 安装 (以 Ubuntu 为例) </p>
+<p>使用 apt 安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt install nginx<br></code></pre></td></tr></table></figure>
+
+<p>源码编译安装：</p>
+<p>手动编译安装 <code>nginx</code> 需要依赖某些类库，所以先安装需要的依赖类库。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt-get install build-essential<br>sudo apt-get install libtool<br>sudo apt-get install libpcre3 libpcre3-dev<br>sudo apt-get install zlib1g-dev<br>sudo apt-get install openssl<br>sudo apt-get install gcc g++<br></code></pre></td></tr></table></figure>
+
+<p>解压下载好的 <code>nginx</code> 文件夹，然后进入解压后的目录，执行如下命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">默认安装的路径是 /usr/local/nginx</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">如果不想安装在 /usr/local/nginx，用 --prefix 参数指定安装位置</span><br>./configure<br></code></pre></td></tr></table></figure>
+
+<p>执行安装操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">make &amp;&amp; make install<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-常用命令"><a href="#2-常用命令" class="headerlink" title="2. 常用命令"></a>2. 常用命令</h3><p>下面是一些常用的 nginx 命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">启动，使用 conf 下的默认配置文件 nginx.conf</span><br>./nginx<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">使用特定配置文件</span><br>./nginx -c /root/nginx.conf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">停止</span><br>./nginx -s quit<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">重新加载配置文件并且重启</span><br>./nginx -s reload<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">测试配置文件是否正确</span><br>./nginx -t<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">查看nginx编译参数及nginx版本</span><br>./nginx -V<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-升级与回滚"><a href="#3-升级与回滚" class="headerlink" title="3. 升级与回滚"></a>3. 升级与回滚</h3><h4 id="3-1-升级"><a href="#3-1-升级" class="headerlink" title="3.1. 升级"></a>3.1. 升级</h4><p>这里的升级只涉及到服务器环境中 (Linux) 升级的操作。</p>
+<blockquote>
+<p>普通升级</p>
+</blockquote>
+<p>如果只是普通的升级，那么可以在停止升级版本之前 nginx 的前提下，更新会方便很多。</p>
+<p>停止原来的的 nginx：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /usr/local/nginx/sbin<br>./nginx -s quit<br></code></pre></td></tr></table></figure>
+
+<p>编译新的 nginx ，编译之前，要查看旧的 nginx 是否有额外的编译参数并且备份旧的 nginx 执行文件，如果有则也需要一并复制过来。编译的时候尽量使用 make 而不是 make install ，make install 会执行安装命令，保险起见，使用 make 即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">检查是否有额外的编译参数</span><br>cd /usr/local/nginx/sbin &amp;&amp; ./nginx -V<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">备份 nginx</span><br>mv /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx.old<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">备份 配置文件</span><br>cp /usr/local/nginx/conf/nginx.conf /usr/local/nginx/conf/nginx.conf.bak<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">编译新的 nginx</span><br>cd /root/nginx-1.16.1/ &amp;&amp; ./configure --prefix=/usr/local/nginx/<br>make<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">拷贝新的 nginx 执行文件到 /usr/local/nginx/sbin/</span><br>cp /root/nginx-1.16.1/obj/nginx /usr/local/nginx/sbin<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">启动新的 nginx</span><br>cp /usr/local/nginx/sbin/ &amp;&amp; ./nginx<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>不停机升级</p>
+</blockquote>
+<p>不停机的升级则稍微麻烦点，需要让 nginx 在不停止的情况下从旧版本过渡到新版本，但是好在 nginx 自身实现了平滑升级的操作。</p>
+<p>下面是 nginx 支持 kill 的信号</p>
+<p>nginx 主进程支持的信号:</p>
+<ul>
+<li>TERM, INT 作用和nginx -s stop一致;</li>
+<li>QUIT 作用和nginx -s quit一致;</li>
+<li>HUP 作用和nginx -s reload一致</li>
+<li>USR1 作用和nginx -s reopen一致;</li>
+<li>USR2 平滑升级nginx</li>
+<li>WINCH 平滑关闭工作进程;</li>
+</ul>
+<p>nginx 工作进程支持的信号:</p>
+<ul>
+<li>TERM, INT 快速停止</li>
+<li>QUIT 优雅停止</li>
+<li>USR1 重新开启新的日志文件</li>
+<li>WINCH 异常终止调试(需要启用debug_points选项)</li>
+</ul>
+<p>下面是一个 nginx 升级的步骤：</p>
+<p>下载新版本 nginx 并解压，然后执行配置命令和编译命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">以 nginx.1.14.2 升级 1.18.0 为例</span><br>tar -zxvf nginx-1.18.0 &amp;&amp; cd nginx-1.18.0<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">执行 ./configure 命令，首先需要检查旧版本的 nginx 是否有额外的编译参数，如果有需要一并拷贝过来</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">默认的 prefix 是在 /usr/local/nginx，如果你的不是，则需要指定和旧 nginx 一样的位置</span><br>./configure<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">执行 make</span><br>make<br></code></pre></td></tr></table></figure>
+
+<p>备份旧的 nginx 和配置文件，这里可以直接使用 mv 命令，不影响目前 nginx 的运行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">mv /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx.old<br>cp /usr/local/nginx/conf/nginx.conf /usr/local/nginx/conf/nginx.conf.bak<br></code></pre></td></tr></table></figure>
+
+<p>复制新版本编译的 nginx 到之前的安装路径中；新版本编译后的 nginx 在解压后的 nginx 的 obj 文件夹下。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cp obj/nginx /usr/local/nginx/sbin/.<br></code></pre></td></tr></table></figure>
+
+<p>其实这里可以仔细看看新版本文件夹下的 Makefile 文件，会发现自带一个 upgrade 命令。</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cmake">upgrade:<br>        /usr/local/nginx/sbin/nginx -t<br>	<br>        kill -USR2 `cat /usr/local/nginx/logs/nginx.pid`<br>        sleep <span class="hljs-number">1</span><br>        <span class="hljs-keyword">test</span> -f /usr/local/nginx/logs/nginx.pid.oldbin<br><br>        kill -QUIT `cat /usr/local/nginx/logs/nginx.pid.oldbin`<br></code></pre></td></tr></table></figure>
+
+<p>回到新版本的解压目录下，执行更新操作，即可完成 nginx 的不停机升级操作。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo make upgrade<br></code></pre></td></tr></table></figure>
+
+<h4 id="3-2-回滚"><a href="#3-2-回滚" class="headerlink" title="3.2. 回滚"></a>3.2. 回滚</h4><p>什么时候会需要进行 nginx 的回滚，当新版本的 nginx 不稳定，可能需要；这里的升级只涉及到服务器环境中 (Linux) 升级的操作；</p>
+<blockquote>
+<p>普通回滚</p>
+</blockquote>
+<p>如果是进行普通的回滚，那么步骤很简单，下面是步骤。</p>
+<p>如果是旧版本 nginx  还在，那么直接停掉新版本的 nginx ，启动旧版本的 nginx 即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">假设新旧版本 nginx 都在 /usr/local/nginx/sbin 下</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">停止新版本的 nginx</span><br>./nginx -s quit<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">备份新版本的 nginx 以防万一</span><br>mv nginx nginx.new<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">恢复旧版本的 nginx 并且启动</span><br>mv nginx.old nginx &amp;&amp; ./nginx<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>不停机回滚</p>
+</blockquote>
+<p>不停机的回滚如同不停机升级一样，需要使用到 nginx  的信号机制，这里需要提到前面nginx 的 make upgrade 操作；我们更新一般都是在服务器上进行更新于回滚，那么就可以不使用 make upgrade 命令，为什么呢，先看 make upgrade 命令做了什么。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">upgrade:<br>        /usr/local/nginx/sbin/nginx -t<br>	<br>        kill -USR2 `cat /usr/local/nginx/logs/nginx.pid`<br>        sleep 1<br>        test -f /usr/local/nginx/logs/nginx.pid.oldbin<br><br>        kill -QUIT `cat /usr/local/nginx/logs/nginx.pid.oldbin`<br></code></pre></td></tr></table></figure>
+
+<p>前面的指令都是正常的，但是最后一步，由于 <code>USR2</code> 信号会启动新的进程，但是旧版本的主进程是还在的，如果最后使用 <code>-QUIT</code> 信号，那么将会把旧版本的主进程彻底停掉，这个时候如果想要进行版本回退，那么则无法进行平滑回退，因为旧版本的 nginx 进程已经被退出了，所以我们选择在进行更新时不退出旧版本的进程，方便新版本使用时出现问题及时回滚。</p>
+<p>下面是回滚的步骤，假设在升级的过程中：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">给旧的 nginx 主进程发送热更新信号</span><br>kill -USR2 6789<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">关闭旧版本的 nginx 工作进程 (主进程保留)</span><br>kill -WINCH 6789<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">发送HUP信号给旧版本的主进程</span><br>kill -HUP	6789<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">关闭新版本的主进程</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">如果没有关闭，强制关闭新版本的主进程和工作进程</span><br>kill -QUIT 7890<br></code></pre></td></tr></table></figure>
+
+<h2 id="二、配置文件"><a href="#二、配置文件" class="headerlink" title="二、配置文件"></a>二、配置文件</h2><h3 id="1-配置文件结构"><a href="#1-配置文件结构" class="headerlink" title="1. 配置文件结构"></a>1. 配置文件结构</h3><p>Nginx 配置文件结构是由多个块（Block）组成的，每个块包含一组指令（Directive），指令用来配置 Nginx 的行为。Nginx 配置文件结构如下：</p>
+<p>全局块（Global Block）：全局块是配置文件的第一部分，它包含全局指令，对整个 Nginx 服务器都生效。全局块中可以设置一些全局参数，如 worker_processes、pid 等。</p>
+<p>Events 块：Events 块用来配置 Nginx 如何处理连接、事件、工作进程等底层参数。Events 块以 events { … } 开始，以 } 结束。在 Events 块中可以设置一些事件相关的参数，如 worker_connections 等。</p>
+<p>Http 块：Http 块用来配置 HTTP 服务相关的指令，包括 HTTP 服务器、代理、缓存、负载均衡、安全等。Http 块以 http { … } 开始，以 } 结束。在 Http 块中可以设置一些 HTTP 相关的参数，如 server、upstream、location 等。</p>
+<p>Server 块：Server 块用来配置一个虚拟主机，指定监听端口、域名、访问日志、错误日志、默认网站等。一个 Http 块可以包含多个 Server 块。Server 块以 server { … } 开始，以 } 结束。在 Server 块中可以设置一些虚拟主机相关的参数，如 listen、server_name、access_log、error_log 等。</p>
+<p>Location 块：Location 块用来配置虚拟主机下的具体 URL 路径，指定访问该路径时的处理方式，如反向代理、缓存、重定向等。一个 Server 块可以包含多个 Location 块。Location 块以 location { … } 开始，以 } 结束。在 Location 块中可以设置一些路径相关的参数，如 proxy_pass、root、try_files 等。</p>
+<p><strong>注：有些配置属性可以在多个作用域中配置</strong></p>
+<h3 id="2-全局块"><a href="#2-全局块" class="headerlink" title="2. 全局块"></a>2. 全局块</h3><p>下面介绍一下全局块常用的属性：</p>
+<p><code>user</code> ：指定 worker 的运行用户，默认是对应的用户名和用户组，可以重写此配置更改 nginx 执行的用户和用户组，举例：<code>user root root;</code> 在使用一些软件源安装时，此配置指定的用户和用户组是 <code>nginx</code> 。</p>
+<p><code>work_processes</code> ：指定 nginx 工作进程的个数，默认是1，通常设置为 cpu 的核心数一致即可。</p>
+<p><code>pid</code> ：nginx 进程 ID 文件的存放路径，如果是自己手动编译并且未指定安装位置的，默认位置是 <code>/usr/local/nginx/logs/nginx.pid</code> ，可以重写此配置更改存放路径。</p>
+<p><code>error_log</code> ：记录服务器请求处理中的错误日志，此配置可以在 <code>http/server/location</code> 等作用域中配置。该配置的语法是：<code>error_log  file_path log_level</code> ，日志级别可以是 <code>debug, info, notice, warn, error, crit, alert, emerg</code>，只有高于定义级别的错误日志才会被写入。</p>
+<p><code>access_log</code> ：记录客户端的请求日志，此配置可以在 <code>http/server/location</code> 等作用域中配置。配置语法是：<code>access_log  filepath</code>。</p>
+<h3 id="3-Event-块"><a href="#3-Event-块" class="headerlink" title="3. Event 块"></a>3. Event 块</h3><p>Event 块中的属性都写在 Event 块内，下面是一些常用的配置：</p>
+<p><code>use</code> ：指定要使用的连接事件模型，nginx 默认根据系统使用最优的事件模型。当然也可以重写此配置指定事件模型。</p>
+<p><code>work_connections</code> ：工作进程的最大连接数，默认是每台 nginx 的 <code>work_processes * work_connections</code> 。</p>
+<p><code>multi_accept</code> ：是否允许每个工作进程接受多个网络连接，默认关闭 (<code>off</code>)，可重写此配置打开 (<code>multi_accept on</code>) 。</p>
+<h3 id="4-Http-块"><a href="#4-Http-块" class="headerlink" title="4. Http 块"></a>4. Http 块</h3><p>Http 块中的属性都写在 Http 块内，下面是一些常用的配置：</p>
+<p><code>include</code> ：将另一个文件引入到当前配置中，nginx 默认引入了 <code>mime.types</code>，此文件设置了文件头对应的文件格式，如果没有则可以在 <code>mime.types</code>中新增，除此之外，<code>include</code> 指令要注意的是只能引入符合 <code>http</code> 作用域的配置文件包含的配置属性，否则会报错。</p>
+<p><code>default_type</code>：用来配置Nginx响应前端请求默认的MIME类型。</p>
+<p><code>upstream</code> ：用于指定一组服务器，以便用于负载均衡，并且还可以设置不同的负载均衡策略。<code>upstream</code> 指定名字后，<code>server</code> 块中的 <code>proxy_pass</code> 使用 <code>upstream</code> 的别名即可。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">upstream</span> blog &#123;<br>	<span class="hljs-attribute">server</span> <span class="hljs-number">10.10.10.1</span> <span class="hljs-number">7890</span>;<br>	<span class="hljs-attribute">server</span> <span class="hljs-number">10.10.10.1</span> <span class="hljs-number">7891</span>;<br>	<span class="hljs-attribute">server</span> <span class="hljs-number">10.10.10.1</span> <span class="hljs-number">7892</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>上面没配置负载均衡策略，则会使用默认的轮询策略进行负载均衡处理。下面是其他的负载均衡策略：</p>
+<ol>
+<li>轮询（Round Robin）：默认的负载均衡策略。Nginx 按照定义的后端服务器列表顺序依次分发请求，每个请求按顺序发送到下一个服务器。</li>
+<li>IP 哈希（IP Hash）：根据客户端的 IP 地址对后端服务器进行哈希计算，将相同 IP 的请求发送到同一台服务器。这样可以确保同一客户端的请求都发送到同一个服务器，适用于需要保持会话一致性的场景。除了 IP Hash 之外，还有使用 URL Hash 的方式。</li>
+<li>最少连接（Least Connections）：将请求发送到当前连接数最少的服务器。这样可以确保将请求发送到负载较轻的服务器，以实现负载均衡。</li>
+<li>加权轮询（Weighted Round Robin）：为每个后端服务器分配一个权重值，根据权重值决定分发请求的比例。权重值越高的服务器将获得更多的请求。</li>
+<li>加权最少连接（Weighted Least Connections）：结合了加权和最少连接策略。根据服务器的权重值和当前连接数，动态计算每个服务器的有效权重，然后选择有效权重最高的服务器来处理请求。</li>
+</ol>
+<h3 id="5-Server-块"><a href="#5-Server-块" class="headerlink" title="5. Server 块"></a>5. Server 块</h3><p>Server 块中的属性都写在 Server 块内，下面是一些常用的配置：</p>
+<p>listen 监听指定的 IP 地址 + 端口</p>
+<p>listen 8080 监听本机的8080</p>
+<p>listen 127.0.0.1 监听本机的所有端口</p>
+<p>listen *:8080 | *:80  监听所有IP的8080和80端口</p>
+<p>server_name 指定客户端访问的域名</p>
+<p>server_name 支持定义多个，如果匹配到第一个，那么则不会匹配后面的，否则进行逐个匹配。同时 <code>server_name</code> 还支持正则匹配；下面是例子。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">server_name</span> www.example.com example.com;<br><br><span class="hljs-comment"># 正则匹配</span><br><span class="hljs-attribute">server_name</span> ~^www\.a\..*$;<br><br><span class="hljs-comment"># 匹配无效域名，最优先被匹配</span><br><span class="hljs-attribute">server</span> _;<br></code></pre></td></tr></table></figure>
+
+<p>error_page  针对特定的错误码，进行错误页面配置</p>
+<p>下面是一些配置实例：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-comment"># 对 502 503 转发到 /50x.html /50x.html 通过 location 配置 </span><br><span class="hljs-attribute">error_page</span> <span class="hljs-number">502</span> <span class="hljs-number">503</span> /50x.html;<br><span class="hljs-section">location</span> = /50x.html &#123;<br>    <span class="hljs-attribute">root</span> /usr/share/nginx/html;<br>&#125;   <br><br><span class="hljs-comment"># 甚至还可以把错误页面配置成 JSON 格式</span><br><span class="hljs-attribute">error_page</span> <span class="hljs-number">403</span> /respon_403.json;<br><span class="hljs-section">location</span> = /respon_403.json &#123;<br>  <span class="hljs-attribute">default_type</span> application/json;<br>  <span class="hljs-attribute">return</span> <span class="hljs-number">403</span> <span class="hljs-string">&#x27;&#123;&quot;code&quot;:&quot;403&quot;, &quot;message&quot;:&quot;Forbidden&quot;&#125;&#x27;</span>;<br>&#125;<br><br><span class="hljs-attribute">error_page</span> <span class="hljs-number">404</span> /respon_404.json;<br><span class="hljs-section">location</span> = /respon_404.json &#123;<br>   <span class="hljs-attribute">default_type</span> application/json;<br>   <span class="hljs-attribute">return</span> <span class="hljs-number">403</span> <span class="hljs-string">&#x27;&#123;&quot;code&quot;:&quot;404&quot;, &quot;message&quot;:&quot;Not Found&quot;&#125;&#x27;</span>;<br>&#125;<br><br>  <span class="hljs-attribute">error_page</span> <span class="hljs-number">500</span> <span class="hljs-number">502</span> <span class="hljs-number">503</span> <span class="hljs-number">504</span> /respon_500.json;<br>  <span class="hljs-section">location</span> = /respon_500.json &#123;<br>     <span class="hljs-attribute">default_type</span> application/json;<br>     <span class="hljs-attribute">return</span> <span class="hljs-number">403</span> <span class="hljs-string">&#x27;&#123;&quot;code&quot;:&quot;500&quot;, &quot;message&quot;:&quot;Server Error&quot;&#125;&#x27;</span>;<br>  &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-Location-块"><a href="#6-Location-块" class="headerlink" title="6. Location 块"></a>6. Location 块</h3><p>location 块负责指定 用户访问的路径基于怎么样的匹配规则进行转发，下面是 location 的匹配规则与匹配顺序。越前优先级越高，优先匹配。</p>
+<ol>
+<li>精确匹配：使用 &#x3D; 前缀的 location 块会首先被匹配。例如：</li>
+</ol>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">location</span> = /path &#123;<br>    // 配置 <span class="hljs-attribute">A</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>如果请求的路径正好是 &#x2F;path，那么将会使用配置 A 处理该请求。</p>
+<ol>
+<li>前缀匹配：使用 &#x2F; 作为前缀的 location 块会按照定义的顺序进行匹配。例如：</li>
+</ol>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">location</span> /path1 &#123;<br>    // 配置 <span class="hljs-attribute">B</span><br>&#125;<br><br>location /path2 &#123;<br>    // 配置 <span class="hljs-attribute">C</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>如果请求的路径是 &#x2F;path1&#x2F;foo，那么将会使用配置 B 处理该请求。如果请求的路径是 &#x2F;path2&#x2F;bar，那么将会使用配置 C 处理该请求。</p>
+<ol>
+<li>正则表达式匹配：使用 ~ 或 ~* 前缀的 location 块会按照定义的顺序进行匹配。例如：</li>
+</ol>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">location</span> <span class="hljs-regexp">~ /path/.*\.html$</span> &#123;<br>    // 配置 <span class="hljs-attribute">D</span><br>&#125;<br><br>location <span class="hljs-regexp">~ /path/.*\.txt$</span> &#123;<br>    // 配置 <span class="hljs-attribute">E</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>如果请求的路径是 &#x2F;path&#x2F;file.html，那么将会使用配置 D 处理该请求。如果请求的路径是 &#x2F;path&#x2F;file.txt，那么将会使用配置 E 处理该请求。</p>
+<ol>
+<li>带修饰符的正则表达式匹配：带有 ~ 或 ~* 前缀和 ^ 或 ~^ 修饰符的 location 块会按照定义的顺序进行匹配。例如：</li>
+</ol>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">location</span> <span class="hljs-regexp">~* ^/path/</span> &#123;<br>    // 配置 <span class="hljs-attribute">F</span><br>&#125;<br><br>location <span class="hljs-regexp">~* ^/path/file</span> &#123;<br>    // 配置 <span class="hljs-attribute">G</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>如果请求的路径是 &#x2F;path&#x2F;foo，那么将会使用配置 F 处理该请求。如果请求的路径是 &#x2F;path&#x2F;file.html，那么将会使用配置 G 处理该请求。</p>
+<ol>
+<li>优先级匹配：如果存在多个匹配规则相同的 location 块，Nginx 将使用最先定义的 location 块。例如：</li>
+</ol>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">location</span> /path &#123;<br>    // 配置 <span class="hljs-attribute">H</span><br>&#125;<br><br>location /path &#123;<br>    // 配置 <span class="hljs-attribute">I</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在上述示例中，无论请求的路径是什么，都将使用配置 H 处理该请求，因为配置 H 在配置 I 之前定义。</p>
+<ol>
+<li>location &#x2F;：如果没有匹配到其他的 location 块，Nginx 将使用默认的 location &#x2F; 块。例如：</li>
+</ol>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">location</span> / &#123;<br>    // 默认配置<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这将匹配所有未被其他 location 块匹配到的请求。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Nginx学习笔记</div>
+      <div>http://aim467.github.io/2023/06/29/Nginx学习笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Dedsec2z</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月29日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2023年6月29日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/06/18/EventBus-%E5%AD%A6%E4%B9%A0/" title="EventBus 学习">
+                        <span class="hidden-mobile">EventBus 学习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'aim467/aim467.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
