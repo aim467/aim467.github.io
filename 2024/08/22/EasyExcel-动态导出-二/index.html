@@ -1,0 +1,785 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile.jpeg">
+  <link rel="icon" href="/img/profile.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Dedsec2z">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="最近公司有一个系统需要做到所有模块的动态导出，模块有十几个，如果每个模块都按照之前方法写，那么会做很多重复工作，这次进行优化。之前的动态导出设计可以看这篇文章 一、实现步骤EasyExcel 在导出的时候提供方法来排除，或是只允许导出某些字段。  includeColumnFiledNames ：参数类型为 List&lt;String&gt; ，传递的是导出类的仅导出的字段名字列表 exclud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EasyExcel 动态导出">
+<meta property="og:url" content="http://aim467.github.io/2024/08/22/EasyExcel-%E5%8A%A8%E6%80%81%E5%AF%BC%E5%87%BA-%E4%BA%8C/index.html">
+<meta property="og:site_name" content="Dedsec2z&#39;s Blog">
+<meta property="og:description" content="最近公司有一个系统需要做到所有模块的动态导出，模块有十几个，如果每个模块都按照之前方法写，那么会做很多重复工作，这次进行优化。之前的动态导出设计可以看这篇文章 一、实现步骤EasyExcel 在导出的时候提供方法来排除，或是只允许导出某些字段。  includeColumnFiledNames ：参数类型为 List&lt;String&gt; ，传递的是导出类的仅导出的字段名字列表 exclud">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-08-22T14:40:52.000Z">
+<meta property="article:modified_time" content="2024-08-22T14:45:17.394Z">
+<meta property="article:author" content="Dedsec2z">
+<meta property="article:tag" content="Excel">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>EasyExcel 动态导出 - Dedsec2z&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"aim467.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"37065c112a18b90d7504fca7fe9928a","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?37065c112a18b90d7504fca7fe9928a";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Dedsec2z&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="EasyExcel 动态导出"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-08-22 22:40" pubdate>
+          2024年8月22日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          57 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">EasyExcel 动态导出</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2024年8月22日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>最近公司有一个系统需要做到所有模块的动态导出，模块有十几个，如果每个模块都按照之前方法写，那么会做很多重复工作，这次进行优化。之前的动态导出设计可以看<a target="_blank" rel="noopener" href="https://dedsec2z.top/2023/11/09/Excel-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%97%E5%AF%BC%E5%87%BA/">这篇文章</a></p>
+<h2 id="一、实现步骤"><a href="#一、实现步骤" class="headerlink" title="一、实现步骤"></a>一、实现步骤</h2><p><code>EasyExcel</code> 在导出的时候提供方法来排除，或是只允许导出某些字段。</p>
+<ul>
+<li><code>includeColumnFiledNames</code> ：参数类型为 <code>List&lt;String&gt;</code> ，传递的是导出类的仅导出的字段名字列表</li>
+<li><code>excludeColumnFiledNames</code> ：参数类型为 <code>List&lt;String&gt;</code> ，传递的是导出类需要排除导出的字段列表</li>
+<li><code>includeColumnIndexs</code> ：参数类型为 <code>List&lt;Integer&gt;</code>，传递的是导出类的字段仅导出的索引 ID 列表</li>
+<li><code>excludeColumnIndexs</code> ：参数类型为 <code>List&lt;Integer&gt;</code>，传递的是导出类需要排除的索引 ID 列表</li>
+</ul>
+<p>有了这几个方法就可以很方便的进行动态导出，对于索引和字段名的选择，我这里使用字段名做动态导出，并且配合 <code>includeColumnFiledNames</code> 来做处理。<br />对于数据库动态查询，我没有做动态的查询，因为涉及到字段的映射转换，比较麻烦，所以直接默认查询全部，动态的仅体现在导出方便，性能上会有一点损耗，目前公司数据不是很多，所以可以忽略不计。<br />下面实现一个通用工具方法，使用反射的方式提取导出类中含有 <code>@ExcelProperty</code> 的字段。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> List&lt;String&gt; <span class="hljs-title function_">getExcelPropertyFields</span><span class="hljs-params">(Class&lt;?&gt; clazz)</span> &#123;<br>    List&lt;String&gt; excelFields = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><br>    <span class="hljs-comment">// 获取类的所有字段</span><br>    Field[] fields = clazz.getDeclaredFields();<br><br>    <span class="hljs-comment">// 遍历每个字段，检查是否有 @ExcelProperty 注解</span><br>    <span class="hljs-keyword">for</span> (Field field : fields) &#123;<br>        <span class="hljs-type">Annotation</span> <span class="hljs-variable">annotation</span> <span class="hljs-operator">=</span> field.getAnnotation(ExcelProperty.class);<br>        <span class="hljs-keyword">if</span> (annotation != <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-comment">// 如果有 @ExcelProperty 注解，则获取字段名字</span><br>            excelFields.add(field.getName());<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> excelFields;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>提取到字段的下一步，也封装了一个通用的写 <code>Excel</code> 方法，如果传入了 <code>selectFields</code> 也就是指定字段，那么使用指定字段导出，否则，通过反射的方式获取导出类的所有带 <code>@ExcelProperty</code> 的字段集合。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 通用动态字段导出</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> entity 标注 <span class="hljs-doctag">@ExcelProperty</span> 的实体类</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> fileName 文件名</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> resultList 数据库查询结果列表</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> selectFields 指定导出字段集合</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &lt;T&gt;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-keyword">void</span> <span class="hljs-title function_">commonExport</span><span class="hljs-params">(T entity, String fileName, List&lt;T&gt; resultList, List&lt;String&gt; selectFields)</span> &#123;<br>    List&lt;String&gt; defaultFields;<br>    <span class="hljs-keyword">if</span> (CollectionUtils.isEmpty(selectFields)) &#123;<br>        defaultFields = getExcelPropertyFields(entity.getClass());<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        defaultFields = selectFields;<br>    &#125;<br>   <br>    EasyExcelFactory.write(RuoYiConfig.getDownloadPath() + <span class="hljs-string">&quot;/&quot;</span> + fileName,<br>                    entity.getClass()).sheet(<span class="hljs-string">&quot;结果&quot;</span>)<br>            .includeColumnFiledNames(defaultFields)<br>            .doWrite(resultList);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>然后处理映射关系，怎么让前端知道传哪些字段，下面提供了一个接口，通过不同的模块名，使用反射获取不同的导出类里的导出字段集合，返回给前端。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-meta">@RequestMapping(&quot;/excel&quot;)</span><br><span class="hljs-meta">@Api(tags = &quot;excel字段控制接口&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ExcelSelectController</span> &#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Map&lt;String, List&lt;String&gt;&gt; excelMap = Maps.newHashMap();<br><br>    <span class="hljs-meta">@ApiOperation(&quot;根据模块名选择字段&quot;)</span><br>    <span class="hljs-meta">@GetMapping(&quot;/select&quot;)</span><br>    <span class="hljs-keyword">public</span> R&lt;List&lt;String&gt;&gt; <span class="hljs-title function_">getSelectFields</span><span class="hljs-params">(String moduleName)</span> &#123;<br>        <span class="hljs-keyword">return</span> R.ok(excelMap.get(moduleName));<br>    &#125;<br><br>    <span class="hljs-meta">@PostConstruct</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initExcelMap</span><span class="hljs-params">()</span> &#123;<br>        excelMap.put(ModulesEnum.User.getKey(), CommonUtils.getExcelPropertyFields(User.class));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在对接的时候发现前端表格头用的是中文名做动态展示，为了方便兼容，下面实现了一个自定义注解进行中文名称和字段名的转换。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 转换注解，标识于导出类中携带 <span class="hljs-doctag">@ExcelProperty</span> 注解的字段</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Target(ElementType.FIELD)</span><br><span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> DynamicHead &#123;<br>    String <span class="hljs-title function_">value</span><span class="hljs-params">()</span>;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">User</span>&#123;<br>    <span class="hljs-meta">@ExcelProperty(&quot;姓名&quot;)</span><br>    <span class="hljs-meta">@DynamicHead(&quot;姓名&quot;)</span><br>    <span class="hljs-keyword">private</span> String name;<br>&#125;<br><br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 把转换的中文名映射成字段名</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; List&lt;String&gt; <span class="hljs-title function_">getDynamicHeadMapping</span><span class="hljs-params">(Class&lt;T&gt; clazz, List&lt;String&gt; selectFields)</span> &#123;<br>    List&lt;String&gt; fieldNames = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>    Field[] fields = clazz.getDeclaredFields();<br>    <span class="hljs-keyword">if</span> (CollectionUtils.isEmpty(selectFields)) &#123;<br>        <span class="hljs-keyword">return</span> fieldNames;<br>    &#125;<br><br>    <span class="hljs-comment">// 遍历每个字段，检查是否有 @DynamicHead 注解</span><br>    <span class="hljs-keyword">for</span> (Field field : fields) &#123;<br>        <span class="hljs-type">DynamicHead</span> <span class="hljs-variable">annotation</span> <span class="hljs-operator">=</span> field.getAnnotation(DynamicHead.class);<br>        <span class="hljs-keyword">if</span> (annotation != <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">if</span> (selectFields.contains(annotation.value())) &#123;<br>                fieldNames.add(field.getName());<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> fieldNames;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>通过这样的方式，就可以自由的控制导出的字段。</p>
+<h2 id="二、-ExcelIgnore-和-ExcelIgnoreUnannotated"><a href="#二、-ExcelIgnore-和-ExcelIgnoreUnannotated" class="headerlink" title="二、@ExcelIgnore 和 @ExcelIgnoreUnannotated"></a>二、<code>@ExcelIgnore</code> 和 <code>@ExcelIgnoreUnannotated</code></h2><h3 id="1、使用"><a href="#1、使用" class="headerlink" title="1、使用"></a>1、使用</h3><p>在开发上面的功能的过程中，发现导出的 Excel 表格里会莫名奇妙多出同样的字段，而且是字段名就是导出类的字段名，不是使用的字段上面 <code>@ExcelProperty</code> 注解里的中文名。<br />下面是我的导出类，并且导出类继承了一个通用的基类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BaseEntity</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span>&#123;<br><br>    <span class="hljs-keyword">private</span> Date createTime;<br><br>    <span class="hljs-keyword">private</span> Date updateTime;<br>&#125;<br><br><br><span class="hljs-meta">@Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">User</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">BaseEntity</span> &#123;<br>    <span class="hljs-meta">@ExcelProperty(&quot;昵称&quot;)</span><br>    <span class="hljs-keyword">private</span> String nickeName;<br><br>    <span class="hljs-meta">@ExcelProperty(&quot;用户名&quot;)</span><br>    <span class="hljs-keyword">private</span> Integer username;<br><br>    <span class="hljs-meta">@ExcelProperty(&quot;状态&quot;)</span><br>    <span class="hljs-keyword">private</span> Integer status;<br><br>    <span class="hljs-meta">@ExcelProperty(&quot;创建时间&quot;)</span><br>    <span class="hljs-keyword">private</span> Date createTime;<br><br>    <span class="hljs-keyword">private</span> Date updateTime;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p> 然后发现默认情况下，<code>EasyExcel</code> 会写入 <code>@ExcelProperty</code> 字段之外，会写入同样的以字段名为表头的数据，包括父类。这个时候需要加 <code>@ExcelIgnore</code> 来进行排除字段，或者使用 <code>@ExcelIgnoreUnannotated</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@ExcelIgnoreUnannotated</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">User</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">BaseEntity</span> &#123;<br>    <span class="hljs-meta">@ExcelProperty(&quot;昵称&quot;)</span><br>    <span class="hljs-keyword">private</span> String nickeName;<br><br>    <span class="hljs-meta">@ExcelProperty(&quot;用户名&quot;)</span><br>    <span class="hljs-keyword">private</span> Integer username;<br><br>    <span class="hljs-meta">@ExcelProperty(&quot;状态&quot;)</span><br>    <span class="hljs-keyword">private</span> Integer status;<br><br>    <span class="hljs-meta">@ExcelProperty(&quot;创建时间&quot;)</span><br>    <span class="hljs-keyword">private</span> Date createTime;<br><br>    <span class="hljs-keyword">private</span> Date updateTime;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="2、部分源码浅析"><a href="#2、部分源码浅析" class="headerlink" title="2、部分源码浅析"></a>2、部分源码浅析</h3><p>通过 debug 的方式，找到了源码位置。<br /><code>tempClass</code>  就是导出类的类定义，通过循环的方式确定有多少个导出字段，这里能看出的是除了自身类，也会获取自身类的父类字典，有多少个父类就会一直往上搜寻。<br />然后是判断类是否有 <code>@ExcelIgnoreUnannotated</code> 注解，需要进入另一个方法查看。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// ClassUtils.java</span><br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * clazz 就是导出类的类定义</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> FieldCache <span class="hljs-title function_">doDeclaredFields</span><span class="hljs-params">(Class&lt;?&gt; clazz, ConfigurationHolder configurationHolder)</span> &#123;<br>    List&lt;Field&gt; tempFieldList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>    Class&lt;?&gt; tempClass = clazz;<br>    <span class="hljs-comment">// When the parent class is null, it indicates that the parent class (Object class) has reached the top</span><br>    <span class="hljs-comment">// level.</span><br>    <span class="hljs-keyword">while</span> (tempClass != <span class="hljs-literal">null</span>) &#123;<br>        Collections.addAll(tempFieldList, tempClass.getDeclaredFields());<br>        <span class="hljs-comment">// Get the parent class and give it to yourself</span><br>        tempClass = tempClass.getSuperclass();<br>    &#125;<br>    <span class="hljs-comment">// Screening of field</span><br>    Map&lt;Integer, List&lt;FieldWrapper&gt;&gt; orderFieldMap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeMap</span>&lt;&gt;();<br>    Map&lt;Integer, FieldWrapper&gt; indexFieldMap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeMap</span>&lt;&gt;();<br>    Set&lt;String&gt; ignoreSet = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;();<br><br>    <span class="hljs-type">ExcelIgnoreUnannotated</span> <span class="hljs-variable">excelIgnoreUnannotated</span> <span class="hljs-operator">=</span> clazz.getAnnotation(ExcelIgnoreUnannotated.class);<br>    <span class="hljs-keyword">for</span> (Field field : tempFieldList) &#123;<br>        declaredOneField(field, orderFieldMap, indexFieldMap, ignoreSet, excelIgnoreUnannotated);<br>    &#125;<br>    Map&lt;Integer, FieldWrapper&gt; sortedFieldMap = buildSortedAllFieldMap(orderFieldMap, indexFieldMap);<br>    <span class="hljs-type">FieldCache</span> <span class="hljs-variable">fieldCache</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FieldCache</span>(sortedFieldMap, indexFieldMap);<br>    <span class="hljs-comment">// ......</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
+<p>下面是 <code>declaredOneField</code> 方法部分代码。<br />这里会判断字段是否存在 <code>@Excelgnore</code> 注解，存在则加入忽略字段集合，但是我的问题不在这里。<br />然后是下面的一个三元表达式，<code>noExcelProperty</code> 的赋值，就是判断当前字段没有使用 <code>@ExcelProperty</code> 的同时并且类使用了 <code>@ExcelIgnoreUnannotated</code> 的时候，就会把这个字段也加进忽略字段集合。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// ClassUtils.java</span><br><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">declaredOneField</span><span class="hljs-params">(Field field, Map&lt;Integer, List&lt;FieldWrapper&gt;&gt; orderFieldMap,</span><br><span class="hljs-params">    Map&lt;Integer, FieldWrapper&gt; indexFieldMap, Set&lt;String&gt; ignoreSet,</span><br><span class="hljs-params">    ExcelIgnoreUnannotated excelIgnoreUnannotated)</span> &#123;<br>    <span class="hljs-type">String</span> <span class="hljs-variable">fieldName</span> <span class="hljs-operator">=</span> FieldUtils.resolveCglibFieldName(field);<br>    <span class="hljs-type">FieldWrapper</span> <span class="hljs-variable">fieldWrapper</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FieldWrapper</span>();<br>    fieldWrapper.setField(field);<br>    fieldWrapper.setFieldName(fieldName);<br><br>    <span class="hljs-type">ExcelIgnore</span> <span class="hljs-variable">excelIgnore</span> <span class="hljs-operator">=</span> field.getAnnotation(ExcelIgnore.class);<br><br>    <span class="hljs-keyword">if</span> (excelIgnore != <span class="hljs-literal">null</span>) &#123;<br>        ignoreSet.add(fieldName);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-type">ExcelProperty</span> <span class="hljs-variable">excelProperty</span> <span class="hljs-operator">=</span> field.getAnnotation(ExcelProperty.class);<br>    <span class="hljs-type">boolean</span> <span class="hljs-variable">noExcelProperty</span> <span class="hljs-operator">=</span> excelProperty == <span class="hljs-literal">null</span> &amp;&amp; excelIgnoreUnannotated != <span class="hljs-literal">null</span>;<br>    <span class="hljs-keyword">if</span> (noExcelProperty) &#123;<br>        ignoreSet.add(fieldName);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-comment">// .....</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p> 通过这部分源码我也理解了这个注解的原理。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%90%8E%E7%AB%AF/" class="category-chain-item">后端</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Excel/">#Excel</a>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>EasyExcel 动态导出</div>
+      <div>http://aim467.github.io/2024/08/22/EasyExcel-动态导出-二/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Dedsec2z</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年8月22日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年8月22日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/06/20/MySQL-Json-%E7%B1%BB%E5%9E%8B%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" title="MySQL Json 类型使用笔记">
+                        <span class="hidden-mobile">MySQL Json 类型使用笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'aim467/aim467.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
